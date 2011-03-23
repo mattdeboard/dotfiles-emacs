@@ -1,0 +1,355 @@
+
+###### IMPORTANT ##################################################################333
+## 
+## [2006.03.28] This document is somewhat out of date, as AIM now uses
+## the TOC2 protocol.  Some notes on this protocol can be found here:
+##   http://snaphat.com/toc2.txt
+##   http://cvs.sourceforge.net/viewcvs.py/*checkout*/terraim/terraim/src/toc/TOC2.txt
+##   http://research.cavewallarts.com/TOC2/
+##
+###### IMPORTANT ##################################################################333
+  
+
+# Copyright (c) 1998 America Online, Inc. All Rights Reserved.
+#
+# AOL grants you ("Licensee") a non-exclusive, royalty free, license to use,
+# modify and redistribute this software in source and binary code form,
+# provided that i) this copyright notice and license appear on all copies of
+# the software; and ii) Licensee does not utilize the software in a manner
+# which is disparaging to AOL.
+#
+# This software is provided "AS IS," without a warranty of any kind. ALL
+# EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING ANY
+# IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
+# NON-INFRINGEMENT, ARE HEREBY EXCLUDED. AOL AND ITS LICENSORS SHALL NOT BE
+# LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING
+# OR DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL AOL OR ITS
+# LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT,
+# INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER
+# CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF THE USE OF
+# OR INABILITY TO USE SOFTWARE, EVEN IF AOL HAS BEEN ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGES.
+#
+# This software is not designed or intended for use in on-line control of
+# aircraft, air traffic, aircraft navigation or aircraft communications; or in
+# the design, construction, operation or maintenance of any nuclear
+# facility. Licensee represents and warrants that it will not use or
+# redistribute the Software for such purposes.
+
+
+Version: TOC1.0
+
+This document describes the protocol between TOC and TOC clients.  The
+protocol is currently ASCII based, and you must take care when sending
+and receiving message to pay attention to the separators.  The
+separator and the rules of separation are different for messages in
+bound to TOC and out bound to the client.
+
+The TOC server is built mainly to service the TIC and TiK clients.
+Since the TIC client is an applet, and downloadable, TOC will NOT be
+supporting multiple protocol versions in the near future.  TiK users
+will be forced to upgrade, if the protocol version changes.  TOC will
+send down the protocol version it expects the client to understand.
+Note, the protocol version is a STRING.
+
+Notes
+======
+* TOC will drop the connection if a command exceeds the maximum
+  length, which is currently 1024 bytes.  So the client
+  needs to spend special attention to im and chat message lengths.
+  There are no length maximums from TOC to the client however.
+
+* No commands should be sent to TOC (besides toc_signon) before 
+  a SIGN_ON is received.  If you do send a command before SIGN_ON
+  the command will be ignored, and in some case the connection
+  will be dropped.
+
+* Initial permit/deny items should be sent after receiving SIGN_ON 
+  but before sending toc_init_done, otherwise the user will flash
+  on peoples buddylist who the user has denied.  You will probably
+  want to send the toc_add_buddies at this time also.
+
+* After receiving the PAUSE message all messages sent to TOC will be
+  ignored, and in some cases the connection will be dropped.  Another
+  SIGN_ON message will be sent to let you know you are online again.
+  The buddy list and permit/deny items must be sent again, followed 
+  by the toc_init_done.
+
+Client -> TOC
+==============
+The commands and the arguments are separated by spaces.  Arguments
+with special characters should be enclosed in quotes.  Dollar signs,
+curly brackets, square brackets, parentheses, quotes, and backslashes
+must all be backslashed whether in quotes or not.  All user names from
+clients to TOC should be normalized (ie they don't have spaces in
+them.)
+
+When sending commands to the server you will not get a response back
+confirming that the command format was correct or not!  However in
+some cases if the command format was incorrect the connection will be
+dropped.
+
+RoastingString="Tic/Toc"
+
+toc_signon <authorizer host> <authorizer port> <User Name> <Password> 
+           <language> <version>
+    The password needs to be roasted with the Roasting String if
+    coming over a FLAP connection, CP connections don't use roasted
+    passwords.  The language specified will be used when generating
+    web pages, such as the get info pages.  If the language sent isn't
+    found, the default "english" language will be used.  The version
+    string will be used for the client identity, and should be less
+    then 200 characters.
+
+toc_init_done
+    Sends Client Online SNAC to BOSS. TOC clients should first send
+    TOC the buddy list and any permit/deny lists.  However
+    toc_init_done must be called within 30 seconds after toc_signon,
+    or the connection will be dropped.  Remember, it can't be called
+    until after the SIGN_ON message is received.  Calling this before
+    or multiple times after a SIGN_ON will cause the connection to be
+    dropped.
+
+toc_send_im <Destination User> <Message> [auto]
+    Send a message to a remote user.  Remember to encode the message.
+    If the optional string "auto" is the last argument, then the auto
+    response flag will be turned on for the im.
+
+toc_add_buddy <Buddy User 1> [<Buddy User2> [<Buddy User 3> [...]]]
+    Add buddies to your buddy list.  This does not change your saved
+    config.
+
+toc_remove_buddy <Buddy User 1> [<Buddy User2> [<Buddy User 3> [...]]]
+    Remove buddies from your buddy list.  This does not change your
+    saved config.
+
+toc_set_config <Config Info>
+    Set the config information for this user.  The config information
+    is line oriented with the first character being the item type,
+    followed by a space, with the rest of the line being the item
+    value.  Only letters, numbers, and spaces should be used.
+    Remember you will have to enclose the entire config in quotes.
+
+    Item Types:
+    g - Buddy Group (All Buddies until the next g or the end of config 
+		     are in this group.)
+    b - A Buddy 
+    p - Person on permit list
+    d - Person on deny list
+    m - Permit/Deny Mode.  Possible values are
+	1 - Permit All
+	2 - Deny All
+	3 - Permit Some
+	4 - Deny Some
+
+toc_evil <User> <norm|anon>
+    Evil/Warn someone else.  The 2nd argument is either the string
+    "norm" for a normal warning, or "anon" for an anonymous warning.
+
+toc_add_permit [ <User 1> [<User 2> [...]]]
+    ADD the following people to your permit mode.  If you are in deny
+    mode it will switch you to permit mode and clear your permit list
+    first.  Therefore, with no arguments and in deny mode this will
+    switch you to permit none. If already in permit mode, no arguments
+    does nothing and your permit list remains the same.
+
+toc_add_deny [ <User 1> [<User 2> [... ]]]
+    ADD the following people to your deny mode. If you are in permit
+    mode it will switch you to deny mode and clear your deny list
+    first.  Therefore, with no arguments and in permit mode, this will
+    switch you to deny none. If already in deny mode, no arguments
+    does nothing and your deny list remains unchanged.
+
+toc_chat_join <Exchange> <Chat Room Name>
+    Join a chat room in the given exchange.  Currently exchange should
+    always be 4.  You will either receive an ERROR if the room
+    couldn't be joined or a CHAT_JOIN message.
+
+toc_chat_send <Chat Room ID> <Message>
+    Send a message in a chat room using the chat room id from
+    CHAT_JOIN.  Since reflection is always on in TOC, you do not need
+    to add the message to your chat UI, since you will get a CHAT_IN
+    with the message.  Remember to encode the message.
+
+toc_chat_whisper <Chat Room ID> <dst_user> <Message>
+    Send a message in a chat room using the chat room id from
+    CHAT_JOIN.  This message is directed at only one person.
+    (Currently you DO need to add this to your UI.)  Remember to
+    encode the message.
+
+toc_chat_evil <Chat Room ID> <User> <norm|anon>
+    Evil/Warn someone else inside a chat room.  The 3rd argument is
+    either the string "norm" for a normal warning, or "anon" for an
+    anonymous warning.  Currently chat evil is not turned on in the
+    chat complex.
+
+toc_chat_invite <Chat Room ID> <InviteMsg> <buddy1> [<buddy2> [<buddy3> [...]]]
+    Once you are inside a chat room you can invite other people into
+    that room.  Remember to encode the message.
+
+toc_chat_leave <Chat Room ID>
+    Leave the chat room.
+
+toc_chat_accept <Chat Room ID>
+    Accept a CHAT_INVITE message from TOC.
+
+toc_get_info <username>
+    Gets a user's info a GOTO_URL or ERROR message will be sent back
+    to the client.
+
+toc_set_info <info information>
+    Set the LOCATE user information.  This is basic HTML.  Remember to
+    encode the info.
+
+toc_set_idle <idle secs>
+    Set idle information. If <idle secs> is 0 then the user isn't idle
+    at all.  If <idle secs> is greater then 0 then the user has
+    already been idle for <idle secs> number of seconds.  The server
+    will automatically keep incrementing this number, so do not
+    repeatedly call with new idle times.
+
+
+TOC -> Client
+==============
+All user names from TOC to client are NOT normalized, and are sent as
+they should be displayed.  String are NOT encoded, instead we use
+colons as separators.  So that you can have colons inside of messages,
+everything after the colon before :<Message> should be considered part
+of the message (ie don't just "split" on colons, instead split with a
+max number of results.)
+
+
+SIGN_ON:<Client Version Supported>
+   This is sent after a successful toc_signon command is sent to TOC.
+   If the command was unsuccessful either the FLAP connection will be
+   dropped or you will receive a ERROR message.
+
+CONFIG:<config>
+   A user's config. Config can be empty in which case the host was not
+   able to retrieve it, or a config didn't exist for the user.  See
+   toc_set_config above for the format.
+
+NICK:<Nickname>
+   Tells you your correct nickname (ie how it should be capitalized
+   and spacing)
+
+IM_IN:<Source User>:<Auto Response T/F?>:<Message>
+   Receive an IM from some one.  Everything after the third colon is
+   the incoming message, including other colons.
+
+UPDATE_BUDDY:<Buddy User>:<Online? T/F>:<EvilAmount>:<SignonTime>:<IdleTime>:<UC>
+   This one command handles arrival/depart/updates.  EvilAmount is
+   a percentage, SignonTime is UNIX epoc, IdleTime is in minutes, UC (User Class)
+   is a two character string.
+   uc[0]:
+   ' '  - Ignore
+   'A'  - On AOL
+   uc[1]
+   ' '  - Ignore
+   'A'  - Oscar Admin
+   'U'  - Oscar Unconfirmed
+   'O'  - Oscar Normal
+
+
+ERROR:<Error Code>:Var args
+   * To be documented *
+
+EVILED:<new evil>:<name of eviler, blank if anonymous>
+   The user was just eviled.
+
+CHAT_JOIN:<Chat Room Id>:<Chat Room Name>
+   We were able to join this chat room.  The Chat Room Id is internal
+   to TOC.
+
+CHAT_IN:<Chat Room Id>:<Source User>:<Whisper? T/F>:<Message>
+   A chat message was sent in a chat room.
+
+CHAT_UPDATE_BUDDY:<Chat Room Id>:<Inside? T/F>:<User 1>:<User 2>...
+   This one command handles arrival/departs from a chat room.  The
+   very first message of this type for each chat room contains the
+   users already in the room.
+
+CHAT_INVITE:<Chat Room Name>:<Chat Room Id>:<Invite Sender>:<Message>
+   We are being invited to a chat room.
+
+CHAT_LEFT:<Chat Room Id>
+   Tells tic connection to chat room has been dropped
+
+GOTO_URL:<Window Name>:<Url>
+   Goto a URL.  Window Name is the suggested internal name of the
+   window to use.  (Java supports this.)
+
+PAUSE
+   Tells TIC to pause so we can do migration
+
+Typical Signon Process
+======================
+Except for the section marked optional this is a sequential process.
+Each line MUST occur before the following line.
+
+* Client connects to TOC
+* Client sends "FLAPON\r\n\r\n"
+* TOC sends Client FLAP SIGNON
+* Client sends TOC FLAP SIGNON
+* Client sends TOC "toc_signon" message
+* if login fails TOC drops client's connection
+  else TOC sends client SIGN_ON reply
+* if Client doesn't support version it drops the connection
+
+[BEGIN OPTIONAL]
+    * TOC sends Client CONFIG
+    * Client sends TOC permit/deny stuff
+    * Client sends TOC toc_add_buddy message
+[END OPTIONAL]
+
+* Client sends TOC toc_init_done message
+
+
+SFLAP Documentation
+===================
+SFLAP is pretty much a FLAP connection except the DATA frame payload
+is a null terminated string when traveling from client to host, it is
+NOT null terminated when traveling from host to client.  The FLAP
+Header is binary data, and is in network byte order.  The data portion
+is at offset 6, after the header.
+
+FLAP Header (6 bytes)
+-----------
+Offset   Size  Type
+0        1     ASTERISK (literal ASCII '*')
+1        1     Frame Type
+2        2     Sequence Number
+4        2     Data Length
+
+
+Valid Frame Type Values
+-----------------------
+1   SIGNON
+2   DATA
+3   ERROR     (Not used by TOC)
+4   SIGNOFF   (Not used by TOC)
+5   KEEP_ALIVE
+
+
+TOC SIGNON FRAME TYPE
+---------------------
+Sequence Number contains the initial sequence number used in each
+direction.  Data Length contains the payload length, with the payload
+described below.  The payload area is NOT null terminated.
+
+Host To Client:
+    4 byte FLAP version (1)
+
+Client To Host:  
+    4 byte FLAP version (1)
+    2 byte TLV Tag (1)
+    2 byte Normalized User Name Length
+    N byte Normalized User Name  (NOT null terminated)
+
+    
+TOC DATA FRAME TYPE
+-------------------
+Sequence Number contains your next sequence number.  Data Length is
+the length of the payload, including the null termination from client
+to host.
+

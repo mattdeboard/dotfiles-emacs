@@ -1,0 +1,474 @@
+What is TNT?
+------------
+
+TNT is an Emacs client for AIM, AOL's free instant messaging service.
+Using TNT, you can, from the comfort of your Emacs window, check
+whether friends and coworkers are online, send them "instant
+messages", and join them in multi-party private chat sessions.
+Unlike the official AIM clients, TNT is designed to be functional
+rather than pretty, easy to use rather than easy to learn.  It doesn't
+have a graphical user interface, fancy artwork, or other random fluff.
+Instead, like other emacs extensions, it has a keyboard-driven,
+text-based interface.  TNT is AIM for grownups ;-).
+
+
+Is there support for TNT?
+-------------------------
+
+TNT is currently housed at sourceforge.net, and is headed by the
+project members there.  Information is available from:
+
+    http://tnt.sourceforge.net/
+
+From there, you can download the latest release.  If you have
+questions or comments, your best bet is to ask questions on the
+mailing list (the forums are pretty slow):
+  tnt-devel@lists.sourceforge.net
+
+If you're interested in helping improve TNT, you should join the
+mailing list for developers of TNT.  To subscribe, go to:
+
+    http://lists.sourceforge.net/mailman/listinfo/tnt-devel
+
+
+What versions of Emacs are supported?
+-------------------------------------
+
+TNT was originally developed using GNU Emacs 19.34.  More recent
+improvements have been developed on various emacses.  It has been
+tested at some point (not necessarily recently) with versions 19.29,
+19.30, 20.2, 20.3, and 20.7, and with XEmacs 20.4 and 21.4, and it
+seems to work.
+
+Version 18 of GNU Emacs is not supported.
+
+[2006.03.28 gse] Recently, GNU Emacs support has gotten flakier for
+reasons we don't understand.  Any debugging help is welcome.
+
+If you run into difficulties, please let us know what emacs you're
+running!  And of course, patches are gratefully accepted.
+
+
+What does TNT stand for?
+------------------------
+
+TNT was so named in order to differentiate it from TiK.  What then,
+you may ask, is TiK?  TiK is another unoffical AIM client, but it's
+written in Tcl.  Both TNT and TiK use a simplified protocol called TOC
+to communicate with the AIM host.  (Actually, they communicate with a
+TOC server which, in turn, communicates with the AIM host).  Details
+of the TOC protocol are given in the file PROTOCOL, which is included
+in this directory.  Info on TiK can be found at
+
+    http://tik.sourceforge.net/
+
+
+How do I get an account?
+------------------------
+
+Before you can use TNT, you need to have an AIM account.  The account
+is free, and registering for it is only slightly painful :-).  Just go
+to the AIM home page, http://www.aol.com/aim, and click on one of
+"sign up" buttons there.  This will take you to a registration page
+where you can enter your desired username (or "screen name" in
+AOL-speak) and password.  You also need to enter your e-mail address
+in order to receive the confirmation e-mail that will allow you to
+permanently activate your account.
+
+The hardest part about registering is choosing a screen name.  There
+are currently more than 30 million screen names in use, so don't
+expect the first one you try to work.  Many people give up, believing
+that the registration page is busted, after trying only their first
+and/or last names.  D'oh!  Unless you have an unusual name, this isn't
+going to work.  You need to be creative.  Try adding a number after
+your name.
+
+
+How do I use TNT?
+-----------------
+
+The table below summarizes TNT's primary commands.  They can be
+invoked interactively using either M-x or the key bindings shown.  A
+detailed description of each command follows the table.
+
++-------------------+-------------+-------------------------------------------+
+|  Function         | Key Binding |               Summary                     |
++-------------------+-------------+-------------------------------------------+
+| tnt-show-help     |   C-x t ?   | Displays this help information            |
+| tnt-open          |   C-x t o   | Starts a new TNT session                  |
+| tnt-kill          |   C-x t q   | Terminates the current session            |
+| tnt-im            |   C-x t i   | Starts an instant-message conversation    |
+| tnt-join-chat     |   C-x t j   | Joins a chat room                         |
+| tnt-leave-chat    |   C-x t l   | Leaves a chat room                        |
+| tnt-show-buddies  |   C-x t b   | Shows the buddy list                      |
+| tnt-edit-buddies  |   C-x t B   | Invokes the buddy list editor             |
+| tnt-accept        |   C-x t a   | Accepts a message or a chat invitation    |
+| tnt-reject        |   C-x t r   | Rejects a message or a chat invitation    |
+| tnt-next-event    |   C-x t n   | Shows next event in notification ring     |
+| tnt-prev-event    |   C-x t p   | Shows previous event in notification ring |
+| tnt-switch-user   |   C-x t s   | Switches between usernames for next login |
+| tnt-toggle-away   |   C-x t A   | Toggles away status, sets away message    |
+| tnt-toggle-pounce |   C-x t P   | Adds or deletes a pounce message          |
+| tnt-pounce-list   |   C-x t L   | Shows the pounce list                     |
+| tnt-toggle-email  |   C-x t M   | Toggles forwarding incoming IMs to email  |
+| tnt-toggle-mute   |   C-x t m   | Toggles sounds on/off                     |
++-------------------+-------------+-------------------------------------------+
+
+tnt-show-help (C-x t ?)
+
+  Opens a buffer with the above help information.
+
+
+tnt-open (C-x t o)
+
+  This command signs onto the AIM service.  You need to supply your
+  screen name and password in response to the prompts in the
+  minibuffer.  If all goes well, you will get a "Signed on" message in
+  the echo area, and an online indicator consisting of your screen
+  name enclosed in brackets will appear in the mode line.  If
+  something goes wrong, you'll probably just get a message like "TNT
+  connection lost" in the echo area.
+
+  If you don't want to enter your screen name and password every time,
+  you can set the variables tnt-default-username and
+  tnt-default-password in your init (.emacs) file (see below).  If
+  both of these variables are set, tnt-open will sign on immediately
+  without prompting; if only the username is set, you will be prompted
+  only for a password.  If other people have read permission for your
+  .emacs file, you should not put your password in it.
+
+  If you have multiple screen names, you can set them all (with or
+  without associated passwords) in the tnt-username-alist variable
+  (see below).
+
+
+tnt-kill (C-x t q)
+
+  This command signs off of the AIM service (or "kills" the TNT
+  session).  You'll get a "Signed off" message in the echo area, and
+  the mode line will no longer show the online indicator.
+
+
+tnt-im (C-x t i)
+
+  This command initiates an "instant message" conversation with
+  another user.  You will be prompted for the user's screen name.  If
+  the user is on your buddy list, you can use the Emacs "completion"
+  feature to assist you.  Hitting the tab key after typing one or more
+  characters will cause Emacs to fill in as much of the rest of the
+  name as it can.
+
+  After you enter the screen name, the selected window will switch to
+  a buffer in which the conversation will take place.  To send a
+  message to the other user, simply type the message at the end of
+  buffer.  The message will auto-wrap as you type and will be sent
+  when you hit RETURN (or ENTER).  You can tell that the message has
+  been sent because it will be prefixed with your screen name.
+
+  When the person with whom you're conversing responds, his message,
+  prefixed by his screen name, will be inserted in the buffer
+  immediately after your sent message.  If you had already started
+  typing a new message when the response arrives, the response will be
+  inserted before the new message so as not to disrupt your typing.
+
+  When you are through with the conversation, you can simply kill or
+  hide the buffer.  You can carry on multiple conversations at once.
+  Each conversation goes into its own buffer.  The buffers have names
+  of the form *im-name*, where "name" is the normalized screen name of
+  the user you're conversing with.  (Normalized simply means that the
+  screen name has had all spaces have been removed and capitals
+  changed to lowercase.)
+
+  If the conversation buffer for a particular user isn't visible at
+  the time a message from that user arrives, you'll get a notification
+  in the echo area informing you that a new message is available.  You
+  can use the tnt-accept or tnt-reject commands (described below) to
+  either view or discard the message.
+
+
+tnt-join-chat (C-x t j)
+
+  This command joins a chat room in which you can converse with
+  several users at once.  You will be prompted for the name of the
+  room.  The default is a randomly-generated name of an empty chat
+  room.  In most cases you will just want to use this name and invite
+  other users into the room once you've joined.  However, if you know
+  the name of an existing room, you may enter that instead.
+
+  Once inside a chat room, you can invite other users to join.  You do
+  this by typing an invitation message (describing the topic being
+  discussed in the room) and terminating it with TAB (or C-i).  You
+  will be prompted for a list of users to invite.  Enter their screen
+  names, or the name of a group from your buddy list, separated by
+  commas.  Each invited user will recieve a copy of the invitation
+  message and will be given an opportunity to join the room.  You will
+  be informed as they join by status messages that appear in the
+  room's buffer.
+
+  To send a message to all users in a room, simply type the message
+  and hit RETURN.  To send a private message to a particular user,
+  terminate the message with LINEFEED (or C-j) instead of RETURN (or
+  C-m) -- you will then be prompted for the screen name of the desired
+  recipient.  Alternately, you can of course also start a separate
+  private conversation (in its own IM buffer) with the person.
+
+
+tnt-leave-chat (C-x t l)
+
+  This command leaves a chat room you are currently in.  If the
+  current buffer is a chat room, it will leave that one, otherwise it
+  will prompt for the name of the chat room to leave.  (Note that you
+  can also leave a chat room by simply killing its buffer.)
+
+
+tnt-accept (C-x t a)
+
+  This command accepts a new message or chat invitation from another
+  user.  Use it when you recieve a notification in the echo area.  It
+  will switch the selected window to either the conversation buffer or
+  the chat buffer, as appropriate, and remove the notification.  If
+  there was more than one pending notification, the next one will pop
+  up in its place.  When you've dealt with all of them, the echo area
+  will return to its normal (blank) state.
+
+  If you use TNT often, it's nice to bind this command to a shorter
+  keysequence.  For instance:
+   (global-set-key '[f12] 'tnt-accept)
+
+
+tnt-reject (C-x t r)
+
+  This command rejects a new message or chat invitation from another
+  user.  Like tnt-accept, it is used when a notification appears in
+  the echo area.  Rather than switch to the conversation or chat
+  buffer, though, it kills it.
+
+
+tnt-next-event (C-x t n)
+tnt-prev-event (C-x t p)
+
+  Message and chat notifications are kept in a ring.  These commands
+  allow you to step through the ring and view pending notifications
+  without having to accept or reject them.  When you get to a
+  notification that you want to act on, you can use tnt-accept or
+  tnt-reject at that point.
+
+
+tnt-show-buddies (C-x t b)
+
+  This command switches the selected window to the *buddies* buffer.
+  This buffer is constantly updated while you are online to show the
+  status of your "buddies".  Buddies are other users of either the AIM
+  service or the primary AOL service.  You designate which users are
+  your buddies by creating a "buddy list" using the tnt-edit-buddies
+  command described below.  If you do not have a buddy list, a default
+  buddy list consisting of only you is used.
+
+  While viewing the buddy list, you can use the "n" and "p" keys to
+  move the cursor to the next or previous buddy name.  With the cursor
+  positioned on a buddy name, you can use the "i" or RETURN key to
+  initiate an conversation with that buddy.  And if emacs is running
+  within X, you should be able to initiate an IM by clicking the
+  second mouse button on a buddy's screen name.
+
+
+tnt-edit-buddies (C-x t B)
+
+  This command allows you to edit your buddy list.  It switches the
+  selected window to the *edit-buddies* buffer, which shows your
+  entire buddy list (both online and offline users), and allows you to
+  edit the list.  In the current release of TNT, the buddy-list editor
+  is rather rudimentary.  You just edit the buffer in text mode and
+  use the tnt-save-buddy-list command (C-x C-s, just like saving a
+  normal text file buffer) to save your changes.  Because the buddy
+  list is stored on the host, you must be online in order to edit it.
+
+  The buddy list is organized as a two-level hierarchy.  At the top
+  level are group names (e.g. "Friends", "Coworkers", etc.), and at
+  the second level are the screen names of the users in each group.
+  In the buddy editor, the buddy list is formatted so that the group
+  names begin at the left margin.  Following each group name is a list
+  of screen names of users in that group, one screen name per line.
+  In order to distinguish them from group names, the screen names are
+  indented.  When editing the buddy list, you must be careful to
+  maintain this format -- indent buddies' screen names, don't indent
+  buddy group names.
+
+
+tnt-switch-user (C-x t s)
+
+  If you have multiple usernames, you can set the tnt-username-alist
+  variable (see below) to simplify logging in.  Once the variable is
+  set, running this command will cycle through available usernames for
+  the next login.
+
+
+tnt-away-toggle (C-x t A)
+
+  This command allows you to change your "away" mode.  When you are
+  set as away, your away message will be sent to anyone who IMs you.
+  When your away message is sent, a reminder notification is displayed
+  in the minibuffer, and the away message is shown as a sent IM.  The
+  message will not be sent to a buddy if that person was the last
+  person to receive your away message.  Thus, two people talking to
+  you at once will make it bounce back and forth rather annoyingly.
+  (This behavior is identical to the away meesages in most AIM
+  clients.)
+
+
+tnt-toggle-pounce (C-x t P)
+
+  When you invoke this command you will be prompted for a buddy's
+  screen name.  If the buddy has no pounce message set TNT will prompt
+  for a pounce message.  When they log in or change their away status,
+  they will immediately be sent this message.  If they have a message
+  set, the current message will be deleted.
+
+tnt-pounce-list (C-x t L)
+  
+  This command will list all pending pounce messages in a new buffer.
+
+tnt-toggle-email (C-x t M)
+
+  TNT can act as an IM-to-email gateway -- this is useful if, for
+  example, you have an alphanumeric pager which can be reached via an
+  email address.  You'll be able to receive IMs on the go!  To set
+  this up, you'll need to set the tnt-email-to-pipe-to and
+  tnt-email-binary variables (see below).  Once those variable are
+  properly set, running this command will turn forwarding on and off.
+
+
+tnt-mute (C-x t m)
+
+  Toggles sounds on and off.  Useful especially if you use soundfiles
+  as opposed to beeps (see below) and they start to get annoying.
+
+
+How can I simplify logging in?
+------------------------------
+
+Any of the following options can also be included in your .emacs file,
+immediately _after_ the "(setq load-path ...)" and "(load "tnt")"
+lines.
+
+In order to not have to type your username (and optionally your
+password), you can use these variables:
+    
+    (setq tnt-default-username "MyUserName")
+    (setq tnt-default-password "MyPassword")
+
+If you have more than one username that you sometimes log in as, you
+can switch between them using "C-x t s" between logins, but you should
+use this variable instead of the above:
+    
+    (setq tnt-username-alist '(("DefaultUserName" . "Password1")
+                               ("AltUserName1" . "Password2")
+                               ("AltUserName2")))
+
+IMPORTANT SECURITY NOTE:
+If you are including your password in your .emacs file, you probably
+want to be sure that your .emacs file is only readable by you.  If
+someone gains access to that file, they will be able to log into AIM
+as you.  If the tnt-default-password is not set, or if the password is
+left out for the current username in the tnt-username-alist, tnt will
+prompt you for your password each time you log in.
+
+
+
+How can I customize beeping and other sounds?
+---------------------------------------------
+
+There are several different events which can have beeps/sounds
+associated.  Each "tnt-beep-on-..." variable can be set to any of the
+following:
+
+    nil        no beep
+    'audible   audible beep
+    'visible   visible beep
+    'current   whatever emacs is currently set to (audible or visible)
+    "/full/path/to/some/sound.wav"
+               play a sound file; under XEmacs and GNU Emacs 22,
+               built-in sound support is used.  With older versions
+               GNU Emacs, you must define the tnt-sound-exec variable.
+
+These are the variables, with their defaults:
+
+    (setq tnt-beep-on-incoming-message 'current)
+    (setq tnt-beep-on-first-incoming-message nil)    ;; see below
+    (setq tnt-beep-on-visible-incoming-message nil)
+    (setq tnt-beep-on-outgoing-message nil)
+    (setq tnt-beep-on-chat-invitation 'current)
+    (setq tnt-beep-on-chat-message 'current)
+    (setq tnt-beep-on-visible-chat-message nil)
+    (setq tnt-beep-on-buddy-signon nil)
+    (setq tnt-beep-on-buddy-signoff nil)
+    (setq tnt-beep-on-signon nil)
+    (setq tnt-beep-on-signoff nil)
+    (setq tnt-beep-on-error 'current)
+    
+Note that tnt-beep-on-first-incoming-message is slightly different
+from the others in that if it is set to nil, it will use the value of
+tnt-beep-on-incoming-message, so it only does nothing if that one is
+*also* set to nil.
+
+Under XEmacs, playing sound files should just work, but to use sound
+files under GNU Emacs, you'll need to set these variables:
+
+    (setq tnt-sound-exec "/path/to/executable")
+    (setq tnt-sound-exec-args '("any args" "to pass" "before the filename"))
+
+
+
+What else can I customize about TNT?
+------------------------------------
+
+NOTE: The examples below use 'setq' but really you can customize most
+everything about TNT using "M-x customize-group tnt".
+    
+The following variables determine whether a message appears in the
+minibuffer to notify of particular happenings.  Note that these are
+independent from the above sound/beep settings.
+
+    (setq tnt-message-on-buddy-signonoff nil)
+    (setq tnt-message-on-chatroom-message t)
+
+Following are a few miscellaneous other variables that can be set:
+    
+    (setq tnt-use-timestamps t)
+    (setq tnt-use-split-buddy t)
+    (setq tnt-use-keepalive nil)
+    (setq tnt-use-buddy-update-timer nil)
+    (setq tnt-use-idle-timer nil)
+    
+    (setq tnt-separator "\n---\n")
+    (setq tnt-recenter-windows nil)
+
+    (setq tnt-directory "/some/tnt/directory")
+    (setq tnt-buddy-list-backup-filename nil)
+    
+    (setq tnt-email-to-pipe-to "someone@example.com")
+    (setq tnt-email-binary "/some/other/bin/mail")
+
+
+NOTE: More information about all of the above variables is available
+using emacs' built-in "apropos" function -- hit "M-x apropos", then
+type the variable name (e.g. "tnt-default-username").  It will give
+you the possible values the variable can be set to, what those do, and
+what the default is.
+
+
+Also these two lines can optionally be included in your .emacs file:
+
+    (set-face-foreground 'tnt-my-name-face "ColorName1")
+    (set-face-foreground 'tnt-other-name-face "ColorName2")
+
+These set the colors used for the usernames of yourself and the person
+you're talking to.  Only works if emacs is running in X (in other
+words, not, for example, in a telnet session.)  You can experiment
+with different colors by simply putting the cursor at the end of one
+of the above two lines and hitting "C-x C-e".  This will save you
+having to exit and relaunch emacs millions of times to get just the
+right color scheme.
+
+Colors can also be set using 'custom'.
+

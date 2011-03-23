@@ -1,0 +1,38 @@
+
+# This all works on my Debian Woody system...  Of course, YMMV.
+
+# Any questions about setting this up, feel free to mail me at
+#    NeilFred Picciotto <tnt-procmail-setup@derf.net>
+
+
+# NOTE: You will need to uncomment and customize these variables,
+# or else set them in another file and then give a directive like:
+# INCLUDERC=${TNT_DIR}/procmail/email-to-tnt-procmail-recipe
+
+
+# the email address of your pager or cell phone or whatever
+#MAIL_FROM="6505551212@myphoneprovider.com"
+
+# your personal domain, same as you put in tnt-email-from-domain
+#MAIL_TO_DOMAIN="example.com"
+
+# where you keep tnt
+#TNT_DIR="${HOME}/.xemacs/tnt"
+
+
+
+########################################################################
+# Theoretically, you shouldn't need to change the rest of this file.
+
+MAIL_TO="[a-zA-Z0-9]*_IM_@${MAIL_TO_DOMAIN}"
+
+# if the mail matches the given from and to, pipe it to the wrapper script
+:0 b
+* $^From:.*${MAIL_FROM}
+* $^TO_\<\/${MAIL_TO}
+| /bin/sh ${TNT_DIR}/procmail/procmail-pipe-message-into-tnt.sh $MATCH
+
+# See "man procmailrc" regarding the "\/" part of the regexp, and the 
+# $MATCH variable which we pass into the script.  Not sure how 
+# universally available this feature of procmail is... 
+
