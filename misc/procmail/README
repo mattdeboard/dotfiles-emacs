@@ -1,0 +1,66 @@
+
+This file explains how to set up "two-way email forwarding", so that
+when IMs get forwarded out as email, you can then reply to that email
+(from your pager or cell phone or whatever), and have tnt convert the
+email back to an IM.
+
+Any questions about setting this up, feel free to mail me at
+    NeilFred Picciotto <tnt-procmail-setup@derf.net>
+
+
+First, for this to work, you'll need to own a your own personal
+domain, and have it configured with a wildcard entry, so that
+any_user_name@example.com gets delivered to you.
+
+Second, you'll need to be running gnuserv in the same emacs where tnt
+is running.  You might need to change the path to gnuclient in
+procmail-pipe-message-into-tnt.sh (default is "/usr/bin/gnuclient").
+
+Third, your mail must get processed by procmail.  If you're already
+using procmail, you'll want to add an INCLUDERC directive or just
+include the provided recipe into your procmailrc.  If you're not
+already using procmail, you can probably just create a new procmailrc
+file with the provided recipe.  Note that the file with the procmail
+recipe (in the same directory with this README, it's called
+"email-to-tnt-procmail-recipe") includes three variables which you
+MUST configure for this to work.
+
+Finally, you'll need to use "customize" to set a few of tnt's
+variables:
+
+tnt-email-to-pipe-to
+    The email address of your pager, phone, or whatever you want to
+    forward the messages to.
+
+tnt-email-from-domain
+    Your personal domain, used to set a unique "From:" address
+    according to the user whose IM is being forwarded.  Specifically,
+    if this variable is set to "example.com", then an IM from
+    "mybuddy" will be forwarded with this header:
+        From: mybuddy_IM_@example.com
+    This is what allows you to have reply emails go back in the
+    appropriate IM conversation.  If you leave it nil, you can still
+    forward IMs as email, but the other direction will not work.
+
+Both of the above are required for this to work, and both must also be
+set (to the same values) in the procmail recipe.  The following are
+optional:
+
+tnt-email-use-subject
+    If non-nil, a subject header will be included in the outgoing
+    emails, saying "IM from mybuddy".  Depending on the device you're
+    sending the email to, you may wish to omit the subject.
+
+tnt-email-include-user-in-body
+    If non-nil, the body of the email will start with "mybuddy:",
+    which will then be followed by the content of mybuddy's IM.
+    Again, depending on the device you're emailing to, you may wish to
+    conserve by omitting this, especially if the email address is
+    visible.
+
+tnt-email-binary
+    Absolute path to the "mail" binary -- override if it's not in the
+    default location, namely "/bin/mail"...
+
+
+Good luck!

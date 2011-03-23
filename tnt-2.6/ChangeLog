@@ -1,0 +1,1750 @@
+2006-03-28  Scott Evans  <gse@SALON2>
+	* toc.el: change version number to 2.6
+	* toc.el: comment out debug for release
+	* tocstr.el: comment out debug for release
+	* README: minor updates
+	* PROTOCOL: add pointers to TOC2 pages
+	* Makefile: deleted
+
+2006-02-12  Joe Casadonte  <jcasadonte@northbound-train.com>
+	* toc.el: added more debugging info for unknown commands
+
+2006-02-12  Joe Casadonte  <jcasadonte@northbound-train.com>
+	* tnt.el: added support for HTTP proxy
+	* tocstr.el: added support for HTTP proxy
+	* tnt-proxy.el: (new file) support for HTTP proxy
+	* ArtisticLicense.txt: (new file) License file for tnt-proxy.el
+
+2006-02-12  Joe Casadonte  <jcasadonte@northbound-train.com>
+	* tnt.el: added optional mode-line indicator for idleness
+
+2005-09-19  Joe Casadonte  <jcasadonte@northbound-train.com>
+	* tnt.el: Made flyspell-mode support much more light-weight
+
+2005-09-18  Joe Casadonte  <jcasadonte@northbound-train.com>
+	* tnt.el: Added support for flyspell-mode
+	Turned Emacs/XEmacs read-only code into a function to be reuseable.
+	Minor function documentation change to `tnt-fullname-for-nick'.
+	Using fullnames in Typing Notifications.
+	Make IM/Chat buffer headers read-only from the get-go.
+
+2005-09-07  Joe Casadonte  <jcasadonte@northbound-train.com>
+	* tnt.el: added support for Typing Notifications
+	* toc.el: added support for Typing Notifications
+	* tocstr.el: Fixed gse-debug bug (needed save-excursion).
+
+2005-08-30  Joe Casadonte  <jcasadonte@northbound-train.com>
+	* toc.el: Passing in NORMALIZED username into toc-generate-signon-code.
+
+2005-08-29  Scott Evans  <gse@NEVE>
+
+	* tnt.el: Change ports back to 5190.
+	Change C-return keybinding to something that seems Emacs/XEmacs
+	compatible.
+	Change tnt-login-flag-timer to a 1-second value since 0 seconds
+	doesn't work on newer XEmacses.
+	* toc.el: (toc-get-ascii-value): add for cross-emacs compatibility
+
+2005-08-27  Scott Evans  <gse@SALON>
+
+	* tnt.el: (tnt-save-buddy-list): rewrite, add related helper methods
+	(tnt-leave-chat): reorder one bit to work around buffer-setting quirk
+	* toc.el: (toc-add-buddies): for TOC2
+	(toc-remove-buddies): for TOC2
+	(toc-remove-group): for TOC2
+
+2005-08-22  Scott Evans  <gse@antisleep.com>
+
+	* tnt.el: updates for TOC2
+	* toc.el: updates for TOC2
+
+2004-09-17  NeilFred Picciotto  <fred@full.halflab.com>
+
+	* procmail/procmail-pipe-message-into-tnt.sh: new file, script for
+	procmail to pipe to, wrapper around gnuclient call.
+
+	* procmail/email-to-tnt-procmail-recipe: new file with procmail
+	recipe for two-way email forwarding.
+
+	* procmail/README: new file, explaining how to set up two-way
+	email forwarding.
+
+	* tnt.el (tnt-email-from-domain): new defcustom var.
+	(tnt-email-use-subject): new defcustom var.
+	(tnt-email-include-user-in-body): new defcustom var.
+	(tnt-send-external-text-as-instant-message): new function to allow
+	the text of an outgoing IM to come from somewhere other than the
+	buffer.  called via gnuclient in the procmail setup for two-way
+	email forwarding.
+	(tnt-handle-closed): tnt-pipe-message-to-program is now ...-email
+	(tnt-handle-nick): tnt-pipe-message-to-program is now ...-email
+	(tnt-handle-im-in): tnt-pipe-message-to-program is now ...-email
+	(tnt-pipe-message-to-email): renamed from -program, and now
+	customizable by above defcustom vars.  most notably,
+	tnt-email-from-domain allows sending emails with different "From:"
+	addresses according to who the IM is from, which allows us to do
+	two-way email forwarding.
+
+2004-09-10  NeilFred Picciotto  <fred@full.halflab.com>
+
+	* tnt.el (tnt-im-mode-map): include a name for make-sparse-keymap
+	(tnt-chat-mode-map): include a name for make-sparse-keymap
+	(tnt-buddy-list-mode-map): include a name for make-sparse-keymap
+	(tnt-buddy-edit-mode-map): include a name for make-sparse-keymap
+
+2004-08-12  NeilFred Picciotto  <fred@full.halflab.com>
+
+	* tnt.el (tnt-im-mode-map): for some reason,
+	(read-kbd-macro "C-<return>")
+	wasn't doing the right thing.  "\C-\r" seems to work.
+
+2004-07-19  NeilFred Picciotto  <fred@full.halflab.com>
+
+	* tnt.el (tnt-reformat-text): make the tnt-strip-a-href call after
+	we've done the tnt-strip-some-html calls instead of before.  this
+	fixes some cases where a URL would show up twice.
+
+2004-04-06  NeilFred Picciotto  <fred@full.halflab.com>
+
+	* tnt.el (tnt-backslashify-string): also put a '\' before '+'.
+
+2004-02-13  NeilFred Picciotto  <fred@full.halflab.com>
+
+	* tnt.el (tnt-completion-func): wasn't working before.  not sure
+	when it ever worked...  changed it to use string-match instead of
+	re-search-forward.
+	(tnt-completing-read-list): don't insert a space after each comma,
+	since when the user types names separated by commas, they're
+	unable to include such spaces.
+
+2004-01-02  NeilFred Picciotto  <fred@full.halflab.com>
+
+	* tnt.el (tnt-get-buddy-at-point): avoid using point-at-eol, since
+	it's apparently not available on FSF emacs...
+
+2003-12-30  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-strip-offline-nicks): also don't strip if "just-onoff".
+
+2003-11-11  Scott Evans  <gse@antisleep.com>
+
+	* tnt.el (tnt-nick-less-than): Make buddylist grouping case-insensitive.
+	(tnt-downcase): Add.
+
+2003-11-04  Scott Evans  <gse@antisleep.com>
+
+	* tnt.el (tnt-default-away-message): Change default to nil
+	to preserve old behavior.
+	(tnt-append-message): Set buffer-undo-list to nil at end.
+
+2003-11-02  Scott Evans  <gse@antisleep.com>
+
+	* tnt.el (tnt-get-buddy-at-point): Use point-at-eol instead of
+	line-end-position.
+	(tnt-strip-offline-nicks): Don't strip buddies with pending
+	messages or pounces.
+
+2003-10-29  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-show-buddies): call (font-lock-mode 1).  not sure if
+	this is the right place for this.
+	(tnt-html-regexps-to-replace): removed scott's added "</?[bui]>"
+	regexp; removed his spurious "tnt-html-regexps-to-replace" line;
+	added replacements for I and B tags to _ and *, respectively.
+	(tnt-html-tags-to-strip): added "</?[Uu]>".
+
+2003-10-28  Scott Evans  <gse@antisleep.com>
+
+	* tnt.el (tnt-buddy-list-message-waiting-face): Add.
+	(tnt-buddy-list-font-lock-keywords): Add MESSAGE WAITING keyword.
+	(tnt-html-regexps-to-replace): Add regexps for bold/italic/underline.
+
+2003-10-25  Scott Evans  <gse@antisleep.com>
+
+	* tnt.el (tnt-cycle-buddies-sort): Add.
+	(tnt-buddy-list-mode-map): Add "S" = tnt-cycle-buddies-sort.
+	Add "ga", "gi", "go" for grouping.
+	(tnt-buddy-list-menu): Add 4th menu with sort order, grouping commands.
+	(tnt-next-menu): There are 4 menus now.
+
+2003-10-25  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-kill): Store the tnt-current-user, *then* check it
+	for null after attempting to sign off.
+
+2003-10-25  Scott Evans  <gse@antisleep.com>
+
+	* tnt.el (tnt-fullname-for-nick): Move out of tnt-buddy-list-filter.
+	(tnt-is-buddy-away): Rename from tnt-buddy-away, update documentation.
+	(tnt-get-away-msg): Allow prefix to be anything.
+	(tnt-toggle-away): Use interactive "P" instead of "p".
+	(tnt-sort-buddies-by): add new customization option.
+	(tnt-group-away-buddies): add new customization option.
+	(tnt-group-idle-buddies): add new customization option.
+	(tnt-group-offline-buddies): add new customization option.
+	(tnt-very-idle-minimum): add new customization option.
+	(tnt-blist-to-buffer): Deleted.
+	(tnt-buddy-list-filter): Deleted.
+	(tnt-insert-blist): Replaces tnt-blist-to-buffer.  Lots of new
+	hoopy functionality.
+	(tnt-annotated-blist): Add.
+	(tnt-nick-properties): Add.
+	(tnt-reorder-annotated-blist): Add.
+	(tnt-nick-less-than): Add.
+	(tnt-strip-offline-nicks): Add.
+	(tnt-buddy-list-font-lock-keywords): Add "v idle" keyword.
+	(tnt-build-buddy-buffer): Use new tnt-insert-blist; comment; refactor.
+	(tnt-is-buddy-away): Renamed from tnt-buddy-away.
+	(tnt-buddy-edit-buffer): Use new tnt-insert-blist.
+
+2003-10-21  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-pop-event): also recenter when switching to an IM
+	buffer from here
+
+2003-03-23  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-kill): call toc-close and tnt-shutdown before giving
+	the "Already offline" error, just to be sure everything gets
+	cleaned up.
+	(tnt-join-chat): recenter when entering the chat buffer.
+
+2003-02-27  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-im): recenter when entering the im buffer
+
+2002-10-23  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-html-regexps-to-replace): added &quot;
+	(tnt-buddy-list-menu): added a newline
+
+2002-10-17  Matthias Granberry  <matthias@utdallas.edu>
+	* tnt.el (tnt-default-info-message): initial support for setting
+	profiles.
+	(tnt-set-info): sends user-defined profile to TOC server.
+	(tnt-get-info-msg): modified tnt-get-away-msg to use with profile
+	strings.
+	(tnt-inhibit-key-bindings): added "C-x t f" for tnt-set-info.
+	(tnt-buddy-list-mode-map): added "f" for tnt-set-info.
+	(tnt-customize): removed second definition of tnt-customize
+
+2002-10-08  Matthias Granberry  <matthias@utdallas.edu>
+
+	* tnt.el (tnt-play-sound): incorporated Doug Alcom (lathi)'s patch
+	to allow xemacs to play sounds without native sound support.
+
+2002-10-08  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-customize): just calls (customize "tnt").
+	(tnt-inhibit-key-bindings): added "C-x t c" for tnt-customize.
+	(tnt-buddy-list-mode-map): added "c" for tnt-customize.
+	(tnt-buddy-list-menu): added "[?] help" to each menu.
+
+2002-10-07  Matthias Granberry <matthias@utdallas.edu>
+	* tnt.el (tnt-show-help): added tnt-pounce-list, changed
+	tnt-pounce-add to tnt-toggle-pounce, and changed key binding for
+	tnt-kill.
+	* README: updated for new key bindings
+
+2002-10-02  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-build-buddy-buffer): now display non-buddy IMs and
+	any chat rooms the user is currently in.
+	(tnt-non-buddy-messages): new function to display in buddy list
+	buffer any events in the ring that are IMs from non-buddies.
+	(tnt-chat-alist-to-buffer): new function to display chat rooms in
+	buddy list buffer.
+	(tnt-leave-chat): make it work when called from in the buddy list;
+	make it remove the chat from the tnt-chat-alist.
+	(tnt-buddy-list-menu): add "[l]eave chat room" option to menu.
+	(tnt-buddy-list-mode-map): add "l" for tnt-leave-chat.
+	(tnt-get-buddy-at-point): check whether the "buddy" at point comes
+	after a line that just says "chat rooms", and if so, assume this
+	"buddy" is actually a chat room.  return value is now a dotted
+	pair, where the car is either "im" or "chat", and the cdr is the
+	name of either the buddy (or non-buddy) or chat room at point.
+	(tnt-toggle-pounce): update call to tnt-get-buddy-at-point.
+	(tnt-im-buddy): update call to tnt-get-buddy-at-point.
+	(tnt-im-buddy-mouse-up): update call to tnt-get-buddy-at-point.
+
+2002-09-26  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-buddy-list-menu): put "-----" line above the menu.
+	(tnt-buddy-list-menu-line): added.  return location of the "-----"
+	menu line.
+	(tnt-get-buddy-at-point): no buddies after menu line.
+	(tnt-next-buddy): no buddies after menu line.
+	(tnt-buddy-list-filter): include offline buddies with pounce.
+	(tnt-im-buddy): if buddy is offline, offer to toggle their pounce.
+
+2002-09-26  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-current-menu): added.  to allow cycling through
+	several smaller menus, instead of always having one big menu.
+	(tnt-buddy-list-mode-map): added "u" for tnt-next-menu.
+	(tnt-next-menu): added.  cycles through menus.
+	(tnt-buddy-list-menu): split up the one big menu into several
+	smaller menus.
+	(tnt-push-event): when adding an event to the ring, automatically
+	switch to the menu that includes "[a]ccept message".
+
+2002-09-26  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-unset-login-flag): now works in xemacs.  basically
+	we just set the timer to run right away, the same way it wrongly
+	does anyway in xemacs; and the trick is we also set it as a
+	repeating timer, but the second time it runs, it actually does
+	what it needs to do and then disables itself.
+	(tnt-login-flag-unset-ran-once): added.
+	(tnt-shutdown): reset the vars related to the login-flag.
+	(tnt-handle-sign-on): set timer repeating.
+
+2002-09-25  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el -- toggle inactive (offline) buddies
+	(tnt-show-inactive-buddies-now): added.  this gets set at login
+	time to whatever the user generally prefers, but then can be
+	easily toggled.
+	(tnt-buddy-list-filter): use -now instead of general pref.
+	(tnt-handle-nick): initialize -now based on general pref.
+	(tnt-toggle-inactive-buddies): added.
+	(tnt-buddy-list-mode-map): added "O" to toggle offline buddies.
+
+	* tnt.el -- buddy list menu
+	(tnt-buddy-list-menu): added.  dynamically builds a menu of
+	available commands.
+	(tnt-build-buddy-buffer): added call to tnt-buddy-list-menu.
+	(tnt-switch-user): added call to tnt-build-buddy-buffer.
+	(tnt-toggle-email): added call to tnt-build-buddy-buffer.
+	(tnt-toggle-mute): added call to tnt-build-buddy-buffer.
+
+2002-09-25  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-toggle-mute): rename from tnt-mute.
+	(tnt-toggle-away): rename from tnt-away-toggle.
+	(tnt-toggle-pounce): rename from tnt-pounce-dwim.
+	(tnt-inhibit-key-bindings): change tnt-mute to tnt-toggle-mute and
+	tnt-away-toggle to tnt-toggle-away; sort the list of bindings;
+	also several changes to make bindings more consistent with buddy
+	list mode bindings.
+	(tnt-buddy-list-mode-map): change tnt-away-toggle to
+	tnt-toggle-away and tnt-pounce-dwim to tnt-toggle-pounce.  also
+	several changes to make bindings more consistent with the global
+	"C-x t" bindings.
+
+2002-09-24  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-buddy-list-filter): also include an offline buddy if
+	they have an event waiting (again, putting back functionality from
+	before Joe's stuff)...
+	(tnt-im-buddy): don't complain about offline buddy when they have
+	an event waiting.
+
+2002-09-24  NeilFred Picciotto  <fred@halfshell.halflab.com>
+
+	* tnt.el (tnt-buddy-list-point): remove the variable storing
+	point.
+	(tnt-build-buddy-buffer): fix the way we restore point after
+	rebuilding the buddy list.  in particular, put point on the first
+	MESSAGE WAITING line, if any, as we used to; otherwise use the row
+	and col that we store before we erase the buffer (as Joe added).
+	(tnt-get-buddy-at-point): no longer setting tnt-buddy-list-point.
+	(tnt-next-buddy): no longer setting tnt-buddy-list-point.
+	(tnt-prev-buddy): no longer setting tnt-buddy-list-point.
+	(tnt-next-group): no longer setting tnt-buddy-list-point.
+	(tnt-prev-group): no longer setting tnt-buddy-list-point.
+
+2002-09-08  Joe Casadonte  <jcasadonte@northbound-train.com>
+
+	* tnt.el (tnt-default-away-message): added new customization option
+	* tnt.el (tnt-away-toggle): added support for `tnt-default-away-toggle'
+	* tnt.el (tnt-get-away-message): added support for `tnt-default-away-toggle'
+
+2002-09-08  Joe Casadonte  <jcasadonte@northbound-train.com>
+
+	* tnt.el (tnt-kill-window-on-shutdown): added new customization option
+	* tnt.el (tnt-open-or-show-buddies): added new convenience function
+	* tnt.el (tnt-kill): changed to call kill-buffer (maybe)
+
+2002-09-08  Joe Casadonte  <jcasadonte@northbound-train.com>
+
+	* tnt.el (tnt-supress-pounce-when-away): added new customization option
+	* tnt.el (main): added new keybinding (\C-xtL)
+	* tnt.el (tnt-pounce-dwim): new function (dwim == Do What I Mean)
+	* tnt.el (tnt-pounce-add): will prompt for nick if none given; rebuilds buddy list
+	* tnt.el (tnt-pounce-delete): added flag to require match on `completing-read'
+	* tnt.el (tnt-pounce-delete): rebuilds buddy list
+	* tnt.el (tnt-pounce-list): new function to list pending pounces
+	* tnt.el (tnt-send-pounce): added away check
+	* tnt.el (tnt-send-pending-pounces-maybe): new function to maybe send pounces
+	* tnt.el (tnt-not-away): calls `tnt-send-pending-pounces-maybe'
+	* tnt.el (tnt-buddy-list-mode-map): two new keybindings (l, L)
+
+2002-09-08  Joe Casadonte  <jcasadonte@northbound-train.com>
+
+	* tnt.el (propertize): added source comment
+	* tnt.el (main): moved global variables up considerably
+	* tnt.el (tnt-customize-mode-line-setting): new function to set mode line vars
+	* tnt.el (tnt-mode-indicator): added new customization option
+	* tnt.el (tnt-show-events-in-mode): added new customization option
+	* tnt.el (tnt-show-away-in-mode): added new customization option
+	* tnt.el (tnt-show-email-in-mode): added new customization option
+	* tnt.el (tnt-beep-on-persistent-messages): added new customization option
+	* tnt.el (tnt-shutdown): moved call to `tnt-set-online-state'
+	* tnt.el (tnt-show-top-event): added call to `tnt-set-mode-string'
+	* tnt.el (tnt-set-online-state): replaced logic with call to `tnt-set-mode-string'
+	* tnt.el (tnt-set-mode-string): new function to control mode indicator
+	* tnt.el (tnt-toggle-email): added call to `tnt-set-mode-string'
+	* tnt.el (tnt-persistent-message-persist): added logic to maybe beep
+	* tnt.el (tnt-persistent-message): added explicit clearing of disable-id
+
+2002-09-08  Joe Casadonte  <jcasadonte@northbound-train.com>
+
+	* tnt.el (main): added definition of `propertize' if not already bound
+	* tnt.el (tnt-show-inactive-buddies): added new customization option
+	* tnt.el (tnt-buddy-fullname-alist): added new customization option
+	* tnt.el (tnt-buddy-list-group-face): added new face for buddy list font-lock
+	* tnt.el (tnt-buddy-list-active-face): added new face for buddy list font-lock
+	* tnt.el (tnt-buddy-list-away-face): added new face for buddy list font-lock
+	* tnt.el (tnt-buddy-list-idle-face): added new face for buddy list font-lock
+	* tnt.el (tnt-buddy-list-inactive-face): added new face for buddy list font-lock
+	* tnt.el (tnt-buddy-list-pounce-face): added new face for buddy list font-lock
+	* tnt.el (tnt-buddy-list-group-face): added new defvar for buddy list font-lock
+	* tnt.el (tnt-buddy-list-active-face): added new defvar for buddy list font-lock
+	* tnt.el (tnt-buddy-list-away-face): added new defvar for buddy list font-lock
+	* tnt.el (tnt-buddy-list-idle-face): added new defvar for buddy list font-lock
+	* tnt.el (tnt-buddy-list-inactive-face): added new defvar for buddy list font-lock
+	* tnt.el (tnt-buddy-list-pounce-face): added new defvar for buddy list font-lock
+	* tnt.el (tnt-buddy-list-font-lock-keywords): added new defvar to hold font-lock keywords
+	* tnt.el (main): added new key-bindings in buddy list mode (a, A, E, g, J)
+	* tnt.el (tnt-buddy-list-mode): added font-lock support
+	* tnt.el (tnt-current-line-in-buffer): new function
+	* tnt.el (tnt-build-buddy-buffy): retains current line & column when rebuilding buffer
+	* tnt.el (tnt-buddy-list-filter): added checks & indicators for pounce, offline;
+					  added support for fullname list; fixed so that
+					  only fullname (or nickname) is mouse-sensitive
+	* tnt.el (tnt-im-buddy): accounts for inactive buddies (offers to pounce instead)
+	* tnt.el (tnt-get-buddy-at-point): accounts for possible fullname
+	* tnt.el (tnt-buddy-edit-mode-map): added binding for \C-c\C-c (saves & exits edit mode)
+	* tnt.el (tnt-save-buddy-list): added optional kill-buffer-after-save flag
+	* tnt.el (tnt-pop-event): added call to rebuild buddy buffer after events change
+
+2002-09-02  Joe Casadonte  <jcasadonte@northbound-train.com>
+
+	* tnt.el (general changes): cleanup up code, putting visual
+				    separators between functions
+	* tnt.el (general changes): moved variables around to group like
+				    with like
+	* tnt.el (tnt-toc-host}: changed from defvar to defcustom
+	* tnt.el (tnt-toc-port}: changed from defvar to defcustom
+	* tnt.el (tnt-login-host}: changed from defvar to defcustom
+	* tnt.el (tnt-login-port}: changed from defvar to defcustom
+	* tnt.el (tnt-language}: changed from defvar to defcustom
+	* tnt.el (tnt-timers-available}: changed from defvar to defconst
+					 (more efficient)
+	* tnt.el (tnt-running-xemacs}: added call to `save-match-data'
+	* tnt.el (tnt-customize): added new interactive function to easily
+				  customize all TNT options
+	* tnt.el (tnt-default-username}: changed from defvar to defcustom
+	* tnt.el (tnt-default-password}: changed from defvar to defcustom
+	* tnt.el (tnt-username-alist}: changed from defvar to defcustom;
+				       fixed doc string to prevent font-lock
+				       from messing up
+	* tnt.el (tnt-default-chatroom}: changed from defvar to defcustom
+	* tnt.el (tnt-sound-exec}: changed from defvar to defcustom
+	* tnt.el (tnt-sound-exec-args}: changed from defvar to defcustom
+	* tnt.el (tnt-beep-on-incoming-message}: changed from defvar to defcustom
+	* tnt.el (tnt-beep-on-first-incoming-message}: changed from defvar to defcustom
+	* tnt.el (tnt-beep-on-visible-incoming-message}: changed from defvar to defcustom
+	* tnt.el (tnt-beep-on-outgoing-message}: changed from defvar to defcustom
+	* tnt.el (tnt-beep-on-chat-invitation}: changed from defvar to defcustom
+	* tnt.el (tnt-beep-on-chat-message}: changed from defvar to defcustom
+	* tnt.el (tnt-beep-on-visible-chat-message}: changed from defvar to defcustom
+	* tnt.el (tnt-beep-on-buddy-signon}: changed from defvar to defcustom
+	* tnt.el (tnt-beep-on-buddy-signoff}: changed from defvar to defcustom
+	* tnt.el (tnt-beep-on-signon}: changed from defvar to defcustom
+	* tnt.el (tnt-beep-on-signoff}: changed from defvar to defcustom
+	* tnt.el (tnt-beep-on-error}: changed from defvar to defcustom
+	* tnt.el (tnt-message-on-buddy-signonoff}: changed from defvar to defcustom
+	* tnt.el (tnt-message-on-chatroom-message}: changed from defvar to defcustom
+	* tnt.el (tnt-use-timestamps}: changed from defvar to defcustom
+	* tnt.el (tnt-use-split-buddy}: changed from defvar to defcustom
+	* tnt.el (tnt-separator}: changed from defvar to defcustom
+	* tnt.el (tnt-recenter-windows}: changed from defvar to defcustom
+	* tnt.el (tnt-directory}: changed from defvar to defcustom
+	* tnt.el (tnt-buddy-list-backup-filename}: changed from defvar to defcustom
+	* tnt.el (tnt-email-to-pipe-to}: changed from defvar to defcustom
+	* tnt.el (tnt-email-binary}: changed from defvar to defcustom
+	* tnt.el (tnt-im-buffers-read-only}: changed from defvar to defcustom
+	* tnt.el (tnt-auto-reconnect}: changed from defvar to defcustom
+	* tnt.el (tnt-inhibit-key-bindings}: changed from defvar to defcustom
+	* tnt.el (main): changed (if tnt-inhibit-key-bindings () ...) to (unless tnt-inhibit-key-bindings ...)
+	* tnt.el (tnt-pounce-delete}: added to documentation string
+	* tnt.el (tnt-unset-just-reconnected}: added documentation string
+	* tnt.el (tnt-buddy-away }: added documentation string
+	* tnt.el (tnt-open}: changed to use `read-passwd' instead of `tnt-read-from-minibuffer-no-echo'
+		 (if available -- it's more secure)
+	* tnt.el (tnt-kill}: changed from (if (null ...) (error ...) ...) to (when (null ...) (error ...)) ...
+	* tnt.el (main): changed (if tnt-im-mode-map () ...) to (unless tnt-im-mode-map ...)
+	* tnt.el (main): changed (if tnt-chat-mode-map () ...) to (unless tnt-chat-mode-map ...)
+	* tnt.el (tnt-join-chat}: changed call to `eval' to `funcall' (more efficient)
+	* tnt.el (tnt-get-input-message}: changed from `buffer-substring' to `buffer-substring-no-properties'
+	* tnt.el (main): changed (if tnt-buddy-list-mode-map () ...) to (unless tnt-buddy-list-mode-map ...)
+	* tnt.el (tnt-switch-to-buffer}: switched to use new `tnt-buddy-list-buffer-name' variable
+	* tnt.el (tnt-buddy-buffer}: switched to use new `tnt-buddy-list-buffer-name' variable
+	* tnt.el (tnt-fetch-info}: added call to `save-match-data'
+	* tnt.el (tnt-fetch-info}: changed from `buffer-substring' to `buffer-substring-no-properties'
+	* tnt.el (tnt-get-buddy-at-point}: added call to `save-match-data'
+	* tnt.el (tnt-get-buddy-at-point}: changed where `beginning-of-line' is called
+	* tnt.el (tnt-next-buddy}: added call to `save-match-data'
+	* tnt.el (tnt-prev-buddy}: added call to `save-match-data'
+	* tnt.el (tnt-next-group}: added call to `save-match-data'
+	* tnt.el (tnt-prev-group}: added call to `save-match-data'
+	* tnt.el (main): changed (if tnt-buddy-edit-mode-map () ...) to (unless tnt-buddy-edit-mode-map ...)
+	* tnt.el (tnt-save-buddy-list}: changed from (if (null ...) (error ...) ...) to (when (null ...) (error ...)) ...
+	* tnt.el (tnt-buffer-to-blist}: added call to `save-match-data'
+	* tnt.el (tnt-buffer-to-blist}: changed from `buffer-substring' to `buffer-substring-no-properties' (twice)
+	* tnt.el (tnt-config-to-blist}: added call to `save-match-data'
+	* tnt.el (tnt-save-buddy-list}: changed from (if (null ...) (error ...) (progn ...))
+					to (when (null ...) (error ...)) ...
+	* tnt.el (tnt-completion-func}: added call to `save-match-data'
+	* tnt.el (tnt-completion-func}: changed from `buffer-substring' to `buffer-substring-no-properties' (twice)
+	* tnt.el (tnt-strip-a-href}: added call to `save-match-data'
+	* tnt.el (tnt-backslashify-string}: added call to `save-match-data'
+	* tnt.el (tnt-strip-html}: added call to `save-match-data'
+	* tnt.el (tnt-strip-some-html}: added call to `save-match-data'
+	* tnt.el (main}: added in call to `tnt-load-hook' at end of file
+	* tnt.el (tnt-buddy-list-buffer-name}: added new defcustom var - replaces old hard-coded value
+	* tnt.el (tnt-load-hook}: added new defcustom var
+	* tnt.el (tnt-persistent-timeout}: changed doc string ('< 0' instead of	 '< 1')
+
+2002-09-02  Joe Casadonte  <jcasadonte@northbound-train.com>
+
+	* tnt.el (tnt-buffer-to-blist): fixed bug by always adding extra
+	  newline at end of buffer (would prevent the buffer from being
+	  saved if the newline was not present)
+	* tnt.el (tnt-persistent-message-persist): fixed bug (comparison
+	  was switched)
+
+2002-07-01  NeilFred Picciotto  <fred@guido.halflab.com>
+
+	* tnt.el (tnt-send-pounce): clearly we should beep when we pounce.
+
+2002-06-27  NeilFred Picciotto  <fred@guido.halflab.com>
+
+	* tnt.el (tnt-archive-filename): needs to be buffer-local!  oops.
+
+2002-06-25  NeilFred Picciotto  <fred@guido.halflab.com>
+
+	* tnt.el (tnt-im-archive-filename): wasn't normalizing buddy's
+	username for the filename before.
+
+2002-06-23  NeilFred Picciotto  <fred@guido.halflab.com>
+
+	* tnt.el (tnt-archive-conversations): new config variable for
+	whether or not to archive conversations to file.  defaults to nil.
+	(tnt-archive-file-roll-over-frequency): if we're archiving, how
+	often to roll the archive files.  also determines the directory
+	structure for those files (either "YYYY/" or "YYYY/mm/" or
+	"YYYY/mm/dd").
+	(tnt-im-archive-filename): return filename for IM archive files.
+	(tnt-archive-directory): generate the date-specific directory for
+	archive files.
+	(tnt-im-buffer): set the buffer-local variable with the archive
+	file filename.
+	(tnt-chat-archive-filename): return filename for chat archive
+	files.
+	(tnt-chat-buffer): set the buffer-local variable with the archive
+	file filename.
+	(tnt-append-message): when appending to the buffer, also append to
+	the archive file.
+
+2002-06-23  NeilFred Picciotto  <fred@guido.halflab.com>
+
+	* tnt.el (tnt-buddy-list-filter): if there's a message waiting
+	from a buddy who has signed off, keep them in the buddy list.
+	(tnt-im-buddy): if buddy is offline and there's a message waiting
+	from them, don't complain when trying to IM them, just switch to
+	their buffer.
+
+2002-06-20  NeilFred Picciotto  <fred@guido.halflab.com>
+
+	* tnt.el (tnt-get-buddy-at-point): move to beginning of line
+	before storing (point).
+	(tnt-set-buddy-status): now storing whether the buddy was already
+	away, so that the "has gone away" message does not appear unless
+	it's actually a change in their status.
+
+2001-07-02  NeilFred Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-version): updated to 2.4 for release.
+
+2001-06-27  NeilFred Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-beep-on-chat-message): added.  may as well separate
+	this setting from the one for IMs, because hey, why not.
+	(tnt-beep-on-visible-chat-message): added.  ditto.
+	(tnt-send-pounce): tnt-push-event was being called with the buffer
+	rather than the buffer-name.  fixed.
+	(tnt-join-chat): now calls tnt-remove-chat-event.
+	(tnt-send-text-as-chat-message): now calls tnt-remove-chat-event.
+	(tnt-append-message): added an extra tnt-separator.
+	(tnt-remove-im-event): now calling tnt-im-buffer-name, rather than
+	doing it itself.
+	(tnt-remove-chat-event): added.
+	(tnt-handle-chat-in): now calling tnt-remove-chat-event rather
+	than the incorrect call to tnt-remove-im-event.  also correctly
+	calling tnt-push-event.  and finally, also using the new
+	tnt-beep-on-chat-message variables.
+	(tnt-handle-chat-invite): now correctly calling tnt-push-event.
+
+2001-06-25  NeilFred Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-backup-buddy-list): now only saves a backup if the
+	current buddy list differs from the backup.  mostly i did this so
+	that the "xx:xx:xx Signed on" will remain in the minibuffer, so
+	that when an auto-reconnect occurs, i can tell at a glance that
+	that's what the beep i heard was.  (this was the reason i added
+	the timestamp to that message, but i still had to switch to the
+	"*Messages*" buffer to see it.)
+	(tnt-handle-closed): a change from (tnt-error) to (error) broke
+	auto-reconnect, since (error) halts execution.  the purpose of
+	that change was to avoid the beep the tnt-error makes, so i just
+	changed it to (message)...
+
+2001-06-25  Scott Evans  <gse@antisleep.com>
+
+	* tnt.el (tnt-mute): Added.  Bound to C-x t m.
+
+2001-06-22  Scott Evans  <gse@antisleep.com>
+
+	* tnt.el misc changes:
+	(tnt-auto-reconnect): Added user-configurable variable.
+	(tnt-running-xemacs): Added variable.
+
+	* tnt.el read-only bugfix:
+	(tnt-append-message): Use put-nonduplicable-text-property
+	to add read-only property on XEmacs.  This fixes a bug: previously
+	you couldn't copy text from an IM buffer if you were running on
+	XEmacs for NT.  The copy routine tried to strip out ^M's but the
+	extent being copied was read-only so it broke.  Dumb.  I'm going
+	to report this as a bug.
+	(tnt-im-buffers-read-only): Added user-configurable variable.
+
+	* tnt.el Added some basic contact info to the top comments.
+
+	* tnt.el Moved (provide 'tnt) to bottom of file.
+
+	* tnt.el Use tnt-timestamp-format in signon/signoff messages.
+
+	* tnt.el Sound support
+	Big changes.  Beep variables can now be set to filenames
+	specifying soundfiles to play.  XEmacs uses built-in sound
+	support; FSF uses a refactored/extended version of Jim's code.
+	Changed the names of some of the beep variables to make them
+	consistent; this needs to be mentioned in release notes.
+	Also added beeps that run at login/logoff, as well as one
+	the first time you get a message from someone.
+
+	* tnt.el logon timers
+	(tnt-login-flag-timer): Created variable to track this timer so we
+	could cancel it if users log off quickly.  Did this while chasing
+	a bug: I was getting "xxxx online" messages and sounds during
+	login, which the tnt-login-flag is supposed to fix.  It turns out
+	that run-at-time doesn't work on XEmacs and the function executes
+	immediately.  So this will remain broken on XEmacs but I left in
+	the timer variable anyway 'cause it's a good idea.
+
+2001-06-20  NeilFred Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-reconnecting-idle-time): added.  allows
+	auto-reconnecting to leave idle time reasonably intact.
+	(tnt-send-idle): now takes optional idle time as argument, which
+	is needed for the auto-reconnect.  also now rebuilding the buddy
+	buffer, so that user immediately shows up as idle in their own
+	buddy list.
+	(tnt-send-unidle): now makes sure we're online before telling the
+	toc server we're not idle.
+	(tnt-shutdown): now making sure we unidle.
+	(tnt-buddy-idle): now calling tnt-buddy-idle-secs rather than
+	calculating that internally.
+	(tnt-buddy-idle-secs): added, taking a portion of code out of
+	buddy-idle.  basically just separating the computation from the
+	presentation, so that the computation can be retrieved on its own.
+	(tnt-handle-closed): now saving the idle-time (by calling
+	buddy-idle-secs), and including a timestamp in the minibuffer
+	message.
+	(tnt-handle-nick): now calling send-idle if we saved an idle time
+	when disconnected.
+	(tnt-handle-error): now calls toc-close if the error code was
+	between 980-989.  before, if a login failed, it was trying to
+	auto-reconnect or something, and it would continue to fail...  now
+	it doesn't keep trying.  hopefully this doesn't break something
+	else, and hopefully 980-989 are all of and the only signon errors.
+	(tnt-handle-sign-on): now including a timestamp in the minibuffer
+	message.
+
+2001-05-16  NeilFred Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-build-buddy-buffer): if there's a message from a
+	non-buddy, then the search for "MESSAGE WAITING" will fail.  now
+	handling that case properly.
+
+2001-05-16  NeilFred Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-event-ring): moved defvar to earlier in the file.
+
+2001-05-16  NeilFred Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-datestamp-format): added.
+	(tnt-last-datestamp): added.  used for inserting a datestamp in IM
+	buffers when the date changes and the IM buffer is still being
+	used.  this is useful if you leave emacs running for days at a
+	time.
+	(tnt-im-buffer): when a new IM buffer is created, we set an
+	initial value for the last-datestamp in that buffer.
+	(tnt-append-message): if it's no longer the same day as the
+	last-datestamp, then update the last-datestamp and insert the
+	datestamp in the buffer.
+	(tnt-buddy-list-filter): now inserts "(MESSAGE WAITING)" in buddy
+	list next to any buddies whose IM buffers are in the event ring.
+	(tnt-build-buddy-buffer): if event ring is non-empty, we now move
+	point to the first "(MESSAGE WAITING)" line; otherwise we use
+	tnt-buddy-list-point as before.
+
+2001-05-16  NeilFred Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-show-buddies): added call to tnt-show-top-event.
+	this makes it so that events in the ring get displayed when user
+	goes to the buddy list buffer, or presses space in the buddy list
+	buffer (pressing space already calls tnt-show-buddies, to
+	regenerate the contents of the buddy list buffer).  with the old
+	implementation of persistent messages, i would often press space
+	to check whether i had any messages waiting, so this is just
+	restoring that functionality...
+
+2001-04-18  Scott Evans  <gse@antisleep.com>
+
+	* tnt.el (tnt-handle-chat-in): Updated to be more like
+	tnt-handle-im-in, as far beeping and modeline messages.
+	tnt-message-on-chatroom-message: added
+
+
+2001-04-09  James A  <james@ja.ath.cx>
+
+	* tnt.el (tnt-append-message): changed the end to cause additions
+	to buffers to be read-only but still leave the input section of
+	the buffer writable.
+	(tnt-timestamp-format): added
+	(tnt-default-chatroom): added
+	(tnt-persistent-timeout): added
+	(custom): added support for custom to change faces
+	(tnt-append-message): added support for tnt-timestamp-format
+	(tnt-persistent-message-disable-id): added
+	(tnt-persistent-message-persist): added
+	(tnt-persistent-message): removed other version and replaced with
+	this one which will redisplay the persistent message in a
+	non-destructive way every tnt-persistent-timeout seconds.
+	(tnt-read-string-with-default): added
+	(tnt-join-chat): changed to use tnt-read-sting-with-default so
+	that you simply press enter to use the default chatroom name or
+	type in a new name much like you would do with a buffer kill or
+	switch.  The reason is that with a random name, it's unlikely
+	that the user will want to change it without completely removing
+	it.
+	(tnt-replace-me-statement): added
+	(tnt-append-message): added support for tnt-replace-me-statement
+	(tnt-me-statement-format): added
+	(tnt-append-message): changed to normalizing tnt-current-user as
+	well as user when comparing to see which face to use.  the reason
+	for this is that when you want custom formatting of your nick,
+	you'll use "J A m E s" as your user name which will be in
+	tnt-current-user and thus not match user once normalized.
+	(TODO): noticed the processed read-only im todo entry and removed
+	it.
+	(custom): moved a few of the variables that I had added before
+	into the custom support section.
+	(tnt-persistent-message-persist): changed to support not
+	repeating if someone really doesn't want to have persistent
+	messages.
+	(tnt-persistent-timeout): changed the doc to describe the change
+	above in tnt-persistent-message-persist
+	(tnt-handle-error): added more error messages for numbers.
+
+2001-03-09  NeilFred Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-html-tags-to-strip): added.
+	(tnt-html-regexps-to-replace): renamed, removed the part that got
+	moved into tags-to-strip.
+	(tnt-add-html-tag-to-strip): added.
+	(tnt-add-html-regexp-to-replace): added.
+	(tnt-reformat-text): calling strip-some-html once for the
+	tags-to-strip, and then doing the old call to reduce for
+	regexps-to-replace.
+
+2001-02-19   <jdaniel@mit.edu>
+
+	* tnt.el (tnt-send-idle): Added a call to
+	(add-hook 'pre-command-hook 'tnt-send-unidle).  pre-command-hook is
+	called before every user-command which makes the unidle-timer
+	unnecessary.  I think buggy emacs versions still keep tnt-send-idle
+	from being called when it should, but no longer cause spurious calls
+	to tnt-send-unidle.
+	(tnt-send-unidle): Added call to remove-hook the hook added by
+	tnt-send-idle
+	(tnt-use-idle-timer): Removed check for tnt-buggy-idle and the note
+	about buggy emacs versions
+	(tnt-buggy-idle): Removed
+	(tnt-unidle-timer): Removed
+	(tnt-send-unidle-after): Removed
+	(tnt-shutdown): Swapped unidle-timer stuff with a call to remove-hook
+	(tnt-handle-sign-on): Removed call to start tnt-unidle-timer
+	(tnt-test-for-buggy-idle): Removed
+
+2001-02-12  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-html-regexps): now stripping out <PRE> tags
+
+2001-01-28    <tntdevel@brokendreams.net>
+
+	* tnt.el (tnt-pounce-delete): Added a message when deleting an
+	existing pounce message.
+
+2001-01-16    <tntdevel@brokendreams.net>
+
+	* tnt.el (tnt-set-buddy-status): Added messages when a user sets
+	themselves as away, and returns (for convenience).
+
+2001-01-10    <tntdevel@brokendreams.net>
+
+	* tnt.el (tnt-shutdown): Removed clearing of pounce msgs.. They should
+	stick around.
+
+2001-01-07    <tntdevel@brokendreams.net>
+
+	* tnt.el (tnt-send-pounce): Made null "" messages send a "user is now
+	available" message to their buffer.
+	(tnt-pounce-add): Made null "" messages remain null, rather than being
+	sent as "none".
+	(tnt-play-sound): Added fucntionality for playing sounds corresponding
+	to incoming IM's, outgoing IM's, and first receipt of IM's.
+	(tnt-handle-im-in): Added a call to (tnt-play-sound 'incoming)
+	(tnt-send-text-as-instant-message): Added a call to
+	(tnt-play-sound 'outgoing).  I've restricted this to here because it
+	makes away messages silent as they should be.
+	(tnt-handle-im-in): Added a call to (tnt-play-sound 'first) if a buffer
+	for the incomign use doesn't exist.
+
+2001-01-03    <tntdevel@brokendreams.net>
+
+	* tnt.el (tnt-set-buddy-status): Added a call to tnt-send-pounce to
+	fix up the pounce code.
+	(tnt-pounce-add): Added a call to toc-normalize when reading in from
+	the minibuffer.
+
+2001-01-02  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-login-flag-unset-after): now defaulting to 10 rather
+	than 3, since login seems to take a little longer.  this means
+	that it will less often happen that after logging in, all your
+	buddies appear with the "just logged on" message.
+	(tnt-version): incremented version to 2.3.2
+
+2001-01-02  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-handle-sign-on): removed call to toc-init-done
+	* tnt.el (tnt-handle-config): added call to toc-init-done
+
+2000-12-01    <tntdevel@brokendreams.net>
+
+	* tocstr.el (tnt-timers-available): Changed the calls of
+	string-as-unibyte to an if statement checking whether or not
+	the function is bound.
+	(tnt-string-as-unibyte-available): Added.
+	(tnt-timers-available): Moved things around, now tocstr looks for
+	tnt-string-as-unibyte-available before defining.. shoudl solve
+	our problems)
+
+2000-14-07    <tntdevel@brokendreams.net>
+
+	* tnt.el: Changed minor version number.  Now version 2.3
+
+2000-11-07    <tntdevel@brokendreams.net>
+
+	* tocstr.el (tnt-timers-available): Changed occurances of
+	string-make-unibyte to string-as-unibyte.  This should solve
+	the compat problems.
+
+2000-11-06    <tntdevel@brokendreams.net>
+
+	* tocstr.el: (tocstr-init-receiver): the logic here was reversed and
+	has been fixed to reflect the proper logic.  This should compile
+	now.
+
+2000-11-06  Jim Whitehead  <tntdevel@sourceforge.net>
+
+	* tocstr.el (tocstr-filet): changed the definitions to reflect
+	the proper them-else
+
+2000-11-06  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-buddy-list-point): added.
+	(tnt-show-buddies): now switching to the buffer before we build
+	it.
+	(tnt-build-buddy-buffer): now using globally-stored point, rather
+	than locally.
+	(tnt-get-buddy-at-point): store point.
+	(tnt-next-buddy): store point.
+	(tnt-prev-buddy): store point.
+	(tnt-next-group): store point.
+	(tnt-prev-group): store point.
+
+2000-08-02  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-just-reconnected): added.
+	(tnt-just-reconnected-unset-after): added.
+	(tnt-unset-just-reconnected): added.
+	(tnt-handle-closed): now only reconnects if we didn't just
+	reconnect once.
+	(tnt-handle-nick): sets the just-reconnected flag, and starts a
+	timer to unset it.
+
+2000-07-31  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-backup-or-restore-buddy-list): no longer
+	interactive.  now buries the *edit-buddies* buffer.  no longer
+	returns buddy-blist.
+	(tnt-handle-config): now calls backup-or-restore.
+	(tnt-handle-nick): no longer calls backup-or-restore.
+
+2000-07-28  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-restore-buddy-list): added error reporting, more
+	checking.  no longer returns buddy-blist.
+	(tnt-backup-buddy-list): added.
+	(tnt-restore-buddy-list-if-necessary): removed.  replaced with
+	below.
+	(tnt-backup-or-restore-buddy-list): added.  calls either "restore"
+	or "backup".
+
+2000-07-28  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-switch-user): now checks if we're online, and won't
+	change username if we are.
+
+2000-07-28  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-backslashify-string): added.  given a string, adds
+	backslashes to make a regexp that matches the original string.
+	(tnt-strip-a-href): now calls backslashify, so that when a url
+	comes in that has a ? in it, we still don't see it twice.
+
+2000-07-27  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-restore-buddy-list): made interactive.
+
+2000-07-24  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-neliminate-newlines): now replacing newlines *and*
+	carriage returns with spaces.  not entirely sure whether this is
+	necessary, but it can't hurt.
+	(tnt-append-message): now calling toc-normalize.  there was some
+	situation where a name was not getting colored properly because of
+	this.
+	(tnt-append-message-and-adjust-window): now calling
+	tnt-reformat-text instead of tnt-strip-html.
+	(tnt-pipe-message-to-program): now calling tnt-reformat-text
+	instead of tnt-strip-html.
+	(tnt-handle-chat-invite): now calling tnt-reformat-text instead of
+	tnt-strip-html.
+	(tnt-strip-some-html): added.  similar to tnt-strip-html, but
+	takes the regexp and replacement string as input.
+	(tnt-html-regexps): added.  a list of regexp-and-replacement
+	pairs.
+	(tnt-strip-html): removed the call to strip-a-href, since
+	reformat-text now takes care of that.
+	(tnt-reformat-text): added.  just calls tnt-strip-some-html
+	repeatedly, with all the regexps in tnt-html-regexps.
+
+2000-07-11  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-get-buddy-at-point): added.  pulled part of
+	tnt-im-buddy out into its own function.
+	(tnt-im-buddy): now calling get-buddy-at-point
+	(tnt-buddy-on-mouse-down): added.  variable to store the nickname
+	that the user "mouse-down"ed on, to check whether they mouse-up on
+	the same nickname.
+	(tnt-im-buddy-mouse-down): added.  stores nickname in above.
+	(tnt-im-buddy-mouse-up): added.  compares nickname to above, then
+	starts IM conversation.
+	(tnt-im-buddy-mouse): removed.
+	(tnt-buddy-list-mode-map): changed mouse-down and mouse-up bindings.
+
+2000-07-10  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-build-buddy-buffer): now saving point in the
+	buddy-buffer when we rebuild the buffer.  otherwise the cursor
+	will sometimes move suddenly to the end of the buffer, which is
+	annoying when it happens to happen right while you're trying to
+	move it onto someone's name.
+
+2000-07-10  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-handle-im-in): now removing an event from the ring
+	when the buffer is visible -- if the user made the IM buffer
+	visible in a way other than "C-x t a" (for example, with "C-x b"),
+	then the persistent "message available" message is annoying.
+	(tnt-send-text-as-instant-message): remove event from ring if you
+	say something too (not just the other person).
+	(tnt-next-event): now tells user if there are no events.
+	(tnt-prev-event): now tells user if there are no events.
+	(tnt-remove-im-event): simplified a little.  also, put
+	toc-normalize in here, rather than requiring it to always be
+	called by the calling function.
+	(tnt-im): now does not call toc-normalize, since it will be done
+	in remove-im-event.
+	(tnt-directory): added.
+	(tnt-buddy-list-backup-filename): removed the leading ".tnt-",
+	since it's now in a directory.
+	(tnt-restore-buddy-list): now using "~/.tnt/username-buddies" for
+	backup, rather than "~/.tnt-username-buddies".  though there's
+	still no backup functionality, only restore.
+
+2000-06-28  Jim Whitehead  <jnwhiteh@brokendreams.net>
+
+	* tnt.el (tnt-remove-im-event): Added this function to take care
+	of removing an im event from the event ring.
+	* tnt.el (tnt-im): Added a call to tnt-remove-im-event to clear
+	any pending im's from that user from the event-ring.  Makes things
+	a little cleaner
+
+2000-06-08  Jim Whitehead  <jnwhiteh@mailbox.syr.edu>
+
+	* tocstr.el: Integrated the patch into tocstr.el.  Used the
+	tnt-timers-available functionality to save compatability.  The
+	"enhancements" will be available in all versions of emacs containing
+	the run-at-time procedure.
+	(tnt-handle-nick): Added a small hack here to set the tnt-current-user
+	to tnt-username instead of what the server supposedly sends back to us.
+
+2000-06-01  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-handle-nick): if we're supposed to be forwarding to
+	email, notify that we successfully reconnected (we were already
+	notifying when the connection is closed).
+
+2000-06-01  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-set-away): added.  does basically everything
+	get-away-msg used to do, except for the part about getting the
+	away message.
+	(tnt-get-away-msg): now just gets the away message.
+	(tnt-away-toggle): now calls set-away, passing in the result of
+	get-away-msg.
+	(tnt-reconnecting-away): added.
+	(tnt-reconnecting-away-msg): added.
+	(tnt-handle-closed): now saves away status (tnt-away and
+	tnt-away-msg).
+	(tnt-handle-nick): now restores away status.
+
+2000-06-01  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-reconnecting): added.
+	(tnt-handle-closed): now sets reconnecting flag.
+	(tnt-handle-nick): now checks reconnecting flag -- if it's t,
+	make it nil; if it's already nil, show the buddy list.
+
+2000-05-27  Jim Whitehead  <jnwhiteh@syr.edu>
+
+	* tnt.el (tnt-fetch-info): fixed the regexp so it works.
+
+2000-05-26  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-message-on-buddy-signonoff): changed name from
+	"show-buddy-signonoff", to be consistent with "beep-on-..." vars.
+	(tnt-set-buddy-status): changed name of var
+
+2000-05-26  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-open): added "Attempting to sign on..." message
+	(tnt-buddy-list-mode-map): added tnt-fetch-info binding
+	(tnt-fetch-info): added
+	(tnt-handle-closed): now tries to auto-reconnect
+
+2000-05-24  Jim Whitehead  <jnwhiteh@syr.edu>
+
+	* tnt.el (tnt-show-buddy-signonoff): added.
+	(tnt-set-buddy-status): checks for tnt-show-buddy-signoff, determines
+	whether or not signon/off messages are displayed in the minibuffer.
+
+2000-05-22  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-pop-event): now gives message if called when there
+	are no events to respond to.
+
+2000-05-16  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-login-flag-unset-after): added.
+	(tnt-login-flag): added.
+	(tnt-set-buddy-status): now checks the login flag.  for the first
+	three seconds we're logged in, changes in buddy status are not
+	reported to the user, since mostly they're not really "changes".
+	(tnt-unset-login-flag): added.  called by the timer.  unsets the
+	login flag.
+	(tnt-handle-sign-on): now sets the login flag, and creates a timer
+	to call the unset function.
+
+2000-05-16  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-set-buddy-status): moved the call to
+	set-just-signedonoff to within the check to see whether status
+	just changed.  this fixes the bug where before it would say
+	someone just signed on who in fact just set "away" or just became
+	idle or whatever.
+
+2000-05-16  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-im-buddy): now checks whether user is online.
+	(tnt-set-buddy-status): now checking tnt-timers-available before
+	setting a user as "just signed on/off".
+
+2000-05-16  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-just-signedonoff-alist): added.
+	(tnt-just-signedonoff-delay): added.
+	(tnt-build-buddy-buffer): replaced big quoted lambda with quoted
+	function tnt-buddy-list-filter.
+	(tnt-buddy-list-filter): added.
+	(tnt-buddy-list-filter): now displays just-onoff, indicating
+	whether a buddy just signed on or off.  this also means that a
+	buddy can be displayed even if they're not online, which didn't
+	used to be the case.
+	(tnt-shutdown): sets just-signedonoff-alist to nil.
+	(tnt-set-buddy-status): calls set-just-signedonoff.
+	(tnt-set-just-signedonoff): added.  stores info in the new alist,
+	and sets a timer to unset a minute later.
+	(tnt-unset-just-signedonoff): added.  called by the timer above.
+	removes an element from the alist.  but note that a new entry
+	could have been added to the alist in between, in which case we do
+	not remove it.  (using a timestamp to ensure that.)
+	(tnt-get-just-signedonoff): added.  returns nil if no entry in the
+	alist, or " (just signed %s)" with "on" or "off" substituted.
+
+2000-05-15  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-beep): now accepts 'current, as well as 'visible and
+	'audible.
+	(tnt-beep-on-message-available-event): now defaults to 'current
+	instead of 'audible.
+	(tnt-beep-on-error): now defaults to 'current instead of 'audible.
+
+2000-05-14  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-beep): added.  beeps visibly, audibly, or not at
+	all, according to the argument.
+	(tnt-beep-on-message-available-event): added.
+	(tnt-beep-on-message-in-visible-buffer): added.
+	(tnt-beep-on-error): added.
+	(tnt-beep-beep-beep): removed.  (its functionality is now covered
+	by the message-available-event and message-in-visible-buffer
+	variables above.)
+	(tnt-handle-im-in): now uses the new beep variables.
+	(tnt-handle-chat-invite): now uses the new beep variable.
+	(tnt-error): now uses the new beep variable.
+
+2000-05-14  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-buddy-list-backup-filename): added.
+	(tnt-restore-buddy-list-if-necessary): added.
+	(tnt-buddy-list-is-empty-p): added.
+	(tnt-restore-buddy-list): added.
+	(tnt-handle-nick): now calls the restore from backup function.
+	also calls (tnt-show-buddies), since if we are restoring from
+	backup, we want to go to the buddy list buffer after we're done
+	restoring it.
+	(tnt-handle-sign-on): removed (tnt-show-buddies).  now doing that
+	in tnt-handle-nick, so that it happens after we restore the buddy
+	list.
+
+2000-05-11  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* Makefile (VERSION_PATTERN): made version pattern more general
+	(supports x.x or x.x.x, or really anything)
+
+	* tnt.el (tnt-version): updated version to 2.2.1
+
+2000-05-03  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-strip-a-href): if the link url appears again as the
+	link text, we don't need to see it twice.  in particular, this
+	happens if the person at the other end typed in a url or email
+	address and their client made it a link for them.
+
+2000-05-01  John Jannotti  <jj@lcs.mit.edu>
+
+	* toc.el (toc-permit-mode): Added (keeps track of server side mode)
+	(toc-permit-list): Added (keeps track of server side list)
+	(toc-add-permit): Keep track of server info
+	(toc-add-deny): Keep track of server info
+	(toc-permit-all): Smarter if already in the right mode
+	(toc-deny-all): Smarter if already in the right mode
+	(toc-permit-only): Smarter if already correct
+	(toc-deny-only): Smarter is already correct
+	(toc-open): Reset the permit-mode and permit-list
+
+2000-04-28  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el: fixed bug introduced on 2000-04-21.  was checking
+	(member 'tnt-other-name-face (face-list)), should be checking
+	(not (member ...)).
+
+2000-04-28  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (cl): now doing (require 'cl).  maybe later we'll
+	implement those few functions we're using...
+
+	* Makefile (RELEASE): Changelog changed to ChangeLog
+	(release): now specifying filename in cmd line to tar rather than
+	redirecting into file
+
+	* tnt.el (tnt-version): updated version to 2.2
+
+2000-04-21  John Jannotti  <jj@lcs.mit.edu>
+
+	* tnt.el: Use a slightly silly way to check if a face is already
+	defined.  Emacs uses internal-find-face, XEmacs uses find-face, so
+	we just call member on (face-list) which both support.
+
+2000-04-18  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-completing-read-list): added &optional
+	initial-input, which gets passed through to completing-read.
+	(tnt-expand-groups-for-chat-invitation): needed to make it apply
+	'append, rather than simply append, since what we have is a list
+	of lists.
+	(tnt-send-text-as-chat-invitation): now using a while loop to keep
+	prompting the user until expanding groups does not change the list.
+
+2000-04-16  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-expand-groups-for-chat-invitation): oops.
+	tnt-online-buddies-collection was not in the format i needed.  now
+	doing the correct thing, using the alist, but checking each buddy
+	to see if they're currently online.
+
+2000-04-15  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-expand-groups-for-chat-invitation): was assuming
+	tnt-buddy-alist contains only online buddies.  in fact it also
+	contains buddies who have been online and signed off.  now calling
+	tnt-online-buddies-collection instead.
+
+2000-04-13  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-config-to-blist): fixed paren typo.
+
+2000-04-13  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-buddy-alist): moved declaration earlier to avoid
+	compiler complaining.
+
+2000-04-13  John Jannotti  <jj@lcs.mit.edu>
+
+	* tnt.el (tnt-turn-on-debugging): added
+	(tnt-turn-off-debugging): added
+	(tnt-affect-debugging): added
+	(tnt-handle-config): Set up permit/deny correctly
+	(tnt-config-to-blist): Also parse permit/deny stuff
+	(tnt-blist-to-config): Also spit out permit deny stuff
+	(tnt-blist-to-config): Simplified, probably sped up by getting rid
+	of whiles and using built in mapconcats
+
+	* toc.el (toc-permit-only): Added
+	(toc-deny-only): Added
+	(toc-permit-all): Added
+	(toc-deny-all): Added
+	(toc-add-permit): Simplified
+	(toc-add-deny): Simplified
+
+2000-04-12  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-send-text-as-chat-invitation): you can now give the
+	name of one of your buddy groups in the list of people to invite.
+	(tnt-expand-groups-for-chat-invitation): given the user-list,
+	replaces any groups with all the members of that group who are
+	currently online and are not already in this chat.
+	(tnt-online-buddies-and-groups-collection): added.  for
+	tab-completion of the invite list.  basically appends the list of
+	all online buddies with the list of all groups (whether or not
+	anyone in that group is currently online).
+
+2000-04-12  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-completing-read-list): removed extraneous (let
+	((collection collection)) ...)
+
+2000-04-12  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-my-name-face and tnt-other-name-face): now only
+	create these faces if they don't already exist.  point being that
+	if they do exist, the user may have set different colors than the
+	defaults, so we don't want to change those.  this is really only
+	an issue for us developers, since end-users are unlikely to be
+	reloading tnt.el after they've changed the colors.  but i reload
+	tnt.el all the time, and (before) i was always having to reset my
+	colors.
+
+2000-04-12  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-append-message): insert time stamp whether or not
+	this is a message from a user.
+
+2000-04-12  John Jannotti  <jj@lcs.mit.edu>
+
+	* tnt.el (tnt-blist-to-buffer): Simplify filter interface so
+ 	filters need not add spaces.
+ 	(tnt-build-buddy-buffer): Remove extra spaces in filter.
+	(tnt-blist-to-buffer): Use concat instead of format so string
+	properties inserted by filter are copied.
+	(tnt-build-buddy-buffer): Make buddies mouse highlighted to
+	reflect the fact that they are clickable.
+	(tnt-buddy-list-mode-map): Make it so that mouse-2 doesn't also
+	try to yank when in buddy-list-mode.
+	(tnt-initialize-blist): make this tnt-handle-config.  The
+	previous handler just called tnt-initialize-blist
+
+2000-04-12  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-test-for-buggy-idle): added.  tests emacs for proper
+	idle timer handling.
+
+2000-04-12  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-buddy-edit-buffer): fixed typo.  with-current-buffer
+	was typed as with-curren-buffer.
+
+2000-04-12  John Jannotti  <jj@lcs.mit.edu>
+
+	* tnt.el: use with-current-buffer instead of a save-excursion plus
+	a set-buffer when possible.
+	(tnt-set-buddy-status): if a buddy goes online/offline and you
+	already have an im-buffer for that buddy, note it in the buffer.
+
+2000-04-11  John Jannotti  <jj@lcs.mit.edu>
+
+	* tnt.el (tnt-im-mode, tnt-chat-mode): Be explicit about turning
+ 	on autofill
+	(tnt-switch-to-buffer): Just make this switch buffers instead of
+	returning a function to call to switch buffers.
+
+	* toc.el (toc-chat-join): Force exchange to be 4 as per PROTOCOL.
+
+	* tnt.el (tnt-open): Use add-hook instead of setq.
+	(tnt-handle-sign-on): Just use toc-keepalive, get rid of
+ 	tnt-keepalive.
+	(tnt-get-away-msg): Removed extraneous message (we called message
+ 	twice in a row).
+
+	* toc.el (toc-handle-opened, toc-handle-closed,
+ 	toc-handle-receive): Use toc-run-hooks instead of apply.
+	(toc-run-hooks): Added.  Using this allows multiple "subscribers"
+	to the various toc "events".
+	(toc-run-hooks): Use mapcar not mapc.  Creates more garbage, but
+	Emacs doesn't have mapc.
+
+	* tnt.el (tnt-shutdown): Changed name from tnt-buddy-shutdown as
+	it has become a catchall for all shutdown realted stuff.  tnt-kill
+	and tnt-handle-close had some duplicated code that I put here
+	because, inevitably, someone would put some shutdown stuff in one
+	but not the other.
+	(tnt-repeat): Added.  Sets up a repeating timer in a way that
+	XEmacs (and Emacs) likes.  Made it its own function because
+	interval has to be the first and second arg to run-at-time, which
+	looks ugly.
+	(tnt-buggy-idle): Added a variable tnt-buggy-idle which helps
+	control whether we do idle handling.  It defaults to t so we do
+	not do idle handling.  It should be some sort of complicated test
+	to see if the bug exists.  For now, to override it, you must set
+	it to nil *before* loading tnt.el since it controls the default
+	setting of a later variable.
+	(tnt-im-mode): Use syntax-table and abbrev-table from text-mode.
+	(tnt-chat-mode): Use syntax-table and abbrev-table from text-mode.
+	(tnt-buddy-list-mode): Use syntax-table from text-mode.
+	(tnt-buddy-edit-mode): Use syntax-table from text-mode.
+	(tnt-blist-to-buffer): Eliminated.  It was called in only one
+	place, and when called in that place most of the code was
+	superfluous.
+
+2000-04-10  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-handle-closed): now checking whether unidle-timer
+	exists before canceling it, rather than when idle-timer exists.
+	(tnt-handle-sign-on): uncommented out the unidle-timer.
+	use-idle-timer is still defaulting to nil, so this doesn't really
+	need to be commented out.
+	(tnt-timers-available): added.  checks (fboundp 'run-at-time).
+	(tnt-use-keepalive): now defaults to timers-available.
+	(tnt-use-buddy-update-timer): now defaults to timers-available.
+	(tnt-use-idle-timer): changed the note in the doc string to better
+	describe the current bug.
+	(tnt-email-binary): just made the doc string more grammatical and
+	informative.
+
+	* toc.el (toc-handle-receive): just fixed some whitespace.  i
+	guess i'm as anal as john.
+
+2000-04-07  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-send-idle): added.
+	(tnt-send-unidle): added.  (currently does not get called properly
+	when you become unidle.)
+	(tnt-use-buddy-update-timer): added.
+	(tnt-use-idle-timer): added.  (currently defaults to nil, because
+	becoming unidle is not yet supported.)
+	(tnt-idle-timer): added.
+	(tnt-send-idle-after): added.
+	(tnt-unidle-timer): added.
+	(tnt-send-unidle-after): added.
+	(tnt-currently-idle): added.
+	(tnt-buddy-update-timer): added.
+	(tnt-buddy-update-interval): added.
+	(tnt-keepalive): now using a repeating timer object, rather than
+	creating a new one each time.  for one thing, before we would have
+	been unable to cancel the timer if we log out or get disco'ed
+	before the first time it ran.  also there's no point in allocating
+	a new object every minute...
+	(tnt-handle-closed): now cancelling all the timers.  also,
+	checking whether the timer itself is non-nil rather than whether
+	the "use" variable is non-nil.
+	(tnt-handle-sign-on): now creating timers for updating the
+	*buddies* buffer and for telling the server we've been idle.
+
+2000-04-07  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-buddy-idle): now returning a string of the form
+	"1h12m" or "34m".
+	(tnt-build-buddy-buffer): since idle is now a string, we can't
+	compare it to 0, but if it's not nil, it should always be a string
+	to display.  also, changed a complicated nesting of ifs into an
+	equivalent but simpler cond.
+	(tnt-buddy-list-mode-map): hitting space in the *buddies* buffer
+	now causes it to refresh idle times.
+
+2000-04-07  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-show-buddies): changed apply to funcall
+	(tnt-set-buddy-status): now storing the time the buddy became
+	idle, rather than the amount of time they've been idle.
+	(tnt-buddy-idle): now computing the time they've been idle based
+	on when they became idle.
+	(tnt-build-buddy-buffer): now making sure idle is non-nil before
+	comparing it to 0.
+
+2000-04-06  John Jannotti  <jj@lcs.mit.edu>
+
+	* toc.el (toc-handle-receive): Fix some indentation.  Sorry I'm so
+	anal.
+	(toc-normalize): Try, try again.  Rewrote much more simply, maybe
+	faster.  This time it definitely works in both Emacs and XEmacs.
+
+	* tnt.el (tnt-handle-goto-url): Added
+	(tnt-open): bind the goto-url function to tnt-handle-goto-url
+
+	* toc.el: Reorganized to reflect the ordering of documentation in
+ 	PROTOCOL
+	(toc-evil): Added
+	(toc-add-permits): Added
+	(toc-add-denies): Added
+	(toc-chat-evil): Added
+	(toc-get-info): Added
+	(toc-set-info): Added
+	(toc-set-idle): Added
+	(toc-handle-receive): Stop sending cmd for GOTO_URL, since we now
+	handle it correctly.
+
+	* tnt.el (tnt-handle-error): Added catchall clause to notice weird
+ 	errors
+
+2000-04-06  Neil ''Fred'' Picciotto  <fred@guido.derf.net>
+
+	* tnt.el (tnt-leave-chat): now using completing-read with
+	the list of chats you're in (the cdrs from tnt-chat-alist)
+	(tnt-online-buddies-collection): changed name from
+	tnt-buddy-collection, so that it's clear that this gives just the
+	buddies who are currently online.
+	(tnt-send-text-as-chat-invitation): added (completion-ignore-case t)
+	(tnt-send-text-as-chat-whisper): added (completion-ignore-case t)
+
+	* README: added tnt-leave-chat info.
+
+2000-04-06  John Jannotti  <jj@lcs.mit.edu>
+
+	* tnt.el (tnt-inhibit-key-bindings): Added keybinding for
+ 	tnt-leave-chat.
+	(tnt-show-help): Added help for tnt-leave-chat
+	(tnt-chat-buffer-name): Made comment into docstring
+	(tnt-chat-buffer): Made comment into docstring
+
+	* toc.el (toc-chat-invite): Made the &rest parameter a normal
+ 	parameter so we wouldn't need to use apply when we have built a
+ 	list of buddies to invite.
+
+	* tnt.el (tnt-join-chat): Better docstring
+	(tnt-handle-chat-join): Tiny simplification
+	(tnt-append-message): Significant interface change.  User now
+	comes after message and is optional so if it is not needed it can
+	be left out, not sent as nil.  More significantly, a new optional
+	argument MODIFIED is used for the various parenthetical comments
+	made about some messages, such as Auto-response, whispers,
+	invites, etc.  This is so that the coloring mechanism gets to look
+	at the unadorned username.  Now when I whisper to someone in a
+	chat room it will still be printed in my color.
+
+2000-04-05  John Jannotti  <jj@lcs.mit.edu>
+
+	* tnt.el (tnt-chat-leave): Allows quitting a chat without killing
+ 	the buffer.
+	(tnt-join-chat): tnt-join-chat nows joins the chat associated with
+ 	the current buffer if there is one.
+	(tnt-chat-buffer-killed): Uses tnt-chat-leave
+	(tnt-handle-eviled): handle the eviled message (untested, no client)
+
+	* PROTOCOL: Neatened up so everything it fits in 80 columns
+
+	* toc.el (toc-handle-receive): Added code for all the messages
+ 	that we don't handle yet.  For the moment I've hooked all except
+ 	'eviled' up to tnt-debug which logs the message in a buffer called
+ 	"*tnt-debug*".  For release they should be hooked up to some
+ 	ignore function (unless we actually use them)  Also moved the
+	clauses that decipher the type of messages so that they are in the
+	same order as the messages are described in PROTOCOL.
+
+
+2000-04-05 John Jannotti <jj@lcs.mit.edu>
+
+	* tocstr.el (tocstr-init-receiver): Reset flap-state when opening
+	the toc connection since state could be strange due to an
+	ill-timed tnt-kill.
+
+	* toc.el (toc-keepalive): Created to keep tocstr functions out of
+	tnt.el
+
+2000-04-04 Neil "Fred" Picciotto
+
+	* tnt.el: moved defvars for tnt-pipe-to-email-now and
+	tnt-buddy-blist up near the top, to eliminate "reference to free
+	variable" byte-compile errors.
+
+2000-04-04 Jim Whitehead
+
+	* Makefile: Added. Targets are "elc" to bytecompile all files and
+ 	"release" to build a tar file of a release.
+
+2000-04-04 Neil "Fred" Picciotto
+
+	* tnt.el: synchronized help info between the text block displayed
+	by "C-x t ?"  and that in the README.
+
+	* README: added explanations of tnt-show-help, tnt-switch-user,
+ 	and tnt-toggle-email.
+
+	* tnt.el: if *tnt-help* buffer already exists, tnt-show-help now
+	switches to it
+
+	* INSTALL: removed line which said that it had only been tested in
+ 	emacs 19.34, replaced it with line from README about the versions
+ 	it's been tested in.
+
+2000-04-03 Jim Whitehead
+
+	* tnt.el: tnt-show-timestamps has been renamed to
+ 	tnt-use-timestamps to go with our naming conventions
+
+	* tnt.el (tnt-handle-closed): added a mail-pipe in to notify you
+ 	that your connection has been closed (by the server, or by remote
+ 	signon).
+
+2000-04-01 Jim Whitehead
+
+	* tnt.el (tnt-get-away-msg): Small change to fix a possible error
+ 	with trying to send a nil away message.
+
+2000-04-01 Neil "Fred" Picciotto
+
+	* tnt.el: removed tnt-default-username-list variable, replaced it
+	with a new tnt-username-alist variable, which assocs usernames
+	with passwords.  Explained in INSTALL.
+
+	* tnt.el (tnt-pounce-delete): was using "remassoc" which didn't
+	compile for me; perhaps this was another XEmacs-ism?  in any case,
+	wrote tnt-remassoc to remove an assoc from an alist.
+
+	* tnt.el: removed some tab characters that were still lying around
+	in tnt.el.
+
+2000-03-31 Jim Whitehead
+
+	* tnt.el: Bugfix to fix the "no process" mesasges, due to
+	incorrect calls in tnt-buddy-shutdown
+
+	* tnt.el: Broke alot of fixed code in order to keep the project
+	compatable with GNU emacs.  (replace-in-string) is not standard,
+	and therefore breaks all over the place with GNU.  This affects:
+	tnt-strip-a-href and tnt-strip-html in tnt.el and toc-encode and
+	toc-normalize These have been reverted to their orginal versions.
+
+	* tnt.el (tnt-set-buddy-status): There was a problem with the
+ 	changes to tnt-away, etc where (away) is not being appended to the
+ 	buddy list for any away buddies.  This has been fixed.
+
+2000-03-31 John Jannotti <jj@lcs.mit.edu>
+
+	* tnt.el (tnt-pounce-delete): Simplified pounce deletion to just
+ 	one function, picked tnt-pounce-delete as the "survivor". (Note
+ 	this is user visable, but barely)
+
+	* tnt.el (tnt-addassoc): Simplified a lot of code by adding
+ 	tnt-addassoc and using it.
+
+	* tnt.el: renamed tnt-pounce-list to tnt-pounce-alist for
+	consistency
+
+	* tnt.el: Made tnt-away and tnt-away-alist use t/nil instead of
+	1/0.  This simplifies a lot of code that uses them.
+
+	* toc.el (toc-set-away): Fixed a typo, so now tnt.el doesn't need
+ 	to call tocstr-send directly anymore.
+ 	(toc-{add,remove}-buddy): change names, simplify interface
+	(tnt-show-help): funcall (switch-buffer-function), not apply
+ 	(tnt-keepalive): use tocstr-send-flap, not tocstr-send-flap1
+ 	(tnt-rotate-{left,right}): Simplified, sped up and docstringed.
+
+	* tnt.el: Used emacs primitives instead of complicated code to
+	simplify toc-encode, toc-normalize, tnt-strip-html,
+	tnt-strip-a-href, and tnt-completing-read-list
+
+	* tnt.el: Added tnt-separator variable
+
+	* tnt.el (tnt-send-away-msg): Was called send-away-msg.
+	(tnt-show-chat-participants, tnt-handle-chat-update-buddy): Use
+ 	identity in calls to mapcar.
+	(tnt-set-buddy-status): removed format when using message
+	(tnt-pounce-add): removed format when using message
+	(tnt-switch-user): removed format when using message
+	(tnt-participant-collection): use 'list in mapcar call
+	(tnt-buddy-status): Simplify
+	(tnt-buddy-idle): Simplify
+	(tnt-buddy-away): Simplify
+	(tnt-set-buddy-status): Eliminated unused old-idle and old-away
+ 	bindings.
+
+2000-03-30 Jim Whitehead
+
+	* tnt.el: added a user-defined variable to avoid needing to hack
+	the code if your mail executable isn't in /bin/mail.
+	tnt-email-binary.
+
+	* tnt.el (tnt-shutdown): fixed so it properly disposes of
+ 	client-side away messages.
+
+	* tnt.el: piping IMs to an email now prints a reminder message.
+	It may be beneficial to add a modeline change, but I don't have
+	time today.
+
+
+2000-03-29 Neil "Fred" Picciotto
+
+	* tnt.el: made piping to email simpler to configure (i.e. just set
+	some variables, rather than having to go in and change the code)
+
+	* tnt.el (pounce-add): tab-complete based on all buddies, rather
+ 	than just those that are currently online
+
+	* tnt.el (pounce-del): tab-complete based on pounce-list, rather
+ 	than online buddies
+
+	* tnt.el: moved a few bits of code around within the file (defvars
+ 	of user-configurable variables all together at top,
+ 	tnt-switch-user near tnt-open, and so on)
+
+	* tnt.el: you can now hit C-g (or just return with no password) to
+	get out of the password prompt
+
+	* tnt.el: added config var for beeping when buddies sign on and
+	off
+
+	* tnt.el: fixed miscellaneous typos, etc
+
+	* INSTALL: explanations for all the user-configurable variables
+
+2000-03-27 Jim Whitehead
+
+	* tnt.el (tnt-keepalive): Added an option to avoid conflicts with
+ 	XEmacs enable with (setq tnt-use-keepalive t).
+
+2000-03-28 Scott Evans
+
+	* tnt.el: Made the recentering of the buffer optional.. it
+	defaults to the current behavior.
+
+	* tnt.el: Buddy entrances/exits are now displayed in the
+	minibuffer
+
+	* tnt.el: Code patch to change color of incoming user text when in
+	a color environment.
+
+	* tnt.el: Added a default away message, and a history.
+
+	* tnt.el (tnt-im-buddy): Fixed regexp
+
+2000-03-24 Jim Whitehead
+
+	* tnt.el: Keepalive packets are now sent to the server, improving
+	uptime.
+
+	* tnt.el: Fixed sending of nil messages, which would crash other
+	clients	(older versions of Everbuddy, etc)
+
+	* tnt.el: Pounce Package
+
+	* tnt.el: Better away status checking
+
+	* tnt.el: Numerous other minor bugfixes
+
+2000-03-24 Scott Evans
+
+	* tnt.el: Code patch to remove nil entries in the auto-completion
+	list for screennames
+
+	* tnt.el (tnt-get-input-message): Was killing the region, instead
+ 	of deleting it, which hosed the kill ring.
+
+2000-03-24 Allan Poindexter
+
+	* tnt.el: Code snippet to show away status in modeline.
+
+2000-03-24 Neil Picciotto
+
+	* tnt.el: Added a binding to the tnt-show-help command (C-x t ?)
+
+	* tnt.el: Links are now displayed rather than being stripped.
+
+	* tnt.el: Timestamps package has been added.
+
+	* tnt.el: Beeping only happens when you are not in the im buffer
+	of the person who is iming you.
+
+	* tnt.el: Buddy list automagically comes up when you signon.
+	Also, if the option is set, (see INSTALL) the screen splits when
+	the buddy list is displayed.
+
+	* tnt.el: Return does the same as i in the buddy list, namely
+	initiating an IM.
+
+	* tnt.el: Mouse clicking a screenname now initiates an IM.
+
+	* tnt.el: You can now cycle through a list of screennames to sign
+	on as.
+
+	* tnt.el: Option (involving code change) that allows you to have
+	all your IM's piped to a commandline.
