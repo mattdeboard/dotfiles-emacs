@@ -32,10 +32,6 @@ MISCF =	browse-kill-ring.el \
 		idle-highlight.el \
 		js2-mode.el \
 		js-comint.el \
-<<<<<<< HEAD
-=======
-		mac-key-mode.el \
->>>>>>> 70201b6275362b69ef821db4ab3b567eff0a69ce
 		markdown-mode.el \
 		mk-project.el \
 		multi-term.el \
