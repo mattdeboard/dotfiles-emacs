@@ -6,7 +6,7 @@
 (setq tab-width 4)
 (visual-line-mode)
 (column-number-mode)
-(setq fx4-executable "/media/hd2/firefox/firefox")
+(setq fx4-executable "firefox")
 
 ;Path bindings
 (add-to-list 'load-path "/home/matt/pianobar")
@@ -23,7 +23,7 @@
 (require 'auto-complete)
 (require 'highlight-80+)
 (require 'highlight-parentheses)
-
+(require 'xscheme)
 
 ;nxhtml multi-major-mode
 (load "autostart")
@@ -38,7 +38,7 @@
 
 ;browse-url
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program fx4-executable)
+      browse-url-generic-program "google-chrome")
 
 ;hooks for programming modes
 (add-hook 'coding-hook 'auto-complete-mode)
@@ -51,9 +51,9 @@
 (mapc (lambda (mode-hook)
 	(add-hook mode-hook 'run-coding-hook))
       '(emacs-lisp-mode-hook
-				js2-mode-hook
-				python-mode-hook
-				lisp-mode-hook
+	js2-mode-hook
+	python-mode-hook
+	lisp-mode-hook
 	slime-repl-mode-hook
 	html-mumamo-mode-hook
 	css-mode))
@@ -139,7 +139,7 @@
 			       ("irc.freenode.net"
 				:channels ("#django" "#postfarm"))
 			       ("irc.mozilla.org" 
-				:channels ("#amo" "#metrics" "#labs")))))    
+				:channels ("#amo" "#metrics" "#labs" "#sync")))))    
   (add-hook 'rcirc-mode-hook
 	    '(lambda ()
 	       (rcirc-track-minor-mode 1)))
