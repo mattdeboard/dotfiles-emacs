@@ -9,7 +9,7 @@
 ;;          2001-2002 Reuben Thomas (>=v1.4)
 ;;          2003      Dave Love <fx@gnu.org>
 ;; Keywords: faces files Haskell
-;; Version: v2.8.0
+;; Version: v2.7.0
 ;; URL: http://www.haskell.org/haskell-mode/
 
 ;; This file is not part of GNU Emacs.
@@ -169,7 +169,7 @@
 ;; All functions/variables start with `(literate-)haskell-'.
 
 ;; Version of mode.
-(defconst haskell-version "v2.8.0"
+(defconst haskell-version "v2.7.0"
   "`haskell-mode' version number.")
 (defun haskell-version ()
   "Echo the current version of `haskell-mode' in the minibuffer."
@@ -271,8 +271,6 @@ be set to the preferred literate style."
     "---"
     ["Start interpreter" switch-to-haskell]
     ["Load file" inferior-haskell-load-file]
-    "---"
-    ["Load tidy core" ghc-core-create-core]
     "---"
     ,(if (default-boundp 'eldoc-documentation-function)
          ["Doc mode" eldoc-mode
@@ -403,10 +401,8 @@ Do not select more than one of the three indentation modes."
 	     ,(if (boundp 'eldoc-documentation-function)
 		  'turn-on-eldoc-mode
 		'turn-on-haskell-doc-mode) ; Emacs 21
-	     ,@(if (fboundp 'capitalized-words-mode)
-		   '(capitalized-words-mode))
 	     turn-on-simple-indent turn-on-haskell-doc-mode
-	     turn-on-haskell-decl-scan imenu-add-menubar-index))
+	     imenu-add-menubar-index))
 
 (defvar eldoc-print-current-symbol-info-function)
 
@@ -457,7 +453,7 @@ Invokes `haskell-mode-hook'."
   (set (make-local-variable 'comment-start-skip) "[-{]-[ \t]*")
   (set (make-local-variable 'comment-end) "")
   (set (make-local-variable 'comment-end-skip) "[ \t]*\\(-}\\|\\s>\\)")
-  (set (make-local-variable 'parse-sexp-ignore-comments) nil)
+  (set (make-local-variable 'parse-sexp-ignore-comments) t)
   ;; Set things up for eldoc-mode.
   (set (make-local-variable 'eldoc-documentation-function)
        'haskell-doc-current-info)
@@ -523,10 +519,8 @@ Invokes `haskell-mode-hook'."
   (set (make-local-variable 'mode-line-process)
        '("/" (:eval (symbol-name haskell-literate)))))
 
-;;;###autoload(add-to-list 'auto-mode-alist        '("\\.\\(?:[gh]s\\|hi\\)\\'" . haskell-mode))
-;;;###autoload(add-to-list 'auto-mode-alist        '("\\.l[gh]s\\'" . literate-haskell-mode))
-;;;###autoload(add-to-list 'interpreter-mode-alist '("runghc" . haskell-mode))
-;;;###autoload(add-to-list 'interpreter-mode-alist '("runhaskell" . haskell-mode))
+;;;###autoload(add-to-list 'auto-mode-alist '("\\.\\(?:[gh]s\\|hi\\)\\'" . haskell-mode))
+;;;###autoload(add-to-list 'auto-mode-alist '("\\.l[gh]s\\'" . literate-haskell-mode))
 
 (defcustom haskell-hoogle-command
   (if (executable-find "hoogle") "hoogle")
