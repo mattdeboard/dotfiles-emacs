@@ -131,7 +131,7 @@ You must have write-access to this directory via `scp'.")
 
     ;; Could use shell-command here instead of eshell-command if you don't
     ;; want to load eshell and you don't mind the popup password prompt.
-    (eshell-command (concat "scp " tmp-file " " scp-destination))
+    (eshell-command (concat "scp -P 3197 " tmp-file " " scp-destination))
     (ignore-errors (kill-buffer "*EShell Command Output*"))
 
     ;; Notify user and put the URL on the kill ring
