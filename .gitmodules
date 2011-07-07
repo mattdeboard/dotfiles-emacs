@@ -1,24 +1,3 @@
-[submodule "submodules/clojure-mode"]
-	path = submodules/clojure-mode
-	url = git@github.com:bretthoerner/clojure-mode.git
-[submodule "submodules/slime"]
-	path = submodules/slime
-	url = git@github.com:bretthoerner/slime.git
-[submodule "submodules/swank-clojure"]
-	path = submodules/swank-clojure
-	url = git@github.com:bretthoerner/swank-clojure.git
-[submodule "submodules/magit"]
-	path = submodules/magit
-	url = git@github.com:bretthoerner/magit.git
-[submodule "submodules/geiser"]
-	path = submodules/geiser
-	url = git@github.com:bretthoerner/geiser.git
-[submodule "submodules/python"]
-	path = submodules/python
-	url = git@github.com:bretthoerner/python.el.git
-[submodule "submodules/pianobar"]
-	path = submodules/pianobar
-	url = git@github.com:bretthoerner/pianobar.el.git
 [submodule "magit"]
 	path = magit
 	url = git://github.com/magit/magit.git
