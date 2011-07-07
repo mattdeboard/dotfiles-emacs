@@ -18,7 +18,11 @@
 (add-to-list 'load-path (concat dotfiles-dir "auto-complete/"))
 (add-to-list 'load-path (concat dotfiles-dir "tnt-2.6"))
 (add-to-list 'load-path (concat dotfiles-dir "nxhtml"))
+(add-to-list 'load-path (concat dotfiles-dir "js2-mode"))
 (add-to-list 'load-path (concat dotfiles-dir "rcirc-notify-plus"))
+(add-to-list 'load-path (concat dotfiles-dir "magit"))
+(add-to-list 'load-path (concat dotfiles-dir "scpaste"))
+
 ;code style requires
 (require 'auto-complete)
 (require 'highlight-80+)
