@@ -28,3 +28,6 @@
 [submodule "rcirc-notify-plus"]
 	path = rcirc-notify-plus
 	url = git://github.com/emacsmirror/rcirc-notify-plus.git
+[submodule "python.el"]
+	path = python.el
+	url = git://github.com/fgallina/python.el.git
