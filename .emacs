@@ -18,7 +18,7 @@
 (add-to-list 'load-path (concat dotfiles-dir "auto-complete/"))
 (add-to-list 'load-path (concat dotfiles-dir "tnt-2.6"))
 (add-to-list 'load-path (concat dotfiles-dir "nxhtml"))
-
+(add-to-list 'load-path (concat dotfiles-dir "rcirc-notify-plus"))
 ;code style requires
 (require 'auto-complete)
 (require 'highlight-80+)
@@ -77,7 +77,7 @@
 ;;(color-theme-naquadah)
 
 ;Load modules
-(require 'js2-mode)
+;(require 'js2-mode)
 (require 'python)
 (require 'magit)
 (require 'auto-complete)
@@ -121,7 +121,7 @@
     (load irc-password-file)
     ;require rcirc-notify
     (require 'rcirc)
-    (require 'rcirc-notify)
+    (require 'rcirc-notify-plus)
     
 ;;rcirc default settings
     (setq rcirc-prompt "$> "
