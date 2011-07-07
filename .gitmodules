@@ -31,3 +31,6 @@
 [submodule "python.el"]
 	path = python.el
 	url = git://github.com/fgallina/python.el.git
+[submodule "js2-mode"]
+	path = js2-mode
+	url = https://github.com/mooz/js2-mode.git
