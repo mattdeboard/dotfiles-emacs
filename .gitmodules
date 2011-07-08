@@ -1,21 +1,18 @@
-[submodule "magit"]
-	path = magit
-	url = git://github.com/magit/magit.git
-[submodule "scpaste"]
-	path = scpaste
-	url = git@github.com:mattdeboard/scpaste.git
-[submodule "rcirc-notify-plus"]
-	path = rcirc-notify-plus
-	url = git://github.com/emacsmirror/rcirc-notify-plus.git
-[submodule "python.el"]
-	path = python.el
-	url = git://github.com/fgallina/python.el.git
-[submodule "js2-mode"]
-	path = js2-mode
-    url = git://github.com/mooz/js2-mode.git
-[submodule "haskell-mode"]
-	path = haskell-mode
-	url = git://github.com/emacsmirror/haskell-mode.git
 [submodule "submodules/haskell-mode"]
 	path = submodules/haskell-mode
 	url = git://github.com/emacsmirror/haskell-mode.git
+[submodule "submodules/magit"]
+	path = submodules/magit
+	url = git://github.com/magit/magit.git
+[submodule "submodules/python.el"]
+	path = submodules/python.el
+	url = git://github.com/fgallina/python.el.git
+[submodule "submodules/js2-mode"]
+	path = submodules/js2-mode
+	url = git://github.com/mooz/js2-mode.git
+[submodule "submodules/scpaste"]
+	path = submodules/scpaste
+	url = git://github.com/mattdeboard/scpaste.git
+[submodule "submodules/rcirc-notify-plus"]
+	path = submodules/rcirc-notify-plus
+	url = git://github.com/emacsmirror/rcirc-notify-plus.git
