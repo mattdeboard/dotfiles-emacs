@@ -12,4 +12,7 @@
 	url = git://github.com/fgallina/python.el.git
 [submodule "js2-mode"]
 	path = js2-mode
-	url = https://github.com/mooz/js2-mode.git
+    url = git://github.com/mooz/js2-mode.git
+[submodule "haskell-mode"]
+    path = haskell-mode
+    url = git://github.com/emacsmirror/haskell-mode.git
