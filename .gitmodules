@@ -14,5 +14,8 @@
 	path = js2-mode
     url = git://github.com/mooz/js2-mode.git
 [submodule "haskell-mode"]
-    path = haskell-mode
-    url = git://github.com/emacsmirror/haskell-mode.git
+	path = haskell-mode
+	url = git://github.com/emacsmirror/haskell-mode.git
+[submodule "submodules/haskell-mode"]
+	path = submodules/haskell-mode
+	url = git://github.com/emacsmirror/haskell-mode.git
