@@ -16,3 +16,6 @@
 [submodule "submodules/rcirc-notify-plus"]
 	path = submodules/rcirc-notify-plus
 	url = git://github.com/emacsmirror/rcirc-notify-plus.git
+[submodule "submodules/clojure-mode"]
+	path = submodules/clojure-mode
+	url = git://github.com/technomancy/clojure-mode.git
