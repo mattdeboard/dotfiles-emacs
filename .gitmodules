@@ -22,3 +22,6 @@
 [submodule "submodules/slime"]
 	path = submodules/slime
 	url = git://github.com/nablaone/slime.git
+[submodule "submodules/ac-slime"]
+	path = submodules/ac-slime
+	url = git://github.com/purcell/ac-slime.git
