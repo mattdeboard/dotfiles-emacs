@@ -10,9 +10,6 @@
 [submodule "submodules/js2-mode"]
 	path = submodules/js2-mode
 	url = git://github.com/mooz/js2-mode.git
-[submodule "submodules/scpaste"]
-	path = submodules/scpaste
-	url = git@github.com:mattdeboard/scpaste.git
 [submodule "submodules/rcirc-notify-plus"]
 	path = submodules/rcirc-notify-plus
 	url = git://github.com/emacsmirror/rcirc-notify-plus.git
