@@ -19,3 +19,6 @@
 [submodule "submodules/ac-slime"]
 	path = submodules/ac-slime
 	url = git://github.com/purcell/ac-slime.git
+[submodule "submodules/scpaste"]
+	path = submodules/scpaste
+	url = git@github.com:mattdeboard/scpaste.git
