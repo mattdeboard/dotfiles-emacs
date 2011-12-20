@@ -22,3 +22,6 @@
 [submodule "submodules/scpaste"]
 	path = submodules/scpaste
 	url = git@github.com:mattdeboard/scpaste.git
+[submodule "submodules/emacs-color-theme-solarized"]
+	path = submodules/emacs-color-theme-solarized
+	url = git://github.com/sellout/emacs-color-theme-solarized.git
