@@ -23,5 +23,8 @@
 	path = submodules/emacs-color-theme-solarized
 	url = git://github.com/sellout/emacs-color-theme-solarized.git
 [submodule "jira-rest"]
-	path = jira-rest
+	path = submodules/jira-rest
 	url = git@github.com:mattdeboard/jira-rest.git
+[submodule "json.el"]
+	path = submodules/json.el
+	url = git://github.com/thorstadt/json.el.git
