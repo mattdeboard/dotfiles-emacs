@@ -6,7 +6,7 @@
 (setq tab-width 4)
 (visual-line-mode)
 (column-number-mode)
-(setq fx4-executable "firefox")
+(setq fx4-executable "/media/hd2/firefox/firefox")
 
 ;Path bindings
 (add-to-list 'load-path "/home/matt/pianobar")
@@ -81,7 +81,7 @@
 ;;(color-theme-naquadah)
 
 ;Load modules
-;(require 'js2-mode)
+(require 'js2-mode)
 (require 'python)
 (require 'magit)
 (require 'auto-complete)
@@ -142,8 +142,6 @@
 	  rcirc-server-alist '(("localhost")
 			       ("irc.freenode.net"
 				:channels ("#django" "#postfarm"))
-			       ("irc.mozilla.org" 
-				:channels ("#amo" "#metrics" "#labs" "#sync")))))    
   (add-hook 'rcirc-mode-hook
 	    '(lambda ()
 	       (rcirc-track-minor-mode 1)))
