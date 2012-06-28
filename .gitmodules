@@ -28,3 +28,6 @@
 [submodule "json.el"]
 	path = submodules/json.el
 	url = git://github.com/thorstadt/json.el.git
+[submodule "submodules/coffee-mode"]
+	path = submodules/coffee-mode
+	url = git://github.com/defunkt/coffee-mode.git
