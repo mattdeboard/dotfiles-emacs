@@ -1,1 +1,1 @@
-(:el-get "installed" :slime "installed")
+(:el-get "installed" :slime "removed")
