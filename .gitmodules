@@ -16,9 +16,6 @@
 [submodule "submodules/ac-slime"]
 	path = submodules/ac-slime
 	url = git://github.com/purcell/ac-slime.git
-[submodule "submodules/scpaste"]
-	path = submodules/scpaste
-	url = git@github.com:mattdeboard/scpaste.git
 [submodule "submodules/emacs-color-theme-solarized"]
 	path = submodules/emacs-color-theme-solarized
 	url = git://github.com/sellout/emacs-color-theme-solarized.git
@@ -31,3 +28,6 @@
 [submodule "submodules/coffee-mode"]
 	path = submodules/coffee-mode
 	url = git://github.com/defunkt/coffee-mode.git
+[submodule "submodules/scpaste"]
+	path = submodules/scpaste
+	url = git://github.com/technomancy/scpaste.git

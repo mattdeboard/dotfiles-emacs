@@ -12,3 +12,4 @@ srecode-map.el
 url/
 swank/
 submodules/haskell-mode
+tramp
