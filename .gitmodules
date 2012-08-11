@@ -31,3 +31,6 @@
 [submodule "submodules/scpaste"]
 	path = submodules/scpaste
 	url = git://github.com/technomancy/scpaste.git
+[submodule "submodules/haskell-mode"]
+	path = submodules/haskell-mode
+	url = git://github.com/emacsmirror/haskell-mode.git
