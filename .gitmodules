@@ -28,9 +28,6 @@
 [submodule "submodules/coffee-mode"]
 	path = submodules/coffee-mode
 	url = git://github.com/defunkt/coffee-mode.git
-[submodule "submodules/scpaste"]
-	path = submodules/scpaste
-	url = git://github.com/technomancy/scpaste.git
 [submodule "submodules/haskell-mode"]
 	path = submodules/haskell-mode
 	url = git://github.com/emacsmirror/haskell-mode.git
