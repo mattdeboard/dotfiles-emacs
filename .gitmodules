@@ -31,3 +31,6 @@
 [submodule "submodules/haskell-mode"]
 	path = submodules/haskell-mode
 	url = git://github.com/emacsmirror/haskell-mode.git
+[submodule "submodules/puppet-mode"]
+	path = submodules/puppet-mode
+	url = git://github.com/puppetlabs/puppet-syntax-emacs.git
