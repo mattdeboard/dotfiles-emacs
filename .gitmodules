@@ -34,3 +34,6 @@
 [submodule "submodules/puppet-mode"]
 	path = submodules/puppet-mode
 	url = git://github.com/puppetlabs/puppet-syntax-emacs.git
+[submodule "submodules/virtualenv.el"]
+	path = submodules/virtualenv.el
+	url = git@github.com:aculich/virtualenv.el.git
