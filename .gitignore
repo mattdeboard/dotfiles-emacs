@@ -12,3 +12,5 @@ srecode-map.el
 url/
 swank/
 tramp
+var/
+%backup%~
