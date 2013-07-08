@@ -37,6 +37,6 @@
 [submodule "submodules/virtualenv.el"]
 	path = submodules/virtualenv.el
 	url = git@github.com:aculich/virtualenv.el.git
-[submodule "submodules/flymake-node-jshint"]
-	path = submodules/flymake-node-jshint
-	url = https://github.com/jegbjerg/flymake-node-jshint
+[submodule "submodules/flymake-coffee"]
+	path = submodules/flymake-coffee
+	url = git@github.com:mattdeboard/flymake-coffee.git
