@@ -3,7 +3,6 @@ session.*
 abbrev_defs
 ac-comphist.dat
 *.elc
-elpa/
 history
 malabar-mode/
 projects/
