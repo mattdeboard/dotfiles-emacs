@@ -13,3 +13,4 @@ swank/
 tramp
 var/
 %backup%~
+ensime/*.log
