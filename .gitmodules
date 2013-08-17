@@ -7,9 +7,6 @@
 [submodule "submodules/js2-mode"]
 	path = submodules/js2-mode
 	url = git://github.com/mooz/js2-mode.git
-[submodule "submodules/rcirc-notify-plus"]
-	path = submodules/rcirc-notify-plus
-	url = git://github.com/emacsmirror/rcirc-notify-plus.git
 [submodule "submodules/clojure-mode"]
 	path = submodules/clojure-mode
 	url = git://github.com/technomancy/clojure-mode.git
@@ -28,9 +25,6 @@
 [submodule "submodules/coffee-mode"]
 	path = submodules/coffee-mode
 	url = git://github.com/defunkt/coffee-mode.git
-[submodule "submodules/haskell-mode"]
-	path = submodules/haskell-mode
-	url = git://github.com/emacsmirror/haskell-mode.git
 [submodule "submodules/puppet-mode"]
 	path = submodules/puppet-mode
 	url = git://github.com/puppetlabs/puppet-syntax-emacs.git
