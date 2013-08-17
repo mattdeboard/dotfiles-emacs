@@ -15,3 +15,4 @@ var/
 %backup%~
 ensime/*.log
 .emacs
+init.el
