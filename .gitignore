@@ -16,3 +16,4 @@ var/
 ensime/*.log
 .emacs
 init.el
+ido*
