@@ -17,3 +17,4 @@ ensime/*.log
 .emacs
 init.el
 ido*
+eshell/
