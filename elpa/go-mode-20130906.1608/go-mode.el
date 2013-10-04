@@ -129,7 +129,6 @@
 
 (defvar go-dangling-cache)
 (defvar go-godoc-history nil)
-(defvar go--coverage-origin-buffer)
 (defvar go--coverage-current-file-name)
 
 (defgroup go nil
@@ -148,6 +147,14 @@
 (defcustom go-mode-hook nil
   "Hook called by `go-mode'."
   :type 'hook
+  :group 'go)
+
+(defcustom go-command "go"
+  "The 'go' command.  Some users have multiple Go development
+trees and invoke the 'go' tool via a wrapper that sets GOROOT and
+GOPATH based on the current directory.  Such users should
+customize this variable to point to the wrapper script."
+  :type 'string
   :group 'go)
 
 (defface go-coverage-untracked
@@ -844,7 +851,8 @@ uncommented, otherwise a new import will be added."
           ('none (insert "\nimport (\n\t" line "\n)\n")))))))
 
 (defun go-root-and-paths ()
-  (let* ((output (split-string (shell-command-to-string "go env GOROOT GOPATH") "\n"))
+  (let* ((output (split-string (shell-command-to-string (concat go-command " env GOROOT GOPATH"))
+                               "\n"))
          (root (car output))
          (paths (split-string (cadr output) ":")))
     (append (list root) paths)))
@@ -903,9 +911,10 @@ If IGNORE-CASE is non-nil, the comparison is case-insensitive."
                           (if (string= (file-truename (match-string 1 line)) (file-truename buffer-file-name))
                               (string-to-number (match-string 2 line)))))
                     (split-string (shell-command-to-string
-                                   (if (string-match "_test\.go$" buffer-file-truename)
-                                       "go test -c"
-                                     "go build -o /dev/null")) "\n")))))
+                                   (concat go-command
+                                           (if (string-match "_test\.go$" buffer-file-truename)
+                                               " test -c"
+                                             " build -o /dev/null"))) "\n")))))
 
 (defun go-remove-unused-imports (arg)
   "Removes all unused imports. If ARG is non-nil, unused imports
@@ -1023,9 +1032,7 @@ current coverage buffer or by prompting for it."
 
 (defun go--coverage-origin-buffer ()
   "Return the buffer to base the coverage on."
-  (if (boundp 'go--coverage-origin-buffer)
-      go--coverage-origin-buffer
-    (current-buffer)))
+  (or (buffer-base-buffer) (current-buffer)))
 
 (defun go--coverage-face (count divisor)
   "Return the intensity face for COUNT when using DIVISOR
@@ -1119,7 +1126,6 @@ for."
 
     (with-current-buffer (or (get-buffer gocov-buffer-name)
                              (make-indirect-buffer origin-buffer gocov-buffer-name t))
-      (set (make-local-variable 'go--coverage-origin-buffer) origin-buffer)
       (set (make-local-variable 'go--coverage-current-file-name) coverage-file)
 
       (save-excursion

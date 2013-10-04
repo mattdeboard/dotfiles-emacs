@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "go-mode" "go-mode.el" (21014 14787 78341 676000))
+;;;### (autoloads nil "go-mode" "go-mode.el" (21049 45322 42487 161000))
 ;;; Generated autoloads from go-mode.el
 
 (autoload 'go-mode "go-mode" "\
@@ -85,8 +85,8 @@ buffer. Tries to look for a URL at point.
 
 ;;;***
 
-;;;### (autoloads nil nil ("go-mode-load.el" "go-mode-pkg.el") (21014
-;;;;;;  14787 89446 500000))
+;;;### (autoloads nil nil ("go-mode-load.el" "go-mode-pkg.el") (21049
+;;;;;;  45322 46033 198000))
 
 ;;;***
 

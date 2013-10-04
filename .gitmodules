@@ -28,3 +28,9 @@
 [submodule "submodules/virtualenv.el"]
 	path = submodules/virtualenv.el
 	url = git@github.com:aculich/virtualenv.el.git
+[submodule "submodules/goflymake"]
+	path = submodules/goflymake
+	url = git@github.com:dougm/goflymake.git
+[submodule "submodules/go-mode"]
+	path = submodules/go-mode
+	url = git@github.com:dominikh/go-mode.el
