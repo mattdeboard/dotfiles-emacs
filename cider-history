@@ -2,43 +2,378 @@
 ;; Automatically written history of CIDER REPL session
 ;; Edit at your own risk
 
-("(index-armor)" "(use 'gw2armor.core)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(query {\"name\" \"bandit\" \"weight\" \"\"})" "(or nil \"\")" "(or \"\" nil)" "(start-server)" "(stop-server)" "(query {\"name\" \"bandit\" \"weight\" nil})" "(query {\"name\" \"bandit\"})" "(use 'gw2armor.solr)" "(start-server)" "(stop-server)" "(let [m {\"foo\" nil, \"bar\" 1, \"baz\" \"banana\"}]
-        (select-keys m (for [[k v] m :when (not (nil? v))] k)))" "\"
-\"" "(let [m {\"foo\" nil \"bar\" 1 \"baz \"banana\"}]
-)
+("(binding [*neo-db* (.newEmbeddedDatabase (GraphDatabaseFactory.) \"/opt/neo4j/data/graph.db\")]
+        (with-tx
+          (do
+            (println (all-nodes))
+            (stop!))))" "(with-tx (binding [*neo-db* (.newEmbeddedDatabase (GraphDatabaseFactory.) \"/opt/neo4j/data/graph.db\")]
+        (do
+          (println (all-nodes))
+          (stop!))))" "(binding [*neo-db* (.newEmbeddedDatabase (GraphDatabaseFactory.) \"/opt/neo4j/data/graph.db\")]
+        (do
+          (println (all-nodes))
+          (stop!)))" "(binding [*neo-db* (.newEmbeddedDatabase (GraphDatabaseFactory.) \"/opt/neo4j/data/graph.db\")]
+        (do
+          (all-nodes)
+          (stop!)))" "(binding [*neo-db* (.newEmbeddedDatabase (GraphDatabaseFactory.) \"/opt/neo4j/data/graph.db\")]
+        (try
+          (all-nodes)
+          (finally (stop!))))" "(.start *neo-db*)" "(.shutdown *neo-db*)" "(.start *neo-db*)" "(let [tx (.beginTx *neo-db*)]
+        (try 
+          (let [val (do (all-nodes))]
+            (.success tx)
+            val)
+          (finally (.finish tx))))" "(class *neo-db*)" "(.availableProcessors)" "(.start *neo-db*)" "*neo-db*" "(with-local-db! \"/opt/neo4j/data/graph.db\"
+        (all-nodes))" "(new GraphDatabaseFactory)" "(GraphDatabaseFactory.)" "(import '[org.neo4j.graphdb.factory GraphDatabaseFactory]
+              '[org.neo4j.graphdb GraphDatabaseService DynamicLabel]) " "(with-db! \"/opt/neo4j/data/graph.db\"
+        (all-nodes))" "(require '[borneo.core :refer :all])" "(with-db! \"/opt/neo4j/data/graph.db\"
+        (all-nodes))" "(with-local-db! \"/opt/neo4j/data/graph.db\"
+        (all-nodes))" "(with-db! \"/opt/neo4j/data/graph.db\"
+        (with-tx (all-nodes)))" "(do (start! \"/opt/neo4j/data/graph.db\")
+          (try (for [n (all-nodes)] n)
+               ))" "(do (start! \"/opt/neo4j/data/graph.db\")
+          (try (for [n (all-nodes)] n)
+               (finally (stop!))))" "(with-local-db! \"/opt/neo4j/data/graph.db\"
+        (all-nodes))" "(with-db! \"/opt/neo4j/data/graph.db\"
+        (all-nodes))" "(require '[borneo.core :refer :all])" "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")
+            label (DynamicLabel/label \"City\")
+            tx (.beginTx db)]
+        (.getAllNodes db label \"name\" \"Dallas\"))
+" "(import '[org.neo4j.graphdb.factory GraphDatabaseFactory]
+              '[org.neo4j.graphdb GraphDatabaseService DynamicLabel]) " "(import '[org.neo4j.graphdb GraphDatabaseService DynamicLabel]) " "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")
+            label (DynamicLabel/label \"City\")
+            r (.findNodesByLabelAndProperty db label \"name\" \"Dallas\")]
+        (.shutdown db))" "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")
+            label (DynamicLabel/label \"City\")
+            r (.findNodesByLabelAndProperty db label \"name\" \"Dallas\")]
+        (vec r))" "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")
+            label (DynamicLabel/label \"City\")
+            r (.findNodesByLabelAndProperty db label \"name\" \"Dallas\")]
+        (.shutdown db))" "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")
+            label (DynamicLabel/label \"City\")
+            r (.findNodesByLabelAndProperty db label \"name\" \"Dallas\")]
+        (.shutdown db)
+        r)
+        " "(DynamicLabel/label \"City\")" "(new DynamicLabel)" "(DynamicLabel)" "(import '[org.neo4j.graphdb GraphDatabaseService DynamicLabel]) " "(.string (new Label \"foo\"))" "(.string (new Label))" "(.string Label)" "Label" "(Label)" "(new Label)" "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")]
+        (.shutdown db))" "(import '[org.neo4j.graphdb.factory GraphDatabaseFactory]) " "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")]
+        (.shutdown db))" "(import '[org.neo4j.graphdb GraphDatabaseService Label]) " "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")]
+        (.shutdown db))" "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")]
+        (.findNodesByLabelAndProperty db \"City\" \"name\" \"Dallas\"))" "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")]
+        (.shutdown db))" "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")]
+        (. shutdown db))" "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"db/data\")]
+        (. db close))" "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"db/data\")]
+        )" "(let [dbf (new GraphDatabaseFactory)
+            db (.newEmbeddedDatabase dbf \"db/data\")]
+        (.getAllNodes db))" "(let [db (new GraphDatabaseFactory)]
+        (.newEmbeddedDatabase db \"db/data\"))" "(let [db (new GraphDatabaseFactory)]
+        (.newEmbeddedDatabase \"db/data\"))" "(let [db (new GraphDatabaseFactory)]
+        db)" "(let [db (new GraphDatabaseFactory)]
+        d) " "(let [db (new GraphDatabaseFactory)]
+        (. db newEmbeddedDatabase)) " "(let [db (new GraphDatabaseFactory)]
+        db)" "(import '[org.neo4j.graphdb GraphDatabaseService]) " "(import '[org.neo4j.graphdb.factory GraphDatabaseFactory GraphDatabaseService]) " "(import '[org.neo4j.graphdb.factory GraphDatabaseFactory]) " "(import 'org.neo4j.graphdb)" "(fetch-node \"Dallas\")" "(:id (fetch-node \"Dallas\"))" "(fetch-node \"Dallas\")" "(get-in (fetch-node \"Dallas\") [:data])" "(fetch-node \"Dallas\")" "(let [conn (nr/connect neo4j-url)]
+        (nn/find conn :name \"Dallas\"))" "(let [conn (nr/connect neo4j-url)]
+        (nn/find conn \"name:\" \"Dallas\"))" "(let [conn (nr/connect neo4j-url)]
+        (nn/find conn \"name\" \"Dallas\"))" "(let [conn (nr/connect neo4j-url)]
+        (nn/find conn :name \"Dallas\"))" "(let [conn (nr/connect neo4j-url)]
+        (nn/query conn {:name \"Dallas\"}))" "(let [conn (nr/connect neo4j-url)]
+        (nn/traverse conn 655))" "routes" "(clojure-version)" "(clojure.set/join routes routes {:a \"El Paso\"})" "(clojure.set/join routes routes {:a (:b %)})" "(map #(clojure.set/join % %2 {:a (:b %)}) routes routes)" "(keymap)" "(map #(clojure.set/join % %2 ) routes routes)" "(map #(clojure.set/join % %2 [:a :b]) routes routes)" "(map #(clojure.set/join % %2 [:a :b]) routes)" "(map $(clojure.set/join % %2 [:a :b]) routes)" "(map (clojure.set/join % %2 [:a :b]) routes)" "(sort-by #(juxt :a :b % %2) routes)" "(sort-by (juxt :a :b) routes)" "(sort-by (juxt :a :b) = routes)" "(sort-by (juxt :a :b)  routes)" "(sort-by :a routes)" "(let [x (lazy-seq [1 2 3 4]) y (lazy-seq [5 6 7 8])] (concat x y))" "(let [x (lazy-seq [1 2 3 4]) y (lazy-seq [5 6 7 8])] (apply into [x y]))" "(let [x (lazy-seq [1 2 3 4]) y (lazy-seq [5 6 7 8])] (realized? x))" "(let [x (lazy-seq [1 2 3 4]) y (lazy-seq [5 6 7 8])] (concat x y))" "(lazy-seq [1 2 3 4])" "(seq [1 2 3 4])" "(seq 1 2 3 4)" "(into [] [[1 2] [3 4]])" "(into [[1 2] [3 4]])" "(apply into [[1 2] [3 4]])" "(apply into 
+                    [1 2] [3 4])" "(apply #(into [] % %2 %3)
+                    [1 2] [3 4])" "(apply #(into [] % %2)
+                    [1 2] [3 4])" "(apply #(into [] %) [1 2] [3 4])" "(into [] [1 2] [3 4])" "(concat [1 2] [3 4])" "(let [conn (nr/connect neo4j-url)])
+            " "(require '[clojurewerkz.neocons.rest :as nr]
+            '[clojurewerkz.neocons.rest.nodes :as nn]
+            '[clojurewerkz.neocons.rest.labels :as nl]
+            '[clojurewerkz.neocons.rest.relationships :as nrl]
+            '[clojurewerkz.neocons.rest.cypher :as cy])" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (set (select-vals % [:a :b]))) (clojure.set/subset? #{\"New York\"} (set (select-vals % [:a :b])))) routes)" "(def routes (set routes))" "(set routes)" "routes" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (set (select-vals % [:a :b]))) (clojure.set/subset? #{\"New York\"} (set (select-vals % [:a :b])))) routes)" "(count routes)" "routes" "(def routes (filter #(not= #{:green \"Pittsburgh\"} (set (select-vals % [:color :b]))) routes))" "(filter #(not= #{:green \"Pittsburgh\"} (set (select-vals % [:color :b]))) routes)" "(def routes (let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            rs (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
+            routes (set (flatten rs))]
+        (set (filter #(not= #{:pink \"Saint Louis\"} (set (select-vals % [:color :b]))) routes))))
+                    
+        " "(count routes)" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (set (select-vals % [:a :b]))) (clojure.set/subset? #{\"New York\"} (set (select-vals % [:a :b])))) routes)" "(select-keys [:a :b] (first routes))" "(map #(select-keys [:a :b] %) routes)" "routes" "(map #(select-vals [:a :b] %) routes)" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (set (select-vals [:a :b] %))) (clojure.set/subset? #{\"New York\"} (set (select-vals [:a :b] %)))) routes)" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (select-vals [:a :b] %)) (clojure.set/subset? #{\"New York\"} (set (select-vals [:a :b] %)))) routes)" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (select-vals [:a :b] %)) (clojure.set/subset? #{\"New York\"} (select-vals [:a :b] %))) routes)" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (select-vals [:a :b] %)) (clojure.set/subset? #{\"New York\"} (select-vals [:a :b] %))))" "routes" "(def routes (let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            rs (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
+            routes (set (flatten rs))]
+        (set (filter #(not= #{:pink \"Saint Louis\"} (set (select-vals % [:color :b]))) routes))))
+                    
+        " "routes" "(def routes (let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            rs (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
+            routes (set (flatten rs))]
+        (filter #(not= #{:pink \"Saint Louis\"} (set (select-vals % [:color :b]))) routes)))
+                    
+        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            rs (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
+            routes (set (flatten rs))]
+        (filter #(not= #{:pink \"Saint Louis\"} (set (select-vals % [:color :b]))) routes))
+                    
+        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            rs (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
+            routes (set (flatten rs))]
+        (filter #(= #{:pink \"Saint Louis\"} (set (select-vals % [:color :b]))) routes))
+                    
+        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            rs (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
+            routes (set (flatten rs))]
+        (filter #(= #{:pink \"Saint Louis\"} (select-vals % [:color :b])) routes))
+                    
+        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            rs (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
+            routes (set (flatten rs))]
+        (filter #(= #{:pink \"Saint Louis\"} (select-vals % [:color :b]) routes)))
+                    
+        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            rs (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
+            routes (set (flatten rs))]
+        routes)
+        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            rs (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
+            routes (set (flatten routes))]
+        routes)
+        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
+        (set (flatten routes)))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
+        (set (flatten routes))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
+        (count (distinct (flatten routes))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
+        (distinct (flatten routes)))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
+        (set (flatten routes)))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]]
+        (partition 2 1 p))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
+        (count (set (flatten routes))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
+        (set (flatten routes)))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
+        (flatten routes))" "(set (select-keys (first edges) [:a :b]))" "(select-keys (first edges) [:a :b])" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(= #{x y} (set (select-keys % [:a :b]))) edges))]
+        (flatten routes))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(= #{x y} (into {} (select-keys % [:a :b]))) edges))]
+        (flatten routes))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(= #{x y} (into {} (select-keys % [:a :b]) edges))))]
+        (flatten routes))" "(= #{\"El Paso\" \"Dallas\"} #{\"Dallas\" \"El Paso\"})" "(compare #{\"El Paso\" \"Dallas\"} #{\"Dallas\" \"El Paso\"})" "(compare '(\"El Paso\" \"Dallas\") '(\"Dallas\" \"El Paso\"))" "(== '(\"El Paso\" \"Dallas\") '(\"Dallas\" \"El Paso\"))" "(= '(\"El Paso\" \"Dallas\") '(\"Dallas\" \"El Paso\"))" "(select-vals {:color :red, :b \"El Paso\", :cost 4, :a \"Dallas\"} [:a :b])" "(select-keys {:color :red, :b \"El Paso\", :cost 4, :a \"Dallas\"} [:a :b])" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(and (= (:a %) x) (= (:b %) y)) edges))]
+        (flatten routes))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(and (= (:a %) x) (= (:b %) y)) edges))]
+        routes)" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filter #(and (= (:a %) x) (= (:b %) y)) edges))]
+        (flatten routes))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]]
+        (partition 2 1 p))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filterv #(and (= (:a %) x) (= (:b %) y)) edges))]
+        (flatten routes))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filterv #(and (= (:a %) x) (= (:b %) y)) edges))]
+        (into [] routes))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)
+            routes (for [[x y] pairs]
+                     (filterv #(and (= (:a %) x) (= (:b %) y)) edges))]
+        (flatten routes)
+        )" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)]
+        (flatten
+              (for [[x y] pairs]
+                (filterv #(and (= (:a %) x) (= (:b %) y)) edges))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)]
+        (apply into []
+              (for [[x y] pairs]
+                (filterv #(and (= (:a %) x) (= (:b %) y)) edges))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)]
+        (apply merge
+              (for [[x y] pairs]
+                (filterv #(and (= (:a %) x) (= (:b %) y)) edges))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)]
+        (merge
+              (for [[x y] pairs]
+                (filterv #(and (= (:a %) x) (= (:b %) y)) edges))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)]
+        (into [] 
+              (for [[x y] pairs]
+                (filterv #(and (= (:a %) x) (= (:b %) y)) edges))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
+            pairs (partition 2 1 p)]
+        (for [[x y] pairs]
+          (filterv #(and (= (:a %) x) (= (:b %) y)) edges)))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]]
+        (partition 2 1 p))" "(partition 2 1 edges)" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]])" "(filterv #(and (= (:a %) \"El Paso\") (= (:b %) \"Santa Fe\")) edges)" "(filterv #(and (= (:a %) \"Dallas\") (= (:b %) \"El Paso\")) edges)" "(filterv #(and (= (:a %) \"Dallas\") (= (:b %) (or \"El Paso\" \"Little Rock\"))) edges)" "(filterv #(and (= (:a %) \"Dallas\") (= (:b %) \"El Paso\")) edges)" "(filter #(and (= (:a %) \"Dallas\") (= (:b %) \"El Paso\")) edges)" "(filter #(and (= (:a %) \"Dallas\") (= (:b %) \"El Paso\")))" "edges" "(require '[ttr.board :refer :all])" "(create-all-edges)" "(require '[ttr.graph :refer :all])" "(require '[ttr.core :refer :all] :reload)" "(require '[ttr.core :refer :all])" "(require '[ttr.board :as board] :reload)" "(require '[ttr.core :refer :all])" "(start [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])" "(nil? (rest '(1)))" "(empty? (rest '(1)))" "(rest '())" "(start [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])" "(not-empty '(1 2 3 4))" "(not-empty '())" "(let [state (atom {:players {\"Matt\" {:routes {:cards [] :claimed []}
+                                           :destinations {:cards [] :completed []}}}
+                         :decks {:train {:type :train :cards []}}})]
+        (swap! state assoc-in [:players \"Matt\" :routes :cards] [1 2 3 4]))" "(for [p {:a 1 :b 2}]
+        (println p))" "(assoc-in {:players {\"Matt\" {:routes {:cards [] :claimed []}
+                                   :destinations {:cards [] :completed []}}}
+                 :decks {:train {:type :train :cards []}}} [:players \"Matt\" :routes :cards] [1 2 3 4])" "(assoc-in {:players {\"Matt\" {:routes {:cards [] :claimed []}
+                                   :destinations {:cards [] :completed []}}}
+                 :decks {:train {:type :train :cards []}}} [\"Matt\" :routes :cards] [1 2 3 4])" "(for [[k v] {:a 1 :b 2}]
+        (println k))" "(for [p {:a 1 :b 2}]
+        (println p))" "(for [p {:a 1 :b 2}]
+        p)" "(apply interleave (partition 4 [1 2 3 4 5 6 7 8 9 10 11 12]))" "(interleave (partition 4 [1 2 3 4 5 6 7 8 9 10 11 12]))" "(partition 4 [1 2 3 4 5 6 7 8 9 10 11 12])" "(run-all-tests)" "(start [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])" "(use 'ttr.core)" "(start [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])" "(run-all-tests)" "(get @a \"Matt\")" "(get-in @a \"Matt\")" "@a" "(get \"Matt\" @a)" "(\"Matt\" @a)" "(get (first (keys @a)) (deref a))" "(get (first (keys a)) (deref a))" "(get (first keys a) (deref a))" "(get (first keys) (deref a))" "(deref a)" "@a" "(get \"Emma\" @a)" "(get \"Emma\" a)" "(keys @a)" "@a" "(get \"Emma\" (deref a))" "(get \"Emma\" @a)" "a" "(swap! a merge (into {} (map a-new-player [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])))" "(def a (atom {}))" "(let [a (atom {})]
+        (swap! a merge (into {} (map a-new-player [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]]))))" "(into {} (map a-new-player [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]]))" "(mapcat a-new-player [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])" "(map a-new-player [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])" "(a-new-player [\"Ani\" :red])" "(a-new-player \"Ani\" :red \"Matt\" :blue)" "(a-new-player \"Ani\" :red)" "(a-new-player [\"Ani\" :red])" "(use 'ttr.players)" "(run-all-tests)" "(repeat 3 :red)" "(concat (repeat 3 :red) [:prismatic])" "(repeat 3 :red)" "(run-all-tests)" "(let [v [1 2 3]
+            x [4 5 6]]
+        (reduce + (map count [v x])))" "(let [v [1 2 3]
+            x [4 5 6]]
+        (+ (count v) (count x)))" "(count nil)" "(:prismatic {} [])" "(:prismatic {})" "(run-all-tests)" "(name :gray)" "(run-all-tests)" "(tt t)" "(tt & t)" "(apply tt t)" "(defn tt [[k v]]
+        k)" "(apply tt t)" "(tt & t)" "(tt t)" "(defn tt [k v]
+        k)" "(def t [:red [:red :red :red]])" "(run-all-tests)" "(use 'clojure.test)" "(use 'ttr.board-test)" "(require '[ttr.board-test :refer :all])" "(require 'ttr.board-test)" "(= (keyword \"gray\") :gray)" "(= \"gray\" :gray)" "(run-all-tests)" "(keyword :hey)" "(run-all-tests)" "(use 'clojure.test)" "(apply count (rest '(1 [1 2 3 4 5])))" "(rest '(1 [1 2 3 4 5]))" "(rest '([1 2 3 4 5]))" "(apply count (rest ['([1 2 3 4 5])]))" "(apply count (rest '([1 2 3 4 5])))" "(apply count '([1 2 3 4 5]))" "(take-nth 4 (range 10))" "(take-nth (range 10))" "(run-all-tests)" "(keys {:error \"foo\"})" "(run-all-tests)" "(deref (let [c (ref '(:gray :gray))
+                   d '()]
+               (dosync
+                (ref-set c d))))" "(let [c (ref '(:gray :gray))
+            d '()]
+        (dosync
+         (ref-set c d)))" "(run-all-tests)" "deck" "(concat [] (repeat 0 \"hey\"))" "(run-all-tests)" "(use 'clojure.test)" "(use 'ttr.board-test)" "repeat" "(build-decks)" "(count (deref (:cards train-deck)))" "(build-decks)" "(count (deref (:cards train-deck)))" "train-deck" "(build-decks)" "train-deck" "(build-decks)" "(deal-trains [(test-player)])" "(deal-trains)" "train-deck" "(use 'ttr.cards)" "(test-player)" "(use 'ttr.test-utils)" "(use 'ttr.core)" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "train-deck" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(use 'ttr.core)" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(use 'ttr.core)" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "discard-deck" "(use 'ttr.cards)" "discard-deck" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(use 'ttr.core)" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(use 'ttr.core)" "(map deal-dests players)" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "destination-deck" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(deal-dests (first players))" "players" "(use 'ttr.cards)" "(use 'ttr.core)" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(use 'ttr.core)" "(use 'ttr.cards)" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(use 'ttr.cards)" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]])" "(use 'ttr.core)" "(start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]])" "(shuffle [1 2 3 4 5 6 7])" "(mongean [1 2 3 4 5 6 7] 7)" "(mongean [1 2 3 4 5 6 7])" "(riffle [1 2 3 4 5 6 7] 7)" "(mongean [1 2 3 4 5 6 7] 7)" "(use 'ttr.shuffle)" "(use 'ttr.cards)" "(reset! edges-index [])" "(reset! edges-index []))" "(reset! edges-index)" "(force edges-index)" "(type edges-index)" "@edges-index" "edges-index" "@edges-index" "edges-index" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :banana})" "
+(defn group-by-many
+  \"Like `group-by', but allows grouping by multiple keys.
 
-)
-])
-]
-}\"
-               )
-            ]
-        )" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(drop-down \"slot\" [\"\" \"Leggings\" \"Boots\" \"Coat\" \"Gloves\" \"Shoulders\" \"Helm\"])" "(use 'hiccup.form)" "(-build-dropdowns)" "(home)" "(use 'gw2armor.routes.home)" "(start-server)" "(use 'gw2armor.repl)" "(start-server)" "(stop-server)" "(drop-down \"slot\" [\"\" \"Leggings\" \"Boots\" \"Coat\" \"Gloves\" \"Shoulders\" \"Helm\"])" "(first (drop-down \"slot\" [\"\" \"Leggings\" \"Boots\" \"Coat\" \"Gloves\" \"Shoulders\" \"Helm\"]))" "(drop-down \"slot\" [\"\" \"Leggings\" \"Boots\" \"Coat\" \"Gloves\" \"Shoulders\" \"Helm\"])" "(use 'hiccup.form)" "(drop-down \"slot\" [\"\" \"Leggings\" \"Boots\" \"Coat\" \"Gloves\" \"Shoulders\" \"Helm\"])" "(start-server)" "(stop-server)" "(foo {\"foo\" \"bar\"})" "(\"foo\" {\"foo\" \"bar\"})" "((keyword \"foo\") {\"foo\" \"bar\"})" "(:foo {\"foo\" \"bar\"})" "{\"foo\" \"bar\"}" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(home)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(concat [1 2] [3 4] [5 6])" "(second (rest (into [:span] (-build-dropdowns))))" "(rest (into [:span] (-build-dropdowns)))" "(second
-       (into [:span] (-build-dropdowns)))" "(first
-       (into [:span] (-build-dropdowns)))" "(:span (into [:span] (-build-dropdowns)))" "(start-server)" "(stop-server)" "(into [:span] (-build-dropdowns))" "[:span (-build-dropdowns)]" "(first (-build-dropdowns))" "(-build-dropdowns)" "(use 'gw2armor.routes.home)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(use 'gw2armor.repl)" "(start-server)" "(use 'gw2armor.repl)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(use 'gw2armor.repl)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(form \"/search\" \"Search\" (-build-dropdowns))" "(-build-dropdowns)" "(home)" "(use 'gw2armor.routes.home)" "(form \"/submit\" \"Submit\" [:p (text-field \"name\" \"Foobar\")])" "(form \"/submit\" \"Submit\")" "(form \"/submit\" \"Submit\" [:p (text-area \"Eheye\")])" "(form \"/submit\" \"Submit\")" "(use 'gw2armor.views.layout)" "(start-server)" "(use 'gw2armor.repl)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(use 'gw2armor.repl)" "(stop-server)" ")))))))))" ")" "(-build-dropdowns)" "(ns gw2armor.routes.home)" "(clojure.string/capitalize \"hey\")" "(clojure.string/title-case \"hey\")" "(clojure.string/upper-case \"hey\")" "(clojure.string/upper-case)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(stop-server)" "(start-server)" "(use 'gw2armor.repl)" "(start-server)" "(stop-server)" "(start-server)" "(use 'gw2armor.repl)" "(home)" "(ns gw2armor.home)" "(home)" "(-build-dropdowns)" "(build-dropdowns)" "(html5 (form-to [:post \"/\"] 
-                               (vals (reduce-kv (fn [m k v] (assoc m k (drop-down (name k) v))) {} dropdowns))))" "(html5 (vals (reduce-kv (fn [m k v] (assoc m k (drop-down (name k) v))) {} dropdowns)))" "(vals (reduce-kv (fn [m k v] (assoc m k (drop-down (name k) v))) {} dropdowns))" "(reduce-kv (fn [m k v] (assoc m k (drop-down (name k) v))) {} dropdowns)" "(reduce-kv (fn [m k v] (assoc m k (drop-down (name k) v))) {} dropdowns))" "(html5 (form-to [:post \"/\"] (reduce-kv (fn [m k v] (assoc m k (drop-down (name k) v))) {} dropdowns)))" "(form-to [:post \"/\"] (reduce-kv (fn [m k v] (assoc m k (drop-down (name k) v))) {} dropdowns))" "(reduce-kv (fn [m k v] (assoc m k (drop-down (name k) v))) {} dropdowns)" "(second (reduce-kv (fn [m k v] (assoc m k (drop-down (name k) v))) {} dropdowns))" "(first (reduce-kv (fn [m k v] (assoc m k (drop-down (name k) v))) {} dropdowns))" "(reduce-kv (fn [m k v] (assoc m k (drop-down (name k) v))) {} dropdowns)" "(reduce-kv (fn [m k v] (assoc m k (drop-down (name k) v))))" "(seq dropdowns)" "dropdowns" "(for [k (keys dropdowns) v (vals dropdowns)] (println (str \"Key: \" k \"\\tVal: \" v)))" "(for [k (keys dropdowns) v (vals dropdowns)] [k v])" "(for [k (keys dropdowns) v (vals dropdowns)] k v)" "(for [k (keys dropdowns) v (vals dropdowns)] k)" "(for [k (keys dropdowns) v (vals dropdowns)] (println k v))" "(keys (seq dropdowns))" "(seq dropdowns)" "(drop-down \"weights\" [\"Light\" \"Medium\" \"Heavy\"])" "(drop-down \"weights\")" "(drop-down [\"light\" \"Light\"] \"Weights\")" "(drop-down [\"hey \"Hey\"] \"Weights\")
+Example:
 
-)
-
-))
-)
-]
+  (group-by-many [{:a 1 :b 2 :c 3} {:a 7 :b 12 :c -4}] [:a :c])
+  >>> {#{1 3} {:a 1 :b 2 :c 3} #{7 -4} {:a 7 :b 12 :c -4}}
 \"
-                           )
-                          ]" "(html5 (form-to [:post \"/\"]
-                               (for [wt [\"light\" \"medium\" \"heavy\"]] (radio-button wt \"weight_class\" false))))" "(html5 (for [wt [\"light\" \"medium\" \"heavy\"]] (radio-button wt \"weight_class\" false)))" "(html5 (form-to (for [wt [\"light\" \"medium\" \"heavy\"]] (radio-button wt \"weight_class\" false))))" "(html5 (for [wt [\"light\" \"medium\" \"heavy\"]] (radio-button wt \"weight_class\" false)))" "(for [wt [\"light\" \"medium\" \"heavy\"]] (radio-button wt \"weight_class\" false))" "(for [wt [\"light\" \"medium\" \"heavy\"]] (radio-button wt \"weight_class\"))" "(for [wt [\"light\" \"medium\" \"heavy\"]] (radio-button [(keyword wt) wt] \"weight_class\"))" "(form-to (for [wt [\"light\" \"medium\" \"heavy\"]] (radio-button [(keyword wt) wt] \"weight_class\")))" "(form-to (for [wt [\"light\" \"medium\" \"heavy\"]] (radio-button {(keyword wt) wt} \"weight_class\")))" "(with-group \"weight_class\" (for [wt [\"light\" \"medium\" \"heavy\"]] (radio-button {(keyword wt) wt} \"weight_class\")))" "(with-group \"weight_class\" (for [wt [\"light\" \"medium\" \"heavy\"]] (radio-button {(keyword wt) wt})))" "(for [wt [\"light\" \"medium\" \"heavy\"]] (radio-button {(keyword wt) wt} \"weight_class\"))" "(radio-button {\"light\" \"Light\" \"medium\" \"Medium\" \"heavy\" \"Heavy\"} \"banana\")" "(radio-button {\"weight\" [\"l\" \"m\" \"h\"]} \"banana\")" "(radio-button {\"weight\" [\"l\" \"m\" \"h\"]})" "(use 'hiccup)" "(require hiccup)" "(common)" "(ns gw2armor.core)" "(require hiccup)" "(query {\"weight_class\" \"light\"})" "ps" "(clojure.string/join \" AND \" (for [kv ps] (clojure.string/join \":\" kv)))" "kv" "(clojure.string/join \" AND \" (for [kv ps] (clojure.string/join \":\" kv)))" "(clojure.string/join \"AND\" (for [kv ps] (clojure.string/join \":\" kv)))" "(clojure.string/join \"&\" (for [kv ps] (clojure.string/join \":\" kv)))" "(for [kv ps] (clojure.string/join \":\" kv))" "(do [kv ps] (clojure.string/join \":\" kv))" "(doseq [kv ps] (clojure.string/join \":\" kv))" "(doseq [kv ps] (clojure.string/join \":\" kv)))" "(doseq [kv ps] (prn (clojure.string/join \":\" kv)))" "(def ps {\"foo\" 1 \"bar\" 2 \"baz\" 3})" "(doseq [kv ps] (prn (clojure.string/join \":\" kv)))" "(name \"foo\")" "(name :foo)" "(str :foo)" "(string :foo)" "(doseq [kv ps] (prn (clojure.string/join \":\"
-                                                        kv)))" "(doseq [kv ps] (prn kv))" "(def ps {:foo 1 :bar 2 :baz 3})" "(index-armor)" "(add-docs! (last (cluster-docs files)))" "(count (cluster-docs files))" "(index-armor)" "(add-docs! (first (cluster-docs files)))" "(first (cluster-docs files))" "(take 1 (cluster-docs files))" "(index-armor)" "(ns gw2armor.core)" "(type -files)" "(take 1 clusters)" "(def clusters (cluster-docs -files))" "(vec (take 1 docs))" "(def docs (partition 100 fs))" "(encode (vec (take 10 fs)))" "(vec (take 10 fs))" "(take 1 fs)" "(def fs (read-json -files))" "(ns gw2armor.transform)" "(def fs (read-json -files))" "(count fs)" "(count items)" "(map #(-> % map-collapse cast-fields) (take 100 fs))" "(map #(-> % map-collapse cast-fields) (take 10 fs))" "(map #(-> % map-collapse) (take 10 fs))" "(take 10 fs)" "(take 1 fs)" "(def fs (read-json -files))" "(take 1 fs)" "(def fs (read-json -files))" "(read-json -files)" "(type (map #(-> % slurp (decode true)) -files))" "(type errors)" "(def errors (filter #(contains? % :error) (map #(-> % slurp (decode true)) -files)))" "(type errors)" "(def errors (filter #(contains? % :error) (lazy-seq (map #(-> % slurp (decode true)) -files))))" "(take 2 errors)" "(take 1 errors)" "(def errors (filter #(contains? % :error) (lazy-seq (map #(-> % slurp (decode true)) -files))))" "(count errors)" "(def errors (filter #(contains? % :error) (map #(-> % slurp (decode true)) -files)))" "(filter #(contains? % :error) (map #(-> % slurp (decode true)) (take 10 -files)))" "(filter #(contains? % :error)) (map #(-> % slurp (decode true)) (take 10 -files)))" "(filter #(not (contains? % :type)) (map #(-> % slurp (decode true)) (take 10 -files)))" "(filter #(contains? % :type) (map #(-> % slurp (decode true)) (take 10 -files)))" "(map #(-> % slurp (decode true) map-collapse cast-fields) (take 10 -files))" "(map #(-> % slurp (decode true)) (take 10 -files))" "(take 10 -files)" "(read-json -files)" "(def docs (read-json -files))" "(ns gw2armor.transform)" "(generate-string
-       )" "(use 'cheshire.core)" "(read-courses)" "(read-course 1)" "(update-course 1 {:description \"Hey there\"})" "(read-course 1)" "(ns courses.models.course)" "(flatten (vec (for [[k v] where-map] (vector (str k \" = ?\") v))))" "(vec (for [[k v] where-map] (vector (str k \" = ?\") v)))" "(vec (for [[k v] where-map] (vec (str k \" = ?\") v)))" "(vec (for [[k v] where-map] (vector (str k \" = ?\") v)))" "(vec (for [[k v] where-map] (str k \" = ?\") v))" "(vec (for [[k v] where-map] (str k \" = ?\")))" "(for [[k v] where-map] (str k \" = ?\"))" "(for [[k v] where-map] (str k \" = ?\")))" "(for [[k v] where-map] (str k \" = ?\") v))" "(for [[k v] where-map] (str k \" = ?\") v)" "(for [[k v] where-map] (vector (str k \" = ?\") v))" "(vector (flatten (for [[k v] where-map] (vector (str k \" = ?\") v))))" "(flatten (for [[k v] where-map] (vector (str k \" = ?\") v)))" "(for [[k v] where-map] (vector (str k \" = ?\") v))" "(for [[k v] where-map] (vector (str k \" = ?\")))" "(for [[k v] where-map] (map vector (str k \" = ?\")))" "(for [[k v] where-map] (str k \" = ?\"))" "(map vector (for [[k v] where-map] (str k \" = ?\")))" "(vector (for [[k v] where-map] (str k \" = ?\")))" "(for [[k v] where-map] (str k \" = ?\"))" "foo" "(def foo (doseq [kv (seq where-map)]
-                 (str (key kv) \" = ?\" (val kv))))" "(doseq [kv (seq where-map)]
-        (str (key kv) \" = ?\" (val kv)))" "(doseq [kv (seq where-map)]
-        (prn (str (key kv) \" = ?\" (val kv))))" "(doseq [kv (seq where-map)]
-        (str (key kv) \" = ?\" (val kv)))" "(doseq [kv (seq where-map)] (prn (key kv)))" "(doseq [kv (seq where-map)] (key kv))" "(doseq [kv (seq where-map)] (prn kv))" "(seq where-map)" "(def where-map {\"id\" 1, \"subject\" \"foo\"})" "(def where-map {\"id\" 1, \"subject\" \"foo})
+  [m ks]
+  (let [f (fn [x] {(-> x (select-keys ks) vals set) x})]
+    (apply merge (map f m))))" "(defn group-by-many
+  \"Like `group-by', but allows grouping by multiple keys.
 
+Example:
 
-)
+  (group-by-many [{:a 1 :b 2 :c 3} {:a 7 :b 12 :c -4}] [:a :c])
+  >>> {#{1 3} {:a 1 :b 2 :c 3} #{7 -4} {:a 7 :b 12 :c -4}}
 \"
-                      )
-        )" "(get-course 1)" "(ns courses.models.course)" "(get-course 1)" "(get)" "get" "(.get Resource 1)" "(.get Resource)" "get" "(use 'courses.models.db)" "(type Resource)" "(.get Course 1)" "(.get Course)" "(type Course)" "(ns courses.models.course)" "(type Resource)" "Resource" "(Resource)" "(.get Course 1)" "(new Course \"foo\" \"bar\" \"Hey\" \"blah\" \"now\" \"now\")" "(.get (new Course \"foo\" \"bar\" \"Hey\" \"blah\" \"now\" \"now\") \"1\")" "(.get (new Course \"foo\" \"bar\" \"Hey\" \"blah\" \"now\" \"now\") 1)" "(new Course \"foo\" \"bar\" \"Hey\" \"blah\" \"now\" \"now\")" "(new Course)" "(.get Course 1)" "(.get Course)" "Course" "(Course)" "(type Course)" "Course" "(ns courses.models.course)" "(use 'korma.db)" "exit" "(use 'korma.db)" "(ns courses.models.db)" "(use 'korma.db)" "(noir.validation/*errors*)" "noir.validation" "*err*" "(use 'eventcapture.handler)" "*errors*" "(use 'eventcapture.handler)" "*errors*" "(use 'eventcapture.handler)" "clojure.data" "(clojure.data)" "(clojure.data/json)" "(handle-event-post \"foo\" 100 1 \"{\\\"hey\\\": \\\"dude\\\"}\")" "(ns eventcapture.handler)" "(handle-event-post \"foo\" 100 1 \"{\\\"hey\\\": \\\"dude\\\"}\")" "(response \"foo\")" "(-> (response \"foo\") (status 500))" "(wrap-head (fn [request] (-> (response \"foo\") (status 500))))" "(server-error nil)" "(server-error)" "(ns eventcapture.handler)" "(not-nil? \"\")" "(start-server)" "(use 'liberator-service.repl)" "(do (stop-server) (start-server))" "(start-server)" "(use 'liberator-service.repl)" "(start-server)" "(view-graph (keys g) g)" "g" "(def g
-    {:a [:b :c]
-     :b [:c]
-     :c [:a]})" "(use 'rhizome.viz)" "(use 'rhizome)" "(start-server)" "(use 'guestbook.repl)" "(start-server)" "(use 'guestbook.repl)" "(start-server)" "(println \"\")" "(use 'guestbook.repl)" "(println \"\")" "(start-server)" "(use 'guestbook.repl)" "(start-server)" "(use 'guestbook.repl)" "(start-server)" "(use 'guestbook.repl)" "(start-server)" "(use 'guestbook.repl)" "(start-server)" "(use 'guestbook.repl)" "(start-server)" "(use 'guestbook.repl)" "(start-server)" "(use 'guestbook.repl)" "(start-server)" "(use 'guestbook.repl)" "(if nil error nil)" "(if \"\" error nil)" "(if \"You dun goofed\" error nil)" "(if \"You dun goofed\" error)" "(def error {:label \"Login error: \" :message \"You dun goofed\"})" "(form \"/login\" \"Login\" nil [password-field :p \"password\"])" "(form \"/login\" \"Login\" [password-field :p \"password\"])" "(form \"/login\" \"Login\" {:label \"Login error: \" :message \"Username is required\"} [password-field :p \"password\"])" "(use 'guestbook.views.layout)" "(use 'hiccup.form)" "(start-server)" "(use 'guestbook.repl)" "(if nil 1)" "(if error (:label error))" "(str (:label error) (:message error))" "(:label error) (:label error)" "(:label error)" "(def error {:label \"Login error: \" :message \"You dun goofed\"})" "(-> {:label \"Login error: \" :message \"You dun goofed\"} :label)" "(-> {:label \"Login error: \" :message \"You dun goofed\"} :label :message)" "(form \"/hey\" \"Whoa\" [password-field :p \"password\"])" "(form \"/hey\" nil [password-field :p \"password\"])" "(use 'hiccup.form)" "(form \"/hey\" nil)" "(form \"/hey\")" "(use 'guestbook.views.layout)" "(start-server)" "(stop-server)" "(foo 1 3 4)")
+  [m ks]
+  (let [f (fn [x] {(-> x (select-keys ks) vals set) x})]
+    (apply merge (map f m)))
+
+  
+  )" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :banana})" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :potato})" "(defn group-by-many [m ks]
+        (apply merge (map (fn [x] {(-> x (select-keys ks) vals set) x}) m)))" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :potato})" "(defn group-by-many [m ks]
+        (apply merge (map (fn [x] ({(-> x (select-keys ks) vals set) x}) m)))
+        )" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :potato})" "(defn group-by-many [m ks]
+        (apply merge (map #({(-> % (select-keys ks) vals set) %}) m)))" "(defn group-by-many [m ks]
+        (apply merge (map {(-> % (select-keys ks) vals set) %} m)))" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :potato})" "(defn group-by-many [m ks]
+        (apply merge (map #({(-> % (select-keys ks) vals set) %}) m)))" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :potato})" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] [:id :potato])" "(defn group-by-many [m ks]
+        (apply merge (map #({(-> % (select-keys keys) vals set) %}) m)))" "(index-edge)" "(use 'ttr.board
+           )" "(group-by #(vals (select-keys [:id] %)) '({:id 1 :data 123}, {:id 2 :data 456}))" "(group-by #(keys (select-keys [:id] %)) '({:id 1 :data 123}, {:id 2 :data 456}))" "(group-by #(select-keys [:id] %) '({:id 1 :data 123}, {:id 2 :data 456}))" "(group-by :id '({:id 1 :data 123}, {:id 2
+            :data 456}))" "(update-in {:a 2} [:a] inc)" "{(identity (ref [])) 7}" "{(ref []) 7}" "(let [x \"7\"]
+        (name x))" "(let [x \"7\"]
+        (identity x))" "(split-at 3 [1 2 3 4 5 6 7])" "(partition-all 3 [1 2 3 4 5 6 7])" "(partition 3 [1 2 3 4 5 6 7])" "(count @destination-deck)" "(draw!)" "(count @destination-deck)" "destination-deck" "(draw!)" "(use 'ttr.cards)" "(let [x (ref [1 2 3 4 5])]
+        (dosync
+         (ref-set x (drop 2 @x))))" "(let [x (ref [1 2 3 4 5])]
+        (dosync
+         (ref-set x #(drop 2 %))))" "(let [x (ref [1 2 3 4 5])]
+        (dosync
+         (ref-set x (drop 2))))" "(let [x (ref [1 2 3 4 5])]
+        (dosync
+         (ref-set x drop 2)))" "(let [x (ref [1 2 3 4 5])]
+        (dosync
+         (ref-set x drop n)))" "(-> [1 2 3 4 5] rest rest)" "((comp rest rest) [1 2 3 4 5])" "(comp rest rest)" "discard-pile" "(use 'ttr.cards)" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (claim-route ani r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (reset-route! r))" "players" "player" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (deal-trains! [ani]))" "(select-keys
+       )" "(assoc {:a 1} :a 2)" "(assoc {:a 1} :b 2)" "(assoc {:a 1} {:b 2})" "(count @train-deck)" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (deal-trains! [ani]))" "(count @train-deck)" "train-deck" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (deal-trains! [ani]))" "(deal-trains! [ani])" "players" "ani" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (reset-player! ani))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (reset-route! r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (claim-route ani r))" "players" "(deal-trains! players)" "(use 'ttr.cards)" "players" "(def players (let [names [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]]
+                     (map #(apply new-player %) names))))" "(def players (let [names [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]]
+                     (map #(apply new-player names))))" "(use 'ttr.players)" "(use 'ttr.board)" "(use 'ttr.players)" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (claim-route ani r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (reset-route! r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (claim-route ani r))" "(get scoring 1)" "(get 1 scoring)" "scoring" "(use 'ttr.board)" "scoring" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (claim-route ani r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (reset-route! r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (claim-route ani r))" "(first players)" "players" "(deal-trains! [(first players)])" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (:deck ani))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (claim-route ani r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (reset-route! r))" "(use 'ttr.board)" "(first players)" "(reset-player! (first players))" "(use 'ttr.board)" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (reset-route! r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (claim-route ani r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (reset-route! r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (claim-route ani r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (reset-route! r))" "(use 'ttr.board)" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (reset-r)
+        )" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (claim-route ani r))" "@edges-index" "edges-index" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
+            ani (first players)]
+        (claim-route ani r))")
