@@ -1,42 +1,15 @@
-[submodule "submodules/magit"]
-	path = submodules/magit
-	url = git://github.com/magit/magit.git
-[submodule "submodules/python.el"]
-	path = submodules/python.el
-	url = git://github.com/fgallina/python.el.git
-[submodule "submodules/js2-mode"]
-	path = submodules/js2-mode
-	url = git://github.com/mooz/js2-mode.git
-[submodule "submodules/clojure-mode"]
-	path = submodules/clojure-mode
-	url = git://github.com/technomancy/clojure-mode.git
 [submodule "submodules/emacs-color-theme-solarized"]
 	path = submodules/emacs-color-theme-solarized
 	url = git://github.com/sellout/emacs-color-theme-solarized.git
-[submodule "jira-rest"]
-	path = submodules/jira-rest
-	url = git@github.com:mattdeboard/jira-rest.git
 [submodule "json.el"]
 	path = submodules/json.el
 	url = git://github.com/thorstadt/json.el.git
-[submodule "submodules/coffee-mode"]
-	path = submodules/coffee-mode
-	url = git://github.com/defunkt/coffee-mode.git
-[submodule "submodules/puppet-mode"]
-	path = submodules/puppet-mode
-	url = git://github.com/puppetlabs/puppet-syntax-emacs.git
-[submodule "submodules/virtualenv.el"]
-	path = submodules/virtualenv.el
-	url = git@github.com:aculich/virtualenv.el.git
 [submodule "submodules/goflymake"]
 	path = submodules/goflymake
 	url = git@github.com:dougm/goflymake.git
 [submodule "submodules/go-mode"]
 	path = submodules/go-mode
 	url = git@github.com:dominikh/go-mode.el
-[submodule "submodules/elixir-mode"]
-	path = submodules/elixir-mode
-	url = https://github.com/elixir-lang/emacs-elixir.git
 [submodule "submodules/org-gcal"]
 	path = submodules/org-gcal
 	url = git@github.com:myuhe/org-gcal.el.git
