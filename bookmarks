@@ -2,4 +2,24 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-()
+(("floobits-empiricalthought-1385"
+ (filename . "~/courseload/api/src/utils/api/auth.py")
+ (front-context-string . "if request.metho")
+ (rear-context-string . "wargs):\n        ")
+ (position . 288))
+("floobits-AsaAyers-1384"
+ (filename . "~/courseload/api/src/settings/base.py")
+ (front-context-string . "                ")
+ (rear-context-string . "xlsb', '.xlsm',\n")
+ (position . 2098))
+("floobits-mconley-1382"
+ (filename . "~/courseload/api/src/settings/base.py")
+ (front-context-string . "                ")
+ (rear-context-string . "xlsb', '.xlsm',\n")
+ (position . 2098))
+("floobits-mdeboard-1381"
+ (filename . "~/courseload/api/src/courseload_api/mobile_bookshelf/views.py")
+ (front-context-string . "                ")
+ (rear-context-string . "data), domain),\n")
+ (position . 3050))
+)

@@ -2,7 +2,8 @@
 ;; Automatically written history of CIDER REPL session
 ;; Edit at your own risk
 
-("(binding [*neo-db* (.newEmbeddedDatabase (GraphDatabaseFactory.) \"/opt/neo4j/data/graph.db\")]
+("(parse-site \"foo.com\" {:blah :blah})" "(parse-site \"google.com\" {:blah :blah})" "(parse-site \"y\" {:blah :blah})" "(parse-site \"x\" {:blah :blah})" "(ns kanfold.test)" "(parse-site \"x\" {:blah :blah})" "(parse-site \"foo.com\" {:blah :blah})" "(ns kanfold.test)" "(parse-site \"foo.com\" {:blah :blah})" "(parse-site \"site.com\" {:blah :blah})" "(parse-site \"google.com\" {:blah :blah})" "(parse-site \"google.com_search\" {:blah :blah})" "(ns kanfold.test)" "(cemerick.piggieback/cljs-repl)" "(cemerick.piggieback/cljs-repl :repl-env (cemerick.austin/exec-env))" "(start-server)" "(stop-server)" "(start-server)" ":cljs/quit" "(pback/cljs-repl
+               )" ":cljs/quit" ":cljs/uit" "(+ 1 1)" "hey" "(cemerick.piggieback/cljs-repl)" "cljs.repl" "pback" "(binding [*neo-db* (.newEmbeddedDatabase (GraphDatabaseFactory.) \"/opt/neo4j/data/graph.db\")]
         (with-tx
           (do
             (println (all-nodes))
@@ -347,33 +348,4 @@ Example:
             ani (first players)]
         (reset-route! r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
             ani (first players)]
-        (claim-route ani r))" "(get scoring 1)" "(get 1 scoring)" "scoring" "(use 'ttr.board)" "scoring" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (claim-route ani r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (reset-route! r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (claim-route ani r))" "(first players)" "players" "(deal-trains! [(first players)])" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (:deck ani))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (claim-route ani r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (reset-route! r))" "(use 'ttr.board)" "(first players)" "(reset-player! (first players))" "(use 'ttr.board)" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (reset-route! r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (claim-route ani r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (reset-route! r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (claim-route ani r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (reset-route! r))" "(use 'ttr.board)" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (reset-r)
-        )" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (claim-route ani r))" "@edges-index" "edges-index" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (claim-route ani r))")
+        (claim-route ani r))" "(get scoring 1)" "(get 1 scoring)")
