@@ -2,350 +2,312 @@
 ;; Automatically written history of CIDER REPL session
 ;; Edit at your own risk
 
-("(parse-site \"foo.com\" {:blah :blah})" "(parse-site \"google.com\" {:blah :blah})" "(parse-site \"y\" {:blah :blah})" "(parse-site \"x\" {:blah :blah})" "(ns kanfold.test)" "(parse-site \"x\" {:blah :blah})" "(parse-site \"foo.com\" {:blah :blah})" "(ns kanfold.test)" "(parse-site \"foo.com\" {:blah :blah})" "(parse-site \"site.com\" {:blah :blah})" "(parse-site \"google.com\" {:blah :blah})" "(parse-site \"google.com_search\" {:blah :blah})" "(ns kanfold.test)" "(cemerick.piggieback/cljs-repl)" "(cemerick.piggieback/cljs-repl :repl-env (cemerick.austin/exec-env))" "(start-server)" "(stop-server)" "(start-server)" ":cljs/quit" "(pback/cljs-repl
-               )" ":cljs/quit" ":cljs/uit" "(+ 1 1)" "hey" "(cemerick.piggieback/cljs-repl)" "cljs.repl" "pback" "(binding [*neo-db* (.newEmbeddedDatabase (GraphDatabaseFactory.) \"/opt/neo4j/data/graph.db\")]
-        (with-tx
-          (do
-            (println (all-nodes))
-            (stop!))))" "(with-tx (binding [*neo-db* (.newEmbeddedDatabase (GraphDatabaseFactory.) \"/opt/neo4j/data/graph.db\")]
-        (do
-          (println (all-nodes))
-          (stop!))))" "(binding [*neo-db* (.newEmbeddedDatabase (GraphDatabaseFactory.) \"/opt/neo4j/data/graph.db\")]
-        (do
-          (println (all-nodes))
-          (stop!)))" "(binding [*neo-db* (.newEmbeddedDatabase (GraphDatabaseFactory.) \"/opt/neo4j/data/graph.db\")]
-        (do
-          (all-nodes)
-          (stop!)))" "(binding [*neo-db* (.newEmbeddedDatabase (GraphDatabaseFactory.) \"/opt/neo4j/data/graph.db\")]
-        (try
-          (all-nodes)
-          (finally (stop!))))" "(.start *neo-db*)" "(.shutdown *neo-db*)" "(.start *neo-db*)" "(let [tx (.beginTx *neo-db*)]
-        (try 
-          (let [val (do (all-nodes))]
-            (.success tx)
-            val)
-          (finally (.finish tx))))" "(class *neo-db*)" "(.availableProcessors)" "(.start *neo-db*)" "*neo-db*" "(with-local-db! \"/opt/neo4j/data/graph.db\"
-        (all-nodes))" "(new GraphDatabaseFactory)" "(GraphDatabaseFactory.)" "(import '[org.neo4j.graphdb.factory GraphDatabaseFactory]
-              '[org.neo4j.graphdb GraphDatabaseService DynamicLabel]) " "(with-db! \"/opt/neo4j/data/graph.db\"
-        (all-nodes))" "(require '[borneo.core :refer :all])" "(with-db! \"/opt/neo4j/data/graph.db\"
-        (all-nodes))" "(with-local-db! \"/opt/neo4j/data/graph.db\"
-        (all-nodes))" "(with-db! \"/opt/neo4j/data/graph.db\"
-        (with-tx (all-nodes)))" "(do (start! \"/opt/neo4j/data/graph.db\")
-          (try (for [n (all-nodes)] n)
-               ))" "(do (start! \"/opt/neo4j/data/graph.db\")
-          (try (for [n (all-nodes)] n)
-               (finally (stop!))))" "(with-local-db! \"/opt/neo4j/data/graph.db\"
-        (all-nodes))" "(with-db! \"/opt/neo4j/data/graph.db\"
-        (all-nodes))" "(require '[borneo.core :refer :all])" "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")
-            label (DynamicLabel/label \"City\")
-            tx (.beginTx db)]
-        (.getAllNodes db label \"name\" \"Dallas\"))
-" "(import '[org.neo4j.graphdb.factory GraphDatabaseFactory]
-              '[org.neo4j.graphdb GraphDatabaseService DynamicLabel]) " "(import '[org.neo4j.graphdb GraphDatabaseService DynamicLabel]) " "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")
-            label (DynamicLabel/label \"City\")
-            r (.findNodesByLabelAndProperty db label \"name\" \"Dallas\")]
-        (.shutdown db))" "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")
-            label (DynamicLabel/label \"City\")
-            r (.findNodesByLabelAndProperty db label \"name\" \"Dallas\")]
-        (vec r))" "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")
-            label (DynamicLabel/label \"City\")
-            r (.findNodesByLabelAndProperty db label \"name\" \"Dallas\")]
-        (.shutdown db))" "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")
-            label (DynamicLabel/label \"City\")
-            r (.findNodesByLabelAndProperty db label \"name\" \"Dallas\")]
-        (.shutdown db)
-        r)
-        " "(DynamicLabel/label \"City\")" "(new DynamicLabel)" "(DynamicLabel)" "(import '[org.neo4j.graphdb GraphDatabaseService DynamicLabel]) " "(.string (new Label \"foo\"))" "(.string (new Label))" "(.string Label)" "Label" "(Label)" "(new Label)" "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")]
-        (.shutdown db))" "(import '[org.neo4j.graphdb.factory GraphDatabaseFactory]) " "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")]
-        (.shutdown db))" "(import '[org.neo4j.graphdb GraphDatabaseService Label]) " "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")]
-        (.shutdown db))" "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")]
-        (.findNodesByLabelAndProperty db \"City\" \"name\" \"Dallas\"))" "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")]
-        (.shutdown db))" "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"/opt/neo4j/data/graph.db/\")]
-        (. shutdown db))" "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"db/data\")]
-        (. db close))" "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"db/data\")]
-        )" "(let [dbf (new GraphDatabaseFactory)
-            db (.newEmbeddedDatabase dbf \"db/data\")]
-        (.getAllNodes db))" "(let [db (new GraphDatabaseFactory)]
-        (.newEmbeddedDatabase db \"db/data\"))" "(let [db (new GraphDatabaseFactory)]
-        (.newEmbeddedDatabase \"db/data\"))" "(let [db (new GraphDatabaseFactory)]
-        db)" "(let [db (new GraphDatabaseFactory)]
-        d) " "(let [db (new GraphDatabaseFactory)]
-        (. db newEmbeddedDatabase)) " "(let [db (new GraphDatabaseFactory)]
-        db)" "(import '[org.neo4j.graphdb GraphDatabaseService]) " "(import '[org.neo4j.graphdb.factory GraphDatabaseFactory GraphDatabaseService]) " "(import '[org.neo4j.graphdb.factory GraphDatabaseFactory]) " "(import 'org.neo4j.graphdb)" "(fetch-node \"Dallas\")" "(:id (fetch-node \"Dallas\"))" "(fetch-node \"Dallas\")" "(get-in (fetch-node \"Dallas\") [:data])" "(fetch-node \"Dallas\")" "(let [conn (nr/connect neo4j-url)]
-        (nn/find conn :name \"Dallas\"))" "(let [conn (nr/connect neo4j-url)]
-        (nn/find conn \"name:\" \"Dallas\"))" "(let [conn (nr/connect neo4j-url)]
-        (nn/find conn \"name\" \"Dallas\"))" "(let [conn (nr/connect neo4j-url)]
-        (nn/find conn :name \"Dallas\"))" "(let [conn (nr/connect neo4j-url)]
-        (nn/query conn {:name \"Dallas\"}))" "(let [conn (nr/connect neo4j-url)]
-        (nn/traverse conn 655))" "routes" "(clojure-version)" "(clojure.set/join routes routes {:a \"El Paso\"})" "(clojure.set/join routes routes {:a (:b %)})" "(map #(clojure.set/join % %2 {:a (:b %)}) routes routes)" "(keymap)" "(map #(clojure.set/join % %2 ) routes routes)" "(map #(clojure.set/join % %2 [:a :b]) routes routes)" "(map #(clojure.set/join % %2 [:a :b]) routes)" "(map $(clojure.set/join % %2 [:a :b]) routes)" "(map (clojure.set/join % %2 [:a :b]) routes)" "(sort-by #(juxt :a :b % %2) routes)" "(sort-by (juxt :a :b) routes)" "(sort-by (juxt :a :b) = routes)" "(sort-by (juxt :a :b)  routes)" "(sort-by :a routes)" "(let [x (lazy-seq [1 2 3 4]) y (lazy-seq [5 6 7 8])] (concat x y))" "(let [x (lazy-seq [1 2 3 4]) y (lazy-seq [5 6 7 8])] (apply into [x y]))" "(let [x (lazy-seq [1 2 3 4]) y (lazy-seq [5 6 7 8])] (realized? x))" "(let [x (lazy-seq [1 2 3 4]) y (lazy-seq [5 6 7 8])] (concat x y))" "(lazy-seq [1 2 3 4])" "(seq [1 2 3 4])" "(seq 1 2 3 4)" "(into [] [[1 2] [3 4]])" "(into [[1 2] [3 4]])" "(apply into [[1 2] [3 4]])" "(apply into 
-                    [1 2] [3 4])" "(apply #(into [] % %2 %3)
-                    [1 2] [3 4])" "(apply #(into [] % %2)
-                    [1 2] [3 4])" "(apply #(into [] %) [1 2] [3 4])" "(into [] [1 2] [3 4])" "(concat [1 2] [3 4])" "(let [conn (nr/connect neo4j-url)])
-            " "(require '[clojurewerkz.neocons.rest :as nr]
-            '[clojurewerkz.neocons.rest.nodes :as nn]
-            '[clojurewerkz.neocons.rest.labels :as nl]
-            '[clojurewerkz.neocons.rest.relationships :as nrl]
-            '[clojurewerkz.neocons.rest.cypher :as cy])" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (set (select-vals % [:a :b]))) (clojure.set/subset? #{\"New York\"} (set (select-vals % [:a :b])))) routes)" "(def routes (set routes))" "(set routes)" "routes" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (set (select-vals % [:a :b]))) (clojure.set/subset? #{\"New York\"} (set (select-vals % [:a :b])))) routes)" "(count routes)" "routes" "(def routes (filter #(not= #{:green \"Pittsburgh\"} (set (select-vals % [:color :b]))) routes))" "(filter #(not= #{:green \"Pittsburgh\"} (set (select-vals % [:color :b]))) routes)" "(def routes (let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            rs (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
-            routes (set (flatten rs))]
-        (set (filter #(not= #{:pink \"Saint Louis\"} (set (select-vals % [:color :b]))) routes))))
-                    
-        " "(count routes)" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (set (select-vals % [:a :b]))) (clojure.set/subset? #{\"New York\"} (set (select-vals % [:a :b])))) routes)" "(select-keys [:a :b] (first routes))" "(map #(select-keys [:a :b] %) routes)" "routes" "(map #(select-vals [:a :b] %) routes)" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (set (select-vals [:a :b] %))) (clojure.set/subset? #{\"New York\"} (set (select-vals [:a :b] %)))) routes)" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (select-vals [:a :b] %)) (clojure.set/subset? #{\"New York\"} (set (select-vals [:a :b] %)))) routes)" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (select-vals [:a :b] %)) (clojure.set/subset? #{\"New York\"} (select-vals [:a :b] %))) routes)" "(clojure.set/select #(or (clojure.set/subset? #{\"Dallas\"} (select-vals [:a :b] %)) (clojure.set/subset? #{\"New York\"} (select-vals [:a :b] %))))" "routes" "(def routes (let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            rs (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
-            routes (set (flatten rs))]
-        (set (filter #(not= #{:pink \"Saint Louis\"} (set (select-vals % [:color :b]))) routes))))
-                    
-        " "routes" "(def routes (let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            rs (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
-            routes (set (flatten rs))]
-        (filter #(not= #{:pink \"Saint Louis\"} (set (select-vals % [:color :b]))) routes)))
-                    
-        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            rs (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
-            routes (set (flatten rs))]
-        (filter #(not= #{:pink \"Saint Louis\"} (set (select-vals % [:color :b]))) routes))
-                    
-        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            rs (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
-            routes (set (flatten rs))]
-        (filter #(= #{:pink \"Saint Louis\"} (set (select-vals % [:color :b]))) routes))
-                    
-        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            rs (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
-            routes (set (flatten rs))]
-        (filter #(= #{:pink \"Saint Louis\"} (select-vals % [:color :b])) routes))
-                    
-        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            rs (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
-            routes (set (flatten rs))]
-        (filter #(= #{:pink \"Saint Louis\"} (select-vals % [:color :b]) routes)))
-                    
-        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            rs (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
-            routes (set (flatten rs))]
-        routes)
-        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            rs (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))
-            routes (set (flatten routes))]
-        routes)
-        " "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
-        (set (flatten routes)))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
-        (set (flatten routes))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
-        (count (distinct (flatten routes))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
-        (distinct (flatten routes)))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
-        (set (flatten routes)))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]]
-        (partition 2 1 p))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
-        (count (set (flatten routes))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
-        (set (flatten routes)))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-vals % [:a :b]))) edges))]
-        (flatten routes))" "(set (select-keys (first edges) [:a :b]))" "(select-keys (first edges) [:a :b])" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(= #{x y} (set (select-keys % [:a :b]))) edges))]
-        (flatten routes))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(= #{x y} (into {} (select-keys % [:a :b]))) edges))]
-        (flatten routes))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(= #{x y} (into {} (select-keys % [:a :b]) edges))))]
-        (flatten routes))" "(= #{\"El Paso\" \"Dallas\"} #{\"Dallas\" \"El Paso\"})" "(compare #{\"El Paso\" \"Dallas\"} #{\"Dallas\" \"El Paso\"})" "(compare '(\"El Paso\" \"Dallas\") '(\"Dallas\" \"El Paso\"))" "(== '(\"El Paso\" \"Dallas\") '(\"Dallas\" \"El Paso\"))" "(= '(\"El Paso\" \"Dallas\") '(\"Dallas\" \"El Paso\"))" "(select-vals {:color :red, :b \"El Paso\", :cost 4, :a \"Dallas\"} [:a :b])" "(select-keys {:color :red, :b \"El Paso\", :cost 4, :a \"Dallas\"} [:a :b])" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(and (= (:a %) x) (= (:b %) y)) edges))]
-        (flatten routes))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(and (= (:a %) x) (= (:b %) y)) edges))]
-        routes)" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filter #(and (= (:a %) x) (= (:b %) y)) edges))]
-        (flatten routes))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]]
-        (partition 2 1 p))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filterv #(and (= (:a %) x) (= (:b %) y)) edges))]
-        (flatten routes))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filterv #(and (= (:a %) x) (= (:b %) y)) edges))]
-        (into [] routes))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)
-            routes (for [[x y] pairs]
-                     (filterv #(and (= (:a %) x) (= (:b %) y)) edges))]
-        (flatten routes)
-        )" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)]
-        (flatten
-              (for [[x y] pairs]
-                (filterv #(and (= (:a %) x) (= (:b %) y)) edges))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)]
-        (apply into []
-              (for [[x y] pairs]
-                (filterv #(and (= (:a %) x) (= (:b %) y)) edges))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)]
-        (apply merge
-              (for [[x y] pairs]
-                (filterv #(and (= (:a %) x) (= (:b %) y)) edges))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)]
-        (merge
-              (for [[x y] pairs]
-                (filterv #(and (= (:a %) x) (= (:b %) y)) edges))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)]
-        (into [] 
-              (for [[x y] pairs]
-                (filterv #(and (= (:a %) x) (= (:b %) y)) edges))))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]
-            pairs (partition 2 1 p)]
-        (for [[x y] pairs]
-          (filterv #(and (= (:a %) x) (= (:b %) y)) edges)))" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]]
-        (partition 2 1 p))" "(partition 2 1 edges)" "(let [p [\"Dallas\" \"El Paso\" \"Santa Fe\" \"Oklahoma City\" \"Kansas City\" \"Saint Louis\" \"Pittsburgh\" \"New York\"]])" "(filterv #(and (= (:a %) \"El Paso\") (= (:b %) \"Santa Fe\")) edges)" "(filterv #(and (= (:a %) \"Dallas\") (= (:b %) \"El Paso\")) edges)" "(filterv #(and (= (:a %) \"Dallas\") (= (:b %) (or \"El Paso\" \"Little Rock\"))) edges)" "(filterv #(and (= (:a %) \"Dallas\") (= (:b %) \"El Paso\")) edges)" "(filter #(and (= (:a %) \"Dallas\") (= (:b %) \"El Paso\")) edges)" "(filter #(and (= (:a %) \"Dallas\") (= (:b %) \"El Paso\")))" "edges" "(require '[ttr.board :refer :all])" "(create-all-edges)" "(require '[ttr.graph :refer :all])" "(require '[ttr.core :refer :all] :reload)" "(require '[ttr.core :refer :all])" "(require '[ttr.board :as board] :reload)" "(require '[ttr.core :refer :all])" "(start [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])" "(nil? (rest '(1)))" "(empty? (rest '(1)))" "(rest '())" "(start [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])" "(not-empty '(1 2 3 4))" "(not-empty '())" "(let [state (atom {:players {\"Matt\" {:routes {:cards [] :claimed []}
-                                           :destinations {:cards [] :completed []}}}
-                         :decks {:train {:type :train :cards []}}})]
-        (swap! state assoc-in [:players \"Matt\" :routes :cards] [1 2 3 4]))" "(for [p {:a 1 :b 2}]
-        (println p))" "(assoc-in {:players {\"Matt\" {:routes {:cards [] :claimed []}
-                                   :destinations {:cards [] :completed []}}}
-                 :decks {:train {:type :train :cards []}}} [:players \"Matt\" :routes :cards] [1 2 3 4])" "(assoc-in {:players {\"Matt\" {:routes {:cards [] :claimed []}
-                                   :destinations {:cards [] :completed []}}}
-                 :decks {:train {:type :train :cards []}}} [\"Matt\" :routes :cards] [1 2 3 4])" "(for [[k v] {:a 1 :b 2}]
-        (println k))" "(for [p {:a 1 :b 2}]
-        (println p))" "(for [p {:a 1 :b 2}]
-        p)" "(apply interleave (partition 4 [1 2 3 4 5 6 7 8 9 10 11 12]))" "(interleave (partition 4 [1 2 3 4 5 6 7 8 9 10 11 12]))" "(partition 4 [1 2 3 4 5 6 7 8 9 10 11 12])" "(run-all-tests)" "(start [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])" "(use 'ttr.core)" "(start [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])" "(run-all-tests)" "(get @a \"Matt\")" "(get-in @a \"Matt\")" "@a" "(get \"Matt\" @a)" "(\"Matt\" @a)" "(get (first (keys @a)) (deref a))" "(get (first (keys a)) (deref a))" "(get (first keys a) (deref a))" "(get (first keys) (deref a))" "(deref a)" "@a" "(get \"Emma\" @a)" "(get \"Emma\" a)" "(keys @a)" "@a" "(get \"Emma\" (deref a))" "(get \"Emma\" @a)" "a" "(swap! a merge (into {} (map a-new-player [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])))" "(def a (atom {}))" "(let [a (atom {})]
-        (swap! a merge (into {} (map a-new-player [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]]))))" "(into {} (map a-new-player [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]]))" "(mapcat a-new-player [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])" "(map a-new-player [[\"Ani\" :red] [\"Matt\" :blue] [\"Emma\" :yellow]])" "(a-new-player [\"Ani\" :red])" "(a-new-player \"Ani\" :red \"Matt\" :blue)" "(a-new-player \"Ani\" :red)" "(a-new-player [\"Ani\" :red])" "(use 'ttr.players)" "(run-all-tests)" "(repeat 3 :red)" "(concat (repeat 3 :red) [:prismatic])" "(repeat 3 :red)" "(run-all-tests)" "(let [v [1 2 3]
-            x [4 5 6]]
-        (reduce + (map count [v x])))" "(let [v [1 2 3]
-            x [4 5 6]]
-        (+ (count v) (count x)))" "(count nil)" "(:prismatic {} [])" "(:prismatic {})" "(run-all-tests)" "(name :gray)" "(run-all-tests)" "(tt t)" "(tt & t)" "(apply tt t)" "(defn tt [[k v]]
-        k)" "(apply tt t)" "(tt & t)" "(tt t)" "(defn tt [k v]
-        k)" "(def t [:red [:red :red :red]])" "(run-all-tests)" "(use 'clojure.test)" "(use 'ttr.board-test)" "(require '[ttr.board-test :refer :all])" "(require 'ttr.board-test)" "(= (keyword \"gray\") :gray)" "(= \"gray\" :gray)" "(run-all-tests)" "(keyword :hey)" "(run-all-tests)" "(use 'clojure.test)" "(apply count (rest '(1 [1 2 3 4 5])))" "(rest '(1 [1 2 3 4 5]))" "(rest '([1 2 3 4 5]))" "(apply count (rest ['([1 2 3 4 5])]))" "(apply count (rest '([1 2 3 4 5])))" "(apply count '([1 2 3 4 5]))" "(take-nth 4 (range 10))" "(take-nth (range 10))" "(run-all-tests)" "(keys {:error \"foo\"})" "(run-all-tests)" "(deref (let [c (ref '(:gray :gray))
-                   d '()]
-               (dosync
-                (ref-set c d))))" "(let [c (ref '(:gray :gray))
-            d '()]
-        (dosync
-         (ref-set c d)))" "(run-all-tests)" "deck" "(concat [] (repeat 0 \"hey\"))" "(run-all-tests)" "(use 'clojure.test)" "(use 'ttr.board-test)" "repeat" "(build-decks)" "(count (deref (:cards train-deck)))" "(build-decks)" "(count (deref (:cards train-deck)))" "train-deck" "(build-decks)" "train-deck" "(build-decks)" "(deal-trains [(test-player)])" "(deal-trains)" "train-deck" "(use 'ttr.cards)" "(test-player)" "(use 'ttr.test-utils)" "(use 'ttr.core)" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "train-deck" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(use 'ttr.core)" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(use 'ttr.core)" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "discard-deck" "(use 'ttr.cards)" "discard-deck" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(use 'ttr.core)" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(use 'ttr.core)" "(map deal-dests players)" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "destination-deck" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(deal-dests (first players))" "players" "(use 'ttr.cards)" "(use 'ttr.core)" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(use 'ttr.core)" "(use 'ttr.cards)" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(use 'ttr.cards)" "players" "(def players (start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]))" "(start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]])" "(use 'ttr.core)" "(start [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]])" "(shuffle [1 2 3 4 5 6 7])" "(mongean [1 2 3 4 5 6 7] 7)" "(mongean [1 2 3 4 5 6 7])" "(riffle [1 2 3 4 5 6 7] 7)" "(mongean [1 2 3 4 5 6 7] 7)" "(use 'ttr.shuffle)" "(use 'ttr.cards)" "(reset! edges-index [])" "(reset! edges-index []))" "(reset! edges-index)" "(force edges-index)" "(type edges-index)" "@edges-index" "edges-index" "@edges-index" "edges-index" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :banana})" "
-(defn group-by-many
-  \"Like `group-by', but allows grouping by multiple keys.
-
-Example:
-
-  (group-by-many [{:a 1 :b 2 :c 3} {:a 7 :b 12 :c -4}] [:a :c])
-  >>> {#{1 3} {:a 1 :b 2 :c 3} #{7 -4} {:a 7 :b 12 :c -4}}
-\"
-  [m ks]
-  (let [f (fn [x] {(-> x (select-keys ks) vals set) x})]
-    (apply merge (map f m))))" "(defn group-by-many
-  \"Like `group-by', but allows grouping by multiple keys.
-
-Example:
-
-  (group-by-many [{:a 1 :b 2 :c 3} {:a 7 :b 12 :c -4}] [:a :c])
-  >>> {#{1 3} {:a 1 :b 2 :c 3} #{7 -4} {:a 7 :b 12 :c -4}}
-\"
-  [m ks]
-  (let [f (fn [x] {(-> x (select-keys ks) vals set) x})]
-    (apply merge (map f m)))
-
-  
-  )" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :banana})" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :potato})" "(defn group-by-many [m ks]
-        (apply merge (map (fn [x] {(-> x (select-keys ks) vals set) x}) m)))" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :potato})" "(defn group-by-many [m ks]
-        (apply merge (map (fn [x] ({(-> x (select-keys ks) vals set) x}) m)))
-        )" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :potato})" "(defn group-by-many [m ks]
-        (apply merge (map #({(-> % (select-keys ks) vals set) %}) m)))" "(defn group-by-many [m ks]
-        (apply merge (map {(-> % (select-keys ks) vals set) %} m)))" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :potato})" "(defn group-by-many [m ks]
-        (apply merge (map #({(-> % (select-keys ks) vals set) %}) m)))" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] #{:id :potato})" "(group-by-many [{:id 1 :name \"foo\" :banana \"potato\"} {:id 2 :name \"foo\" :banana \"fistula\"}] [:id :potato])" "(defn group-by-many [m ks]
-        (apply merge (map #({(-> % (select-keys keys) vals set) %}) m)))" "(index-edge)" "(use 'ttr.board
-           )" "(group-by #(vals (select-keys [:id] %)) '({:id 1 :data 123}, {:id 2 :data 456}))" "(group-by #(keys (select-keys [:id] %)) '({:id 1 :data 123}, {:id 2 :data 456}))" "(group-by #(select-keys [:id] %) '({:id 1 :data 123}, {:id 2 :data 456}))" "(group-by :id '({:id 1 :data 123}, {:id 2
-            :data 456}))" "(update-in {:a 2} [:a] inc)" "{(identity (ref [])) 7}" "{(ref []) 7}" "(let [x \"7\"]
-        (name x))" "(let [x \"7\"]
-        (identity x))" "(split-at 3 [1 2 3 4 5 6 7])" "(partition-all 3 [1 2 3 4 5 6 7])" "(partition 3 [1 2 3 4 5 6 7])" "(count @destination-deck)" "(draw!)" "(count @destination-deck)" "destination-deck" "(draw!)" "(use 'ttr.cards)" "(let [x (ref [1 2 3 4 5])]
-        (dosync
-         (ref-set x (drop 2 @x))))" "(let [x (ref [1 2 3 4 5])]
-        (dosync
-         (ref-set x #(drop 2 %))))" "(let [x (ref [1 2 3 4 5])]
-        (dosync
-         (ref-set x (drop 2))))" "(let [x (ref [1 2 3 4 5])]
-        (dosync
-         (ref-set x drop 2)))" "(let [x (ref [1 2 3 4 5])]
-        (dosync
-         (ref-set x drop n)))" "(-> [1 2 3 4 5] rest rest)" "((comp rest rest) [1 2 3 4 5])" "(comp rest rest)" "discard-pile" "(use 'ttr.cards)" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (claim-route ani r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (reset-route! r))" "players" "player" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (deal-trains! [ani]))" "(select-keys
-       )" "(assoc {:a 1} :a 2)" "(assoc {:a 1} :b 2)" "(assoc {:a 1} {:b 2})" "(count @train-deck)" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (deal-trains! [ani]))" "(count @train-deck)" "train-deck" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (deal-trains! [ani]))" "(deal-trains! [ani])" "players" "ani" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (reset-player! ani))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (reset-route! r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (claim-route ani r))" "players" "(deal-trains! players)" "(use 'ttr.cards)" "players" "(def players (let [names [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]]
-                     (map #(apply new-player %) names))))" "(def players (let [names [[\"Ani\" \"blue\"] [\"Matt\" \"yellow\"] [\"Emma\" \"red\"]]]
-                     (map #(apply new-player names))))" "(use 'ttr.players)" "(use 'ttr.board)" "(use 'ttr.players)" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (claim-route ani r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (reset-route! r))" "(let [r (get-route #{\"gray\" \"Seattle\" \"Vancouver\"})
-            ani (first players)]
-        (claim-route ani r))" "(get scoring 1)" "(get 1 scoring)")
+("(is-dev?)" "(ns dots.dev)" "(ns 'dots.dev)" "(in-ns 'dots.components.board)" "(run)" "(let [x 1]
+        (+ 1 x))" "(+ 1 2)" "(get {0 :a} 0)" "(name {0 :green, 1 :yellow, 2 :red, 3 :yellow, 4 :purple, 5 :blue})" "(0 {0 :green, 1 :yellow, 2 :red, 3 :yellow, 4 :purple, 5 :blue})" "(name {0 :green, 1 :yellow, 2 :red, 3 :yellow, 4 :purple, 5 :blue})" "(name 0)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(map (fn [[col m]] {col m}) {0 {:foo 1} 1 {:foo 2}})" "(map (fn [[col m]] m) {0 {:foo 1} 1 {:foo 2}})" "(apply merge (for [col (range 6)]
+             {col {:column col
+                   :rows-map (zipmap (range 6)
+                                     (repeat 6 :blue))}}))" "(for [col (range 6)]
+             {col {:column col
+                   :rows-map (zipmap (range 6)
+                                     (repeat 6 :blue))}})" "(doseq [col (range 6)]
+             {col {:column col
+                   :rows-map (zipmap (range 6)
+                                     (repeat 6 :blue))}})" "(repeat 6 1)" "(doseq [col (range 6)]
+             {col {:column col
+                   :rows-map (zipmap (range 6)
+                                     :blue)}})" "(def board-size 6)" "(doseq [col (range board-size)]
+             {col {:column col
+                   :rows-map (zipmap (range board-size)
+                                     :blue)}})" "(apply merge (for [col (range board-size)]
+                          {col {:column col
+                                :rows-map (zipmap (range board-size)
+                                                  :blue)}}))" "(apply merge (doseq [col (range board-size)]
+                          {col {:column col
+                                :rows-map (zipmap (range board-size)
+                                                  :blue)}}))" "(browser-repl)" "(run)" "(set [1 2 3 3])" "(set 1 2 3 4 5)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(first [1 2])" "(map first [1 2] [3 4])" "(map + 1 2 3)" "(+ 1 2)" "(let [dots [{:foo 1 :bar 2} {:foo 2 :bar 2}]
+                 max-dots (apply max (map :foo dots))]
+             (into [] (filter #(= max-dots (:foo %)) dots)))
+             " "(let [dots [{:foo 1 :bar 2} {:foo 2 :bar 2}]
+                 max-dots (apply max (map :foo dots))]
+             (filter #(= max-dots (:foo %)) dots))
+             " "(apply max (map :foo [{:foo 1 :bar 2} {:foo 2 :bar 2}]))" "(browser-repl)" "(run)" ":cljs/quit" "(apply max (map :foo [{:foo 1} {:foo 2}]))" "(map :foo [{:foo 1} {:foo 2}])" "(max (map :foo [{:foo 1} {:foo 2}]))" "(keyword \"hey\")" "(key \"hey\")" "(and 1 nil true)" "(and 1 0 true)" "(and true true true)" "(browser-repl)" "(run)" ":cljs/quit" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(in-ns 'dots.chans)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" "(run)" ":cljs/quit" "(run)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(clojure.string/reverse \"Hello World\")" ":cljs/quit" "(def c (async/chan))
+(def p (async/pub c :topic))
+(async/put! c {:topic :foo})" "(in-ns 'dots.components.board)" "(browser-repl)" "(run)" ":cljs/quit" "(go-loop)" "(require-macros '[cljs.core.async.macros :refer [go-loop]])
+                               " "(+ 1 2)" "(go (let [c (async/chan)]
+                             (async/put! c {:topic :foo})
+                             (:topic (<! c))))
+                               " "(+ 1 2)" "(go (let [c (async/chan)]
+                             (async/put! c {:topic :foo})
+                             (let [v (<! c)]
+                               (println v))))" "(+ 1 2)" "(go (let [c (async/chan)]
+                             (>! c {:topic :foo})
+                             (let [v (<! c)]
+                               (println v))))" "(+ 1 2)" "(go (let [c (async/chan)]
+                             (async/put! c {:topic :foo})
+                             (let [v (<! c)]
+                               (println v))))" "(let [x {}]
+                         (go (let [c (async/chan)]
+                               (async/put! c {:topic :foo})
+                               (let [v (<! c)]
+                                 (merge x {:foo v}))))
+                         x)" "(go (let [c (async/chan)]
+                             (async/put! c {:topic :foo})
+                             (let [v (<! c)]
+                               (println v))))" "(let [x {}]
+                         (go (let [c (async/chan)]
+                               (async/put! c {:topic :foo})
+                               (let [v (<! c)]
+                                 (merge x {:foo v}))))
+                         x)" "(let [x {}]
+                         (go (let [c (async/chan)]
+                               (async/put! c {:topic :foo})
+                               (let [v (<! c)]
+                                 (merge x {:foo v}))))
+                         x)
+                               " "(let [x {}]
+                         (go (let [c (async/chan)]
+                               (async/put! c {:topic :foo})
+                               (let [v (<! c)]
+                                 (merge x {:foo v}))))
+                         x)" "(let [x {}]
+                         (go (let [c (async/chan)]
+                               (async/put! c {:topic :foo})
+                               (let [v (<! c)]
+                                 (merge x {:foo v}))))
+                         )" "(let [x {}]
+                         (go (let [c (async/chan)]
+                               (async/put! c {:topic :foo})
+                               (let [v (<! c)]
+                                 (merge x {:foo v})))))" "(let [x {}]
+                         (go (let [c (async/chan)]
+                               (async/put! c {:topic :foo})
+                               (let [v (<! c)]
+                                 (merge x {:foo v}))))
+                         x)
+                               " "(go (let [c (async/chan)]
+                             (async/put! c {:topic :foo})
+                             (let [v (<! c)]
+                               (println v))))" "(go (let [c (async/chan)]
+                             (async/put! c {:topic :foo})
+                             (let [v (<! c)]
+                               println v)))" "(go (let [c (async/chan)]
+                             (async/put! c {:topic :foo})
+                             (let [v (<! c)]
+                               {:foo v})))" "(let [c (async/chan)]
+                         (async/put! c {:topic :foo})
+                         (go (let [v (<! c)]
+                               {:foo v})))" "(let [c (async/chan)]
+                         (async/put! c {:topic :foo})
+                         (go (type (<! c))))" "(let [c (async/chan)]
+                         (async/put! c {:topic :foo}))
+                         (go (type (<! c))))" "(println (go (<! my-chan)))" "(type (go (async/<! my-chan)))" "(go (async/<! my-chan))" "(type my-chan)" "my-chan" "(def my-chan (let [c (async/chan)]
+                                      (async/put! c {:topic :foo})
+                                      c))" "(let [c (async/chan)]
+                         (async/put! c {:topic :foo})
+                         c)" "(let [c (async/chan)]
+                         (async/put! c {:topic :foo})
+                         )" "(let [c (async/chan)]
+                         (async/put! c {:topic :foo})
+                         (async/take! c #(:topic %)))" "(let [c (async/chan)]
+                         (async/put! c {:topic :foo})
+                         (go (async/take! c #(:topic %))))" "(let [c (async/chan)]
+                         (async/put! c {:topic :foo})
+                         (go (:topic (async/take! c))))" "(let [c (async/chan)]
+                         (async/put! c {:topic :foo})
+                         (go (:topic (<! c))))" "(let [c (async/chan)]
+                         (async/put! c {:topic :foo}))
+                         (go (:topic (<! c))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (go (:topic (<! c))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (type (go <! (go (<! c)))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (go <! (go (<! c))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (keys (go <! (go (<! c)))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (:topic (go <! (go (<! c)))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (clj->js (go <! (go (<! c)))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (go <! (go (<! c))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (type (clj->js (go (<! c)))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (:topic (clj->js (go (<! c)))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (clj->js (go (<! c))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (println (clj->js (go (<! c)))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (println (cljs->js (go (<! c)))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (println (go (<! c))))" "(let [c (async/chan)]
+                         (do
+                           (go (>! c {:topic :foo}))
+                           (println (go (<! c)))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (println (go (<! c))))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo}))
+                         (go (<! c)))" "(let [c (async/chan)]
+                         (go (>! c {:topic :foo})))" "(in-ns 'dots.components.board)" "(browser-repl)" "(run)" ":cljs/quit" "(let [c (chan)]
+                         c
+                         )" "(put!
+ 
+ )" "(in-ns 'dots.components.board)" "(in-ns 'dots.core)" "(in-ns 'dots.components.main)" "(in-ns 'dots.main)" "(browser-repl)" "(run)" "(let [publisher (async/chan)
+                   publication (async/pub publisher #(:topic %))
+                   subscriber (async/chan)
+                   take-and-print (fn [ch prefix] 
+                                    (async/go-loop []
+                                      (println prefix \": \" (async/<! ch))
+                                      (recur)))]
+               (async/sub publication :foo subscriber)
+               (take-and-print subscriber \"I'm the subscriber!\")
+               (async/go (async/>! publisher {:topic :foo})))" "(let [publisher (async/chan)
+                   publication (async/pub publisher (fn [m] m))
+                   subscriber (async/chan)
+                   take-and-print (fn [ch prefix] 
+                                    (async/go-loop []
+                                      (println prefix \": \" (async/<! ch))
+                                      (recur)))]
+               (do 
+                (async/sub publication :foo subscriber)
+                (take-and-print subscriber \"I'm the subscriber!\")
+                (async/go (async/>! publisher {:foo \"hey buddy\"}))))" "(let [publisher (async/chan)
+                   publication (async/pub publisher (fn [m] m))
+                   subscriber (async/chan)
+                   take-and-print (fn [ch prefix] 
+                                    (async/go-loop []
+                                      (println prefix \": \" (async/<! ch))
+                                      (recur)))]
+               (doall 
+                (async/sub publication :foo subscriber)
+                (take-and-print subscriber \"I'm the subscriber!\")
+                (async/go (async/>! publisher {:foo \"hey buddy\"}))))" "(let [publisher (async/chan)
+                   publication (async/pub publisher (fn [m] m))
+                   subscriber (async/chan)
+                   take-and-print (fn [ch prefix] 
+                                    (async/go-loop []
+                                      (println prefix \": \" (async/<! ch))
+                                      (recur)))]
+               (async/sub publication :foo subscriber)
+               (take-and-print subscriber \"I'm the subscriber!\")
+               (async/go (async/>! publisher {:foo \"hey buddy\"})))" "(let [publisher (async/chan)
+                   publication (async/pub publisher (fn [m] m))
+                   subscriber (async/chan)
+                   take-and-print (fn [ch prefix] 
+                                    (async/go-loop []
+                                      (println prefix \": \" (async/<! ch))
+                                      (recur)))]
+               (async/sub publication :foo subscriber)
+               (take-and-print subscriber {:foo \"foo\"})
+               (async/go (async/>! publisher {:foo \"hey buddy\"})))" "(let [publisher (async/chan)
+                   publication (async/pub publisher (fn [m] m))
+                   subscriber (async/chan)
+                   take-and-print (fn [ch prefix] 
+                                    (async/go-loop []
+                                      (println prefix \": \" (async/<! ch))
+                                      (recur)))]
+               (async/sub publication :foo subscriber)
+               (take-and-print subscriber {:foo \"foo\"})
+               (async/go (>! publisher {:foo \"hey buddy\"})))" "(let [publisher (async/chan)
+                   publication (async/pub publisher (fn [m] m))
+                   subscriber (async/chan)
+                   take-and-print (fn [ch prefix] 
+                                    (async/go-loop []
+                                      (println prefix \": \" (async/<! ch))
+                                      (recur)))]
+               (async/sub publication :foo subscriber)
+               (take-and-print subscriber {:foo \"foo\"}))" "(let [publisher (async/chan)
+                   publication (async/pub publisher (fn [m] m))
+                   subscriber (async/chan)
+                   take-and-print (fn [ch prefix] 
+                                    (async/go-loop []
+                                      (println prefix \": \" (async/<! ch))
+                                      (recur)))]
+               (async/sub publication :foo subscriber)
+               (take-and-print subscriber \"foo\"))" "(let [publisher (async/chan)
+                   publication (async/pub publisher (fn [m] m))
+                   subscriber (async/chan)
+                   take-and-print (fn [ch prefix] 
+                                    (async/go-loop []
+                                      (println prefix \": \" (async/<! ch))
+                                      (recur)))]
+               (sub publication :foo subscriber)
+               (take-and-print subscriber \"foo\"))" "(let [publisher (async/chan)
+                   publication (async/pub publisher (fn [m] m))
+                   subscriber (async/chan)
+                   take-and-print (fn [ch prefix] 
+                                    (async/go-loop []
+                                      (println prefix \": \" (async/<! ch))
+                                      (recur)))]
+               (take-and-print subscriber \"foo\"))" "(let [publisher (chan)
+                   publication (async/pub publisher (fn [m] m))
+                   subscriber (chan)
+                   take-and-print (fn [ch prefix] 
+                                    (async/go-loop []
+                                      (println prefix \": \" (async/<! ch))
+                                      (recur)))]
+               (take-and-print subscriber \"foo\"))" "(require '[clojure.core.async :as async])" ":cljs/quit" "(require '[clojure.core.async :as async])" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(repeat 6)" "(repeat 1)" "(def -dots (let [board-size 6] 
+             (for [col (range board-size) row (range board-size)]
+               {:column col :row row :color (rand-colors nil)})))" "-dots" "(def -dots (let [board-size 6] 
+             (for [col (range board-size) row (range board-size)]
+               {:column col :row row :color (rand-colors nil)})))" "(map (fn [x y] {:col x :row y}) (range 6) (range 6))" "(map {:col % :row %2} [(range 6) (range 6)])" "(map {:col % :row %2} (range 6) (range 6))" "(map #({:col % :row %2}) (range 6) (range 6))" "(map {:col % :row %2} (range 6) (range 6))" "(let [board-size 6
+                             dots (for [col (range board-size) row (range board-size)]
+                                    {:column col :row row :color (rand-colors nil)})]
+                         (apply d/div #js {:className \"board\"} (om/build-all dot dots)))" "(let [board-size 6
+                             dots (for [col (range board-size) row (range board-size)]
+                                    {:column col :row row :color (rand-colors nil)})]
+                         (om/build-all dot dots))" "(in-ns 'dots.components.board)" "(browser-repl)" "(run)" ":cljs/quit" "(let [board-size 6
+                             dots (for [col (range board-size) row (range board-size)]
+                                    {:column col :row row :color (rand-colors nil)})]
+                         (om/build-all dot dots))" "(in-ns 'dots.components.board)" "(+ 1 1)" "(browser-repl)" "(run)" ":cljs/quit" "(+ 1 1)" "(browser-repl)" ":cljs/quit" "(+ 1 1 )" "q" "(browser-repl)" "(run)" "x" "(def x (for [col (range 6) row (range 6)] {:column col :row row}))" "(for [col (range 6) row (range 6)] {:column col :row row})" "(map #(zipmap [:col :row] [% %2]) (range 6) (range 6))" "(map #(zipmap [:col :row] % %2) (range 6) (range 6))" "(map #(zipmap [:col :row] %) (range 6) (range 6))" "(zipmap [:col :row] [1 2])" "(apply #(zipmap [:col :row] %) [1 2])" "(apply #(zipmap [:col :row] %) [(range 6) (range 6)])" "(apply #(zipmap [:col :row] %) [[(range 6) (range 6)]])" "(apply zipmap [[:col :row] [(range 6) (range 6)]])" "(apply zipmap [:col :row] [[(range 6) (range 6)]])" "(apply zipmap [:col :row] [(range 6) (range 6)])" "(zipmap [:col :row] [(range 6) (range 6)])" "(zipmap :col :row [(range 6) (range 6)])" "[(range 6) (range 6)]" "(range 6)" "(range 5)" "(str 23 \"px\")" "(str 23)" "(browser-repl)" "(run)" ":cljs/quit" "(+ 1 1)" "(. js/console log \"Hey\")" "(browser-repl)" "(run)" "(start-figwheel)" "(run)" "(. js/console log \"Hey\")" "(browser-repl)" "(run)" ":cljs/quit'" "(alert
+            )" "(browser-repl)" ":cljs/quit" "(. js/alert \"Hey!\")" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" "-server" "(def -server (run))" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" ":cljs/quit" "(browser-repl)" "(run)" "(d/div #js {:className \"marq\"} (om/build-all color-letter (colorize-word \"SCORE\")))
+                               " "(d/div #js {:className \"marq\"} (om/build-all color-letter (colorize-word \"SCORE\"))
+                               )" "(d/div #js {:className \"marq\"} (om/build-all color-letter (colorize-word \"SCORE\")))" "(apply d/div #js {:className \"marq\"} (om/build-all color-letter (colorize-word \"SCORE\")))" "(om/build-all color-letter (colorize-word \"SCORE\"))" "(colorize-word \"SCORE\")" "(defn colorize-word [word]
+  (map (fn [x c] {:className (name c) :letter x}) word (rand-colors nil)))
+" "(defn colorize-word [word]
+  (map (fn [x c] {:className (name c) :letter x}) word (rand-colors)))
+" "(in-ns 'dots.components.screen)" "(browser-repl)" "(run)" "(rand-colors)" "dot-colors" "(dot-colors)" "(om/build (d/span {:className (name \"foo\")} \"S\") nil)" "(om/build (d/span {:className (name \"foo\")} \"S\")
+                     )" "(in-ns 'dots.components.screen)" "(om/build (d/span {:className (name \"foo\")} \"S\")
+                     )" "(+ 1 1)" "(browser-repl)" ":cljs/quit" "(+ 1 1)" "(colorize-word \"BOO\")" "(browser-repl)" "(run)" ":cljs/quit" "(+ 1 1)" "(colorize-word \"BOO\")" "(in-ns 'dots.components.screen)" "(browser-repl)" ":cljs/quit" "(run)" ":cljs/quit" "(browser-repl)" "(run)" ":cljs/quit" "(concat [1 2 3 4])" "(om/build-all header-col [{:title \"score\" :val 0} {:title \"time\" :val 60}])" "(om/build-all header-col nil [{:state {:title \"score\" :val 0}} {:state {:title \"time\" :val 60}}])" "(om/build-all header-col [{:title \"score\" :val 0} {:title \"time\" :val 60}])" "(om/build-all header-call [{:title \"score\" :val 0} {:title \"time\" :val 60}])" "(in-ns 'dots.components.board)" "(browser-repl)" ":cljs/quit" "(. js/document getElementById \"dots-game-container\")" "(browser-repl)" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" ":cljs/quit" "(. js/document getElementById \"app\")" "(browser-repl)" ":cljs/quit" "(. js/document getElementById \"dots-game-container\")" "(. js/document getElementById \"main\")" "(. js/document getElementsByClassName \"dots-game\")" "(first (. js/document getElementsByClassName \"dots-game\"))" "(. js/document getElementsByClassName \"dots-game\")" "(. js/document getElementByClassName \"dots-game\")" "js/document" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(game-board {} nil)" "(in-ns 'dots.components.board)" "(browser-repl)" "(run)" "(in-ns 'dots.server)" "(run)" "(in-ns 'dots.components.board)" ":cljs/quit" "(browser-repl)" "(run)" "(let [coll [2 3 5 8]
+                      safesub (comp #(Math/abs %) -)]
+                  (map safesub coll (rest coll)))" "(let [coll [2 3 5 8]]
+                  (map (comp #(Math/abs %) -) coll (rest coll)))" "(map (comp #(Math/abs %) -) [-1 -2 -3])" "(comp #(Math/abs %) -)" "(let [coll [2 3 5 8]]
+                  (map #(Math/abs %) (map - coll (rest coll))))" "(map #(Math/abs %) [-1 -2 -3])" "(apply Math/abs [-1 -2 -3])" "(let [coll [2 3 5 8]]
+                  (map - coll (rest coll)))" "(let [coll [2 3 5 8]]
+                  (map - coll (rest coll))))" "(let [coll [2 3 5 8]]
+                  (apply #(Math/abs %) (map - coll (rest coll))))" "(Math/abs -1)" "(map Math/abs '(-1 -2 -3))" "(apply Math/abs '(-1 -2 -3))" "(let [coll [2 3 5 8]]
+                  (apply Math/abs (map - coll (rest coll))))" "(apply Math/abs (map - coll (rest coll)))" "(let [coll [2 3 5 8]]
+                  (map #(-> % %2 - Math/abs) coll (rest coll)))" "(let [coll [2 3 5 8]]
+                  (map #(-> % - Math/abs) coll (rest coll)))" "(let [coll [2 3 5 8]]
+                  (map - coll (rest coll)))" "(map - coll (rest coll))" "(let [coll [2 3 5 8]]
+                  (map #(-> % - Math/abs) coll (rest coll)))" "(Math/abs -1)" "abs" "?" "(ns courses.models.db)" "(ns user)" "(ns 'user)" "(in-ns 'courses.models.db)" "(alter-var-root #'fooSys component/start)" "pooled-db" "(let [conn (:connection fooSys)]
+                     (sql/query conn [\"select * from section\"]))" "(alter-var-root #'fooSys component/start)" "(alter-var-root #'fooSys component/stop)" "(let [conn (:connection fooSys)]
+                     (sql/query conn [\"select * from section\"]))" "(alter-var-root #'fooSys component/start)" "(let [conn (:connection fooSys)]
+                     (sql/query conn [\"select * from section\"]))" "(alter-var-root #'fooSys component/start)" "(realized? pooled-db)" "pooled-db" "(alter-var-root #'fooSys component/stop)" "fooSys" "(let [conn (:connection fooSys)]
+                     (sql/query conn [\"select * from section\"]))" "(:connection fooSys)" "fooSys" "fooDB" "(alter-var-root #'fooSys component/start)" "fooSys" "(def fooSys (system)
+                     )" "fooDB" "(system)" "(system [])" "system" "fooDB" "(def fooDB (new-db))" "fooDB" "(def fooDB (new-db))" "fooDB" "(get-in fooDB [:connection :datasource])" "(.stop fooDB)" "(.start fooDB)" "pooled-db" "(let [conn (:connection fooDB)]
+                     (sql/query conn [\"select * from section\"]))" "pooled-db" "(sql/with-db-connection [conn (:connection fooDB)]
+                     (sql/query conn [\"select * from section\"]))" "(let [conn (get-in fooDB [:connection :datasource])]
+                     (sql/query conn [\"select * from section\"]))" "(let [conn (:connection fooDB)]
+                     (sql/query conn [\"select * from section\"]))" "(.start fooDB)" "fooDB" "(def fooDB (new-db))" "(let [conn (db-connection)]
+                     (do (sql/query conn [\"select * from section\"])
+                         (. (:datasource conn) close)))" "(let [conn (db-connection)]
+                     (do (sql/query conn [\"select * from section\"])
+                         (. conn close)))" "(let [conn (db-connection)]
+                     (sql/query conn [\"select * from section\"]))" "(let [conn (db-connection)]
+                     (. (:datasource conn) open))" "BoneCPDataSource" "(let [conn (db-connection)]
+                     (:datasource conn))" "(let [conn (db-connection)]
+                     conn)" "(let [conn (db-connection)]
+                     (. (:datasource conn) close))" "(let [conn (db-connection)]
+                     conn)" "(let [conn (db-connection)]
+                     (. conn close))" "(in-ns 'courses.models.db)" "(in-ns 'courses.core)" "exit" "xit" "exit" "exit'" "(not false)" "(browser-repl)" "(server-browser)" "(run)" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(browser-repl
+                 )" "(run)" "(get {0 \"hey\"} 0)" "(get 0 {0 \"hey\"})" "(run)" "app-state" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(. js/console (log (dom/render-to-str (om/build ticket {:title \"Foo\" :description \"Bar\"
+                                                                      }))))" "(. js/console (log (dom/render-to-str (om/build ticket nil))))" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" ":cljs/quit" "p/panel" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "(p/panel
+   {:header \"Hey\"
+    :list-group (d/ul {:class \"list-group\"}
+                      (d/li {:class \"list-group-item\"} \"Item 1\")
+                      (d/li {:class \"list-group-item\"} \"Item 2\")
+                      (d/li {:class \"list-group-item\"} \"Item 3\"))}
+   nil)" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "build bucket))" "(dom/render-to-str (om/build bucket {}))" "(in-ns 'kanfold.core)" "(browser-repl)" "(dom/render-to-str (om/build bucket {}))" "(run)" "(dom/render-to-str (om/build bucket {}))" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" ":cljs/quit" "(require '[om-bootstrap.panel :as p])" "(require ['om-bootstrap.panel :as p])" "(p/panel)" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" ":cljs/quit")
