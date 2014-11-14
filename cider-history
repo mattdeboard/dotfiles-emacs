@@ -2,7 +2,48 @@
 ;; Automatically written history of CIDER REPL session
 ;; Edit at your own risk
 
-("(is-dev?)" "(ns dots.dev)" "(ns 'dots.dev)" "(in-ns 'dots.components.board)" "(run)" "(let [x 1]
+("(or nil {})" "(keyword \"book:isbn\")" "(rget cli \"/Catalog/Publishers/McGraw-Hill/\")" "(def cli (nuxeo-client \"default-domain\" -auth))" "(rget cli \"/Catalog/Publishers/McGraw-Hill/\")" "(def cli (nuxeo-client \"default-domain\"))" "(in-ns 'nuxeo-client.core)" "(rget cli \"/Catalog/Publishers/McGraw-Hill/\")" "(def cli (nuxeo-client \"default-domain\"))" "(rget cli \"/Catalog/Publishers/McGraw-Hill/\")" "(def cli (nuxeo-client))" "(rget cli \"/Catalog/Publishers/McGraw-Hill/\")" "(rget \"/Catalog/Publishers/McGraw-Hill/\")" "(nuxeo-client)" "(in-ns 'nuxeo-client.core)" "(rget cli \"/Catalog/Publishers/McGraw-Hill/\")" "(rget \"/Catalog/Publishers/McGraw-Hill/\")" "(def cli (nuxeo-client)
+                     )" "(rget \"/Catalog/Publishers/McGraw-Hill/\")" "(.rget (NuxeoClient.))" "(.rget NuxeoClient)" "NuxeoClient" "(clojure.reflect/type-reflect cli)" "(clojure.reflect/type-reflect NuxeoClient)" "(clojure.reflect/type-reflect cli)" "cli" "(.rget cli)" "cli" "(def cli (nuxeo-client)
+                     )" "(nuxeo-client)" "(rget (nuxeo-client) \"/Catalog/Publishers/McGraw-Hill/\")" "(.rget cli)" "(cli/rget)" "(def cli (nuxeo-client))" "(nuxeo-client)" "(rget (nuxeo-client) \"/Catalog/Publishers/McGraw-Hill/\")" "(rget \"/Catalog/Publishers/McGraw-Hill/\")" "(in-ns 'nuxeo-client.core)" "(rget \"/Catalog/Publishers/McGraw-Hill/\")" "(in-ns 'nuxeo-client.core)" "(rget \"/Catalog/Publishers/McGraw-Hill/\")" "(rget cli \"/Catalog/Publishers/McGraw-Hill/\")" "(def cli (nuxeo-client))" "(in-ns 'nuxeo-client.core)" "(rget cli \"/Catalog/Publishers/McGraw-Hill/\")" "(def cli (nuxeo-client))" "(rget cli \"/Catalog/Publishers/McGraw-Hill/\")" "(rget \"/Catalog/Publishers/McGraw-Hill/\")" "(def cli (nuxeo-client))" "(http-get \"/Catalog/Publishers/McGraw-Hill/\")" "(def cli (nuxeo-client))" "(.get cli \"/Catalog/Publishers/McGraw-Hill/\")" "(def cli (nuxeo-client))" "(nuxeo-client)" "(client/get (str api-root workspace-root \"/Catalog/Publishers/McGraw-Hill/\") {:basic-auth [(:user auth) (:password auth)] :as :json})
+                               " "(client/get (str api-root workspace-root \"/Catalog/Publishers/McGraw-Hill/\") {:basic-auth [(:user auth) (:password auth)]})
+                               " "(client/get (str api-root workspace-root \"/Catalog/Publishers/McGraw-Hill/1001%20Ways%20To%20Save%20Money%20.%20.%20.%20and%20Still%20Have%20a%20Dazzling%20Wedding\") {:basic-auth [(:user auth) (:password auth)]})
+                               " "(client/get (str api-root workspace-root \"/\" user-content-folder) {:basic-auth [(:user auth) (:password auth)]})
+                               " "(client/get (str api-root workspace-root user-content-folder) {:basic-auth [(:user auth) (:password auth)]})
+                               " "api-root" "(in-ns 'nuxeo-client.core)" "(in-ns nuxeo-client.core)" "(ns user)" "(ns nuxeo-client.core)" "(in-ns 'nuxeo-client.core)" "(client/get (str api-root workspace-root))" "workspace-root" "(client/get api-root)" "(client)" "client" "api-root" "(in-ns 'nuxeo-client.core)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(start-figwheel)" ":cljs/quit" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(repl)" "(+ 1 2)" "(browser-repl)" "(run)" "(browser-repl)" "(ns dots.dev)" ":cljs/quit" "(+ 1 2)" "(browser-repl)" "(apply merge (map column-state (range 6)))" "(column-state 1)" "(defn column-state [column] 
+               {(key-or-int column \"col-\")
+                {:column column
+                 :rows-map (zipmap (map #(key-or-int % \"row-\") (range 6)) (repeat 6 :blue))}})" "(column-state 1)" "(defn column-state [column] 
+               {(key-or-int column \"col-\")
+                {:column column
+                 :rows-map (zipmap (map #(key-or-int % \"row-\") (range 6) (repeat 6 :blue)))}})" "(key-or-int :col-1 \"-\")" "(key-or-int 1 \"col-\")" "(defn key-or-int
+  [i prefix-or-sep]
+  (cond
+   (integer? i) (->> i (str prefix-or-sep) keyword)
+   (keyword? i) (-> i
+                    name
+                    (clojure.string/split (re-pattern prefix-or-sep))
+                    last
+                    parse-int)))
+" "(parse-int \"1\")" "(defn parse-int [s]
+               (. Integer parseInt s))" "(defn key-or-int
+  [i prefix-or-sep]
+  (cond
+   (integer? i) (->> i (str prefix-or-sep) keyword)
+   (keyword? i) (-> i
+                    name
+                    (clojure.string/split (re-pattern prefix-or-sep))
+                    last
+                    #(. Integer parseInt %))))
+" "(defn key-or-int
+  [i prefix-or-sep]
+  (cond
+   (integer? i) (->> i (str prefix-or-sep) keyword)
+   (keyword? i) (-> i
+                    name
+                    (clojure.string/split (re-pattern prefix-or-sep))
+                    last
+                    (. Integer parseInt))))
+" "(. Integer parseInt \"1\")" "(Integer. parseInt \"1\")" ":cljs/quit" "(+ 1 2)" "(browser-repl)" "(run)" "(clojure.string/split \"foo-bar\" #\"-\")" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" "(run)" "(+ 1 2)" "(browser-repl)" "(run)" ":cljs/quit" "(columns)" "columns" "(columns)" "(in-ns 'dots.appstate)" "(browser-repl)" "(run)" ":cljs/quit" "[:a 1]" "(browser-repl)" "(run)" ":cljs/quit" "[:a 1]" "(browser-repl)" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(in-ns 'dots.components.board)" "(browser-repl)" "(run)" "(let [x 1] (inc x))" "(+ 1 1)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(ns dots.server)" "(is-dev?)" "(ns dots.dev)" "(ns 'dots.dev)" "(in-ns 'dots.components.board)" "(run)" "(let [x 1]
         (+ 1 x))" "(+ 1 2)" "(get {0 :a} 0)" "(name {0 :green, 1 :yellow, 2 :red, 3 :yellow, 4 :purple, 5 :blue})" "(0 {0 :green, 1 :yellow, 2 :red, 3 :yellow, 4 :purple, 5 :blue})" "(name {0 :green, 1 :yellow, 2 :red, 3 :yellow, 4 :purple, 5 :blue})" "(name 0)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(map (fn [[col m]] {col m}) {0 {:foo 1} 1 {:foo 2}})" "(map (fn [[col m]] m) {0 {:foo 1} 1 {:foo 2}})" "(apply merge (for [col (range 6)]
              {col {:column col
                    :rows-map (zipmap (range 6)
@@ -272,42 +313,4 @@
                      )" "(in-ns 'dots.components.screen)" "(om/build (d/span {:className (name \"foo\")} \"S\")
                      )" "(+ 1 1)" "(browser-repl)" ":cljs/quit" "(+ 1 1)" "(colorize-word \"BOO\")" "(browser-repl)" "(run)" ":cljs/quit" "(+ 1 1)" "(colorize-word \"BOO\")" "(in-ns 'dots.components.screen)" "(browser-repl)" ":cljs/quit" "(run)" ":cljs/quit" "(browser-repl)" "(run)" ":cljs/quit" "(concat [1 2 3 4])" "(om/build-all header-col [{:title \"score\" :val 0} {:title \"time\" :val 60}])" "(om/build-all header-col nil [{:state {:title \"score\" :val 0}} {:state {:title \"time\" :val 60}}])" "(om/build-all header-col [{:title \"score\" :val 0} {:title \"time\" :val 60}])" "(om/build-all header-call [{:title \"score\" :val 0} {:title \"time\" :val 60}])" "(in-ns 'dots.components.board)" "(browser-repl)" ":cljs/quit" "(. js/document getElementById \"dots-game-container\")" "(browser-repl)" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" ":cljs/quit" "(. js/document getElementById \"app\")" "(browser-repl)" ":cljs/quit" "(. js/document getElementById \"dots-game-container\")" "(. js/document getElementById \"main\")" "(. js/document getElementsByClassName \"dots-game\")" "(first (. js/document getElementsByClassName \"dots-game\"))" "(. js/document getElementsByClassName \"dots-game\")" "(. js/document getElementByClassName \"dots-game\")" "js/document" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" "(run)" "(browser-repl)" "(run)" ":cljs/quit" "(game-board {} nil)" "(in-ns 'dots.components.board)" "(browser-repl)" "(run)" "(in-ns 'dots.server)" "(run)" "(in-ns 'dots.components.board)" ":cljs/quit" "(browser-repl)" "(run)" "(let [coll [2 3 5 8]
                       safesub (comp #(Math/abs %) -)]
-                  (map safesub coll (rest coll)))" "(let [coll [2 3 5 8]]
-                  (map (comp #(Math/abs %) -) coll (rest coll)))" "(map (comp #(Math/abs %) -) [-1 -2 -3])" "(comp #(Math/abs %) -)" "(let [coll [2 3 5 8]]
-                  (map #(Math/abs %) (map - coll (rest coll))))" "(map #(Math/abs %) [-1 -2 -3])" "(apply Math/abs [-1 -2 -3])" "(let [coll [2 3 5 8]]
-                  (map - coll (rest coll)))" "(let [coll [2 3 5 8]]
-                  (map - coll (rest coll))))" "(let [coll [2 3 5 8]]
-                  (apply #(Math/abs %) (map - coll (rest coll))))" "(Math/abs -1)" "(map Math/abs '(-1 -2 -3))" "(apply Math/abs '(-1 -2 -3))" "(let [coll [2 3 5 8]]
-                  (apply Math/abs (map - coll (rest coll))))" "(apply Math/abs (map - coll (rest coll)))" "(let [coll [2 3 5 8]]
-                  (map #(-> % %2 - Math/abs) coll (rest coll)))" "(let [coll [2 3 5 8]]
-                  (map #(-> % - Math/abs) coll (rest coll)))" "(let [coll [2 3 5 8]]
-                  (map - coll (rest coll)))" "(map - coll (rest coll))" "(let [coll [2 3 5 8]]
-                  (map #(-> % - Math/abs) coll (rest coll)))" "(Math/abs -1)" "abs" "?" "(ns courses.models.db)" "(ns user)" "(ns 'user)" "(in-ns 'courses.models.db)" "(alter-var-root #'fooSys component/start)" "pooled-db" "(let [conn (:connection fooSys)]
-                     (sql/query conn [\"select * from section\"]))" "(alter-var-root #'fooSys component/start)" "(alter-var-root #'fooSys component/stop)" "(let [conn (:connection fooSys)]
-                     (sql/query conn [\"select * from section\"]))" "(alter-var-root #'fooSys component/start)" "(let [conn (:connection fooSys)]
-                     (sql/query conn [\"select * from section\"]))" "(alter-var-root #'fooSys component/start)" "(realized? pooled-db)" "pooled-db" "(alter-var-root #'fooSys component/stop)" "fooSys" "(let [conn (:connection fooSys)]
-                     (sql/query conn [\"select * from section\"]))" "(:connection fooSys)" "fooSys" "fooDB" "(alter-var-root #'fooSys component/start)" "fooSys" "(def fooSys (system)
-                     )" "fooDB" "(system)" "(system [])" "system" "fooDB" "(def fooDB (new-db))" "fooDB" "(def fooDB (new-db))" "fooDB" "(get-in fooDB [:connection :datasource])" "(.stop fooDB)" "(.start fooDB)" "pooled-db" "(let [conn (:connection fooDB)]
-                     (sql/query conn [\"select * from section\"]))" "pooled-db" "(sql/with-db-connection [conn (:connection fooDB)]
-                     (sql/query conn [\"select * from section\"]))" "(let [conn (get-in fooDB [:connection :datasource])]
-                     (sql/query conn [\"select * from section\"]))" "(let [conn (:connection fooDB)]
-                     (sql/query conn [\"select * from section\"]))" "(.start fooDB)" "fooDB" "(def fooDB (new-db))" "(let [conn (db-connection)]
-                     (do (sql/query conn [\"select * from section\"])
-                         (. (:datasource conn) close)))" "(let [conn (db-connection)]
-                     (do (sql/query conn [\"select * from section\"])
-                         (. conn close)))" "(let [conn (db-connection)]
-                     (sql/query conn [\"select * from section\"]))" "(let [conn (db-connection)]
-                     (. (:datasource conn) open))" "BoneCPDataSource" "(let [conn (db-connection)]
-                     (:datasource conn))" "(let [conn (db-connection)]
-                     conn)" "(let [conn (db-connection)]
-                     (. (:datasource conn) close))" "(let [conn (db-connection)]
-                     conn)" "(let [conn (db-connection)]
-                     (. conn close))" "(in-ns 'courses.models.db)" "(in-ns 'courses.core)" "exit" "xit" "exit" "exit'" "(not false)" "(browser-repl)" "(server-browser)" "(run)" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(browser-repl
-                 )" "(run)" "(get {0 \"hey\"} 0)" "(get 0 {0 \"hey\"})" "(run)" "app-state" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "(browser-repl)" "(run)" "(. js/console (log (dom/render-to-str (om/build ticket {:title \"Foo\" :description \"Bar\"
-                                                                      }))))" "(. js/console (log (dom/render-to-str (om/build ticket nil))))" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" ":cljs/quit" "p/panel" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "(p/panel
-   {:header \"Hey\"
-    :list-group (d/ul {:class \"list-group\"}
-                      (d/li {:class \"list-group-item\"} \"Item 1\")
-                      (d/li {:class \"list-group-item\"} \"Item 2\")
-                      (d/li {:class \"list-group-item\"} \"Item 3\"))}
-   nil)" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "build bucket))" "(dom/render-to-str (om/build bucket {}))" "(in-ns 'kanfold.core)" "(browser-repl)" "(dom/render-to-str (om/build bucket {}))" "(run)" "(dom/render-to-str (om/build bucket {}))" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" ":cljs/quit" "(require '[om-bootstrap.panel :as p])" "(require ['om-bootstrap.panel :as p])" "(p/panel)" "(in-ns 'kanfold.core)" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" "(run)" ":cljs/quit" "(browser-repl)" ":cljs/quit")
+                  (map safesub coll (rest coll)))")
