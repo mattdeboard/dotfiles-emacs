@@ -18,3 +18,4 @@ ensime/*.log
 init.el
 ido*
 eshell/
+.python-environments/
