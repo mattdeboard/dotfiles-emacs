@@ -2,14 +2,9 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("floobits-mconley-421"
- (filename . "~/courseload/mlx/package.json")
- (front-context-string . "\n    \"backbone\":")
- (rear-context-string . "dependencies\": {")
- (position . 981))
-("floobits-mdeboard-420"
- (filename . "~/courseload/mlx/Gruntfile.coffee")
- (front-context-string . "        'watch:d")
- (rear-context-string . "  'connect:dev'\n")
- (position . 345))
+(("floobits-mdeboard-109"
+ (filename . "~/courseload/api/src/databases/customer/data/groups_and_permissions.sql")
+ (front-context-string . "  perm_codename ")
+ (rear-context-string . "tent_types loop\n")
+ (position . 912))
 )
